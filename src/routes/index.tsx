@@ -1,29 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { I18nProvider } from "@/i18n/I18nProvider";
+import { useLenis } from "@/hooks/useLenis";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { Marquee } from "@/components/site/Marquee";
+import { Values } from "@/components/site/Values";
+import { GrowthExplorer } from "@/components/site/GrowthExplorer";
+import { Footer } from "@/components/site/Footer";
+import { CustomCursor } from "@/components/site/CustomCursor";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Natursense — Living seeds, raw vitality" },
+      { name: "description", content: "Ultra-premium organic sprout and microgreen seeds from Hungary & Serbia. Living energy from a single seed." },
+      { property: "og:title", content: "Natursense — Living seeds, raw vitality" },
+      { property: "og:description", content: "Living sprouts and microgreens for your kitchen counter." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  useLenis();
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <I18nProvider>
+      <div className="grain relative min-h-screen overflow-x-clip bg-[color:var(--cream)] text-[color:var(--obsidian)]">
+        <CustomCursor />
+        <Navbar />
+        <main>
+          <Hero />
+          <Marquee />
+          <Values />
+          <GrowthExplorer />
+        </main>
+        <Footer />
+      </div>
+    </I18nProvider>
   );
 }
