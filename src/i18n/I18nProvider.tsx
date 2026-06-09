@@ -61,6 +61,13 @@ const dictionaries: Record<Lang, Dict> = {
       scroll: "Skroluj ka rastu",
     },
     marquee: "Žive hranljive · Kućna farma · 100% bio seme · Plodored · Prirodna vitalnost",
+    slowfast: {
+      eyebrow: "Ritam",
+      titleSlow: "Spor rast.",
+      titleFast: "Brza ishrana.",
+      body: "Priroda ne žuri — a ipak radi svakog trenutka. Seme miruje, klija, sazreva danima. Ono što ti dobijaš: živa hranljivost koja se upija u trenu.",
+      caption: "7–10 dana od bašte do tanjira.",
+    },
     values: {
       eyebrow: "Zašto Natursense",
       title: "Sporo gajeno. Brzo hrani.",
