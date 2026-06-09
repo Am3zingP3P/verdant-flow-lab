@@ -18,6 +18,13 @@ const dictionaries: Record<Lang, Dict> = {
       scroll: "Görgess a növekedéshez",
     },
     marquee: "Élő tápanyag · Otthoni farm · 100% bio mag · Vetésforgó · Természetes vitalitás",
+    slowfast: {
+      eyebrow: "Ritmus",
+      titleSlow: "Lassú növekedés.",
+      titleFast: "Gyors táplálás.",
+      body: "A természet nem siet — mégis minden percben dolgozik. A magot napokig pihentetjük, csíráztatjuk, érleljük. Amit te kapsz: pillanatok alatt felszívódó, élő tápanyag.",
+      caption: "7–10 nap a kertedtől a tányérodig.",
+    },
     values: {
       eyebrow: "Miért Natursense",
       title: "Lassan nevelt. Gyorsan táplál.",
