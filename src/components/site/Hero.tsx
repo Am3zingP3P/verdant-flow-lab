@@ -147,22 +147,64 @@ function SeedVisual() {
     <svg viewBox="0 0 320 360" className="h-[300px] w-[300px] md:h-[380px] md:w-[380px]" aria-hidden>
       <defs>
         <radialGradient id="seedGrad" cx="50%" cy="45%" r="50%">
-          <stop offset="0%" stopColor="#6E9F7B" />
-          <stop offset="60%" stopColor="#4A7C59" />
-          <stop offset="100%" stopColor="#1C352D" />
+          <stop offset="0%" stopColor="#A8D4B2" />
+          <stop offset="35%" stopColor="#6E9F7B" />
+          <stop offset="75%" stopColor="#3D6B4B" />
+          <stop offset="100%" stopColor="#16271F" />
+        </radialGradient>
+        {/* Subsurface scattering — warm inner translucency */}
+        <radialGradient id="seedSSS" cx="38%" cy="32%" r="55%">
+          <stop offset="0%" stopColor="#F4E9C4" stopOpacity="0.7" />
+          <stop offset="45%" stopColor="#C9B97A" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#3D6B4B" stopOpacity="0" />
+        </radialGradient>
+        {/* Specular highlight */}
+        <radialGradient id="seedSpec" cx="35%" cy="25%" r="22%">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="leafGrad" x1="0" x2="0" y1="0" y2="1">
           <stop offset="0%" stopColor="#7CB58A" />
           <stop offset="100%" stopColor="#4A7C59" />
         </linearGradient>
+        {/* High-frequency organic noise */}
+        <filter id="seedNoise" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="4" />
+          <feColorMatrix
+            values="0 0 0 0 0.09
+                    0 0 0 0 0.18
+                    0 0 0 0 0.13
+                    0 0 0 0.55 0"
+          />
+          <feComposite in2="SourceGraphic" operator="in" />
+        </filter>
+        {/* Soft shadow under seed */}
+        <radialGradient id="seedShadow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#1C352D" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#1C352D" stopOpacity="0" />
+        </radialGradient>
+        <clipPath id="seedClip">
+          <ellipse cx="160" cy="210" rx="58" ry="78" />
+        </clipPath>
       </defs>
 
       {/* outer halo ring */}
       <circle cx="160" cy="180" r="148" fill="none" stroke="#1C352D" strokeOpacity="0.08" strokeDasharray="2 6" />
       <circle cx="160" cy="180" r="118" fill="none" stroke="#1C352D" strokeOpacity="0.12" />
 
+      {/* contact shadow */}
+      <ellipse cx="160" cy="295" rx="56" ry="10" fill="url(#seedShadow)" />
+
       {/* seed body */}
       <ellipse cx="160" cy="210" rx="58" ry="78" fill="url(#seedGrad)" />
+      {/* SSS inner glow */}
+      <ellipse cx="160" cy="210" rx="58" ry="78" fill="url(#seedSSS)" />
+      {/* organic noise (clipped to seed body) */}
+      <g clipPath="url(#seedClip)" opacity="0.85">
+        <rect x="100" y="130" width="120" height="160" fill="#000" filter="url(#seedNoise)" />
+      </g>
+      {/* soft specular highlight */}
+      <ellipse cx="142" cy="178" rx="22" ry="14" fill="url(#seedSpec)" />
       <path d="M160 138 C 145 165, 145 220, 160 285" stroke="#0F1F1A" strokeOpacity="0.25" fill="none" />
 
       {/* sprout stem */}

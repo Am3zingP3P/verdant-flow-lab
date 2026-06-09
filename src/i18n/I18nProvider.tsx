@@ -18,6 +18,13 @@ const dictionaries: Record<Lang, Dict> = {
       scroll: "Görgess a növekedéshez",
     },
     marquee: "Élő tápanyag · Otthoni farm · 100% bio mag · Vetésforgó · Természetes vitalitás",
+    slowfast: {
+      eyebrow: "Ritmus",
+      titleSlow: "Lassú növekedés.",
+      titleFast: "Gyors táplálás.",
+      body: "A természet nem siet — mégis minden percben dolgozik. A magot napokig pihentetjük, csíráztatjuk, érleljük. Amit te kapsz: pillanatok alatt felszívódó, élő tápanyag.",
+      caption: "7–10 nap a kertedtől a tányérodig.",
+    },
     values: {
       eyebrow: "Miért Natursense",
       title: "Lassan nevelt. Gyorsan táplál.",
@@ -54,6 +61,13 @@ const dictionaries: Record<Lang, Dict> = {
       scroll: "Skroluj ka rastu",
     },
     marquee: "Žive hranljive · Kućna farma · 100% bio seme · Plodored · Prirodna vitalnost",
+    slowfast: {
+      eyebrow: "Ritam",
+      titleSlow: "Spor rast.",
+      titleFast: "Brza ishrana.",
+      body: "Priroda ne žuri — a ipak radi svakog trenutka. Seme miruje, klija, sazreva danima. Ono što ti dobijaš: živa hranljivost koja se upija u trenu.",
+      caption: "7–10 dana od bašte do tanjira.",
+    },
     values: {
       eyebrow: "Zašto Natursense",
       title: "Sporo gajeno. Brzo hrani.",
