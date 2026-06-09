@@ -2,7 +2,8 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 
 export type Lang = "hu" | "sr";
 
-type Dict = Record<string, string | Record<string, string>>;
+type DictNode = string | { [k: string]: DictNode };
+type Dict = { [k: string]: DictNode };
 
 const dictionaries: Record<Lang, Dict> = {
   hu: {
