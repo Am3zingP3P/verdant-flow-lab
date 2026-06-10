@@ -59,7 +59,7 @@ export function Hero() {
 
           <h1 className="mt-8 text-display text-[color:var(--moss)]">
             {lines.map((line, i) => (
-              <span key={i} className="block overflow-hidden">
+              <span key={i} className="block overflow-hidden pb-[0.18em]">
                 <motion.span
                   initial={{ y: "110%", opacity: 0 }}
                   animate={{ y: "0%", opacity: 1 }}
