@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] overflow-hidden pt-32 md:pt-40"
+      className="relative min-h-[100svh] overflow-hidden pt-28 md:pt-32"
     >
       {/* Ambient blobs */}
       <motion.div
@@ -47,17 +47,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-[1480px] grid-cols-12 gap-6 px-6 md:px-10">
         <div className="col-span-12 lg:col-span-8">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-eyebrow flex items-center gap-3 text-[color:var(--moss)]/70"
-          >
-            <span className="inline-block h-px w-10 bg-[color:var(--moss)]/40" />
-            {t("hero.eyebrow")}
-          </motion.p>
-
-          <h1 className="mt-8 text-display text-[color:var(--moss)]">
+          <h1 className="text-display text-[color:var(--moss)]">
             {lines.map((line, i) => (
               <span key={i} className="block overflow-hidden pb-[0.18em]">
                 <motion.span
@@ -84,7 +74,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.9 }}
-            className="text-lede mt-10 max-w-xl text-[color:var(--moss)]/75"
+            className="text-lede mt-8 max-w-xl text-[color:var(--moss)]/75"
           >
             {t("hero.lede")}
           </motion.p>
@@ -93,20 +83,22 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 1.05 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-10 flex flex-wrap items-center gap-5"
           >
             <a
               href="#explorer"
-              className="group inline-flex items-center gap-3 rounded-full bg-[color:var(--moss)] px-7 py-4 text-[0.82rem] font-medium tracking-wider text-[color:var(--cream)] uppercase transition-all hover:bg-[color:var(--sprout)]"
+              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[color:var(--moss)] px-8 py-4 text-[0.78rem] font-medium tracking-[0.18em] text-[color:var(--cream)] uppercase shadow-[0_10px_30px_-12px_rgba(28,53,45,0.45)] transition-all duration-500 hover:shadow-[0_18px_40px_-12px_rgba(110,159,123,0.55)] hover:-translate-y-0.5"
             >
-              {t("cta.explore")}
-              <span className="transition-transform group-hover:translate-x-1">→</span>
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-[color:var(--sprout)] to-[color:var(--moss)] transition-transform duration-500 group-hover:translate-x-0" />
+              <span className="relative">{t("cta.explore")}</span>
+              <span className="relative transition-transform duration-500 group-hover:translate-x-1">→</span>
             </a>
             <a
-              href="#seeds"
-              className="text-[0.82rem] tracking-wider uppercase text-[color:var(--moss)] underline-offset-8 decoration-[color:var(--sprout)]/60 decoration-1 hover:underline"
+              href="#story"
+              className="group inline-flex items-center gap-2 text-[0.78rem] tracking-[0.18em] uppercase text-[color:var(--moss)]/80 transition-colors hover:text-[color:var(--moss)]"
             >
-              {t("cta.shop")}
+              {t("cta.learn")}
+              <span className="block h-px w-8 bg-[color:var(--moss)]/40 transition-all duration-500 group-hover:w-14 group-hover:bg-[color:var(--sprout)]" />
             </a>
           </motion.div>
         </div>
