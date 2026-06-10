@@ -54,13 +54,6 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <LangSwitcher lang={lang} setLang={setLang} />
-          <a
-            href="#seeds"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-[color:var(--moss)] px-5 py-2.5 text-[0.78rem] font-medium tracking-wide text-[color:var(--cream)] transition-all hover:bg-[color:var(--sprout)]"
-          >
-            {t("cta.shop")}
-            <span aria-hidden>→</span>
-          </a>
         </div>
       </div>
     </motion.header>
