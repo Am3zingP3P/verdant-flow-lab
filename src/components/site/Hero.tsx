@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] overflow-hidden pt-28 md:pt-32"
+      className="relative min-h-[100svh] overflow-hidden pt-32 md:pt-40"
     >
       {/* Ambient blobs */}
       <motion.div
