@@ -8,11 +8,47 @@ export function Values() {
   return (
     <section id="story" className="relative mx-auto max-w-[1480px] px-6 py-32 md:px-10">
       <div className="grid grid-cols-12 gap-8">
-        <div className="col-span-12 lg:col-span-5">
-          <p className="text-eyebrow text-[color:var(--sprout)]">{t("values.eyebrow")}</p>
-          <h2 className="mt-6 font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[0.95] text-[color:var(--moss)]">
-            {t("values.title")}
-          </h2>
+        <div className="col-span-12 lg:col-span-5 flex flex-col gap-10">
+          <div>
+            <p className="text-eyebrow text-[color:var(--sprout)]">{t("values.eyebrow")}</p>
+            <h2 className="mt-6 font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[0.95] text-[color:var(--moss)] [text-wrap:balance] max-w-[14ch]">
+              {t("values.title")}
+            </h2>
+          </div>
+
+          {/* Image placeholder */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full overflow-hidden border border-[color:var(--moss)]/10 bg-[color:var(--sand)]"
+            style={{ aspectRatio: "4 / 5", borderRadius: 24 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--sand)] via-[color:var(--cream)] to-[color:var(--sprout)]/15" />
+            <div className="absolute -top-20 -right-20 h-[300px] w-[300px] rounded-full bg-[color:var(--sprout)]/20 blur-3xl" />
+            <div className="absolute -bottom-20 -left-16 h-[260px] w-[260px] rounded-full bg-[color:var(--moss)]/10 blur-[100px]" />
+
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+              <svg viewBox="0 0 120 120" className="h-20 w-20 opacity-40" aria-hidden>
+                <defs>
+                  <linearGradient id="v-leaf" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#7CB58A" />
+                    <stop offset="100%" stopColor="#4A7C59" />
+                  </linearGradient>
+                </defs>
+                <path d="M60 105 C 59 85, 65 72, 60 50" stroke="#1C352D" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.3" />
+                <path d="M60 72 C 46 66, 40 56, 44 44 C 56 48, 62 58, 60 72 Z" fill="url(#v-leaf)" />
+                <path d="M60 64 C 74 58, 80 48, 76 36 C 64 40, 58 50, 60 64 Z" fill="url(#v-leaf)" opacity="0.9" />
+              </svg>
+              <span className="text-eyebrow text-[color:var(--moss)]/40">IMG</span>
+            </div>
+
+            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-eyebrow text-[color:var(--moss)]/40">
+              <span>1200 × 1500</span>
+              <span className="font-display italic text-sm normal-case tracking-normal">placeholder</span>
+            </div>
+          </motion.div>
         </div>
         <div className="col-span-12 lg:col-span-7 grid gap-px bg-[color:var(--moss)]/10">
           {cards.map((k, i) => (
