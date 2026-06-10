@@ -14,7 +14,7 @@ const dictionaries: Record<Lang, Dict> = {
       titleA: "A természet",
       titleB: "legkoncentráltabb",
       titleC: "energiája.",
-      lede: "Élő csírák és microgreenek, a konyhapultodon. Egyetlen magból — egy egész ökoszisztéma vitalitása.",
+      lede: "Élő csírák és microgreenek, a konyhapultodon. Egyetlen magból — egy egész ökoszisztéma.",
       scroll: "Görgess a növekedéshez",
     },
     marquee: "Élő tápanyag · Otthoni farm · 100% bio mag · Vetésforgó · Természetes vitalitás",
