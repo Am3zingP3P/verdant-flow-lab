@@ -77,13 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Natursense — Living seeds, raw vitality" },
-      { name: "description", content: "Ultra-premium organic sprout and microgreen seeds. Living energy from a single seed — handpicked across Hungary and Serbia." },
+      { title: "Natursense" },
+      { name: "description", content: "Test" },
       { name: "author", content: "Natursense" },
-      { property: "og:title", content: "Natursense — Living seeds, raw vitality" },
-      { property: "og:description", content: "Living sprouts and microgreens for your kitchen counter. The most concentrated energy of nature." },
+      { property: "og:title", content: "Natursense" },
+      { property: "og:description", content: "Test" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Natursense" },
+      { name: "twitter:description", content: "Test" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72b7a737-4d08-4fb7-bba4-92e018ba6d36/id-preview-bf4517b1--c6ddf4c3-9e99-45a2-99a4-84917303bd28.lovable.app-1781077263577.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72b7a737-4d08-4fb7-bba4-92e018ba6d36/id-preview-bf4517b1--c6ddf4c3-9e99-45a2-99a4-84917303bd28.lovable.app-1781077263577.png" },
     ],
     links: [
       {
