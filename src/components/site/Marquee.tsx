@@ -5,7 +5,7 @@ export function Marquee() {
   const text = t("marquee");
   const parts = text.split(" · ");
   return (
-    <div className="relative my-24 overflow-hidden border-y border-[color:var(--moss)]/10 bg-[color:var(--sand)]/40 py-6">
+    <div className="relative my-16 sm:my-24 overflow-hidden border-y border-[color:var(--moss)]/10 bg-[color:var(--sand)]/40 py-5 sm:py-6">
       <div className="flex w-max animate-marquee gap-12 whitespace-nowrap">
         {Array.from({ length: 6 }).map((_, i) => (
           <span
