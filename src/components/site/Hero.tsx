@@ -74,7 +74,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.9 }}
-            className="text-lede mt-6 sm:mt-8 max-w-xl text-[color:var(--moss)]/75"
+            className="text-[1.15rem] leading-relaxed sm:text-lede mt-6 sm:mt-8 max-w-xl text-[color:var(--moss)]/75"
           >
             {t("hero.lede")}
           </motion.p>
@@ -136,7 +136,7 @@ export function Hero() {
 
 function SeedVisual() {
   return (
-    <svg viewBox="0 0 320 360" className="h-[300px] w-[300px] md:h-[380px] md:w-[380px]" aria-hidden>
+    <svg viewBox="0 0 320 360" className="h-[240px] w-[240px] sm:h-[300px] sm:w-[300px] md:h-[380px] md:w-[380px]" aria-hidden>
       <defs>
         <radialGradient id="seedGrad" cx="50%" cy="45%" r="50%">
           <stop offset="0%" stopColor="#A8D4B2" />
