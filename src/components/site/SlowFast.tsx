@@ -5,7 +5,7 @@ export function SlowFast() {
   const { t } = useI18n();
 
   return (
-    <section className="relative mx-auto max-w-[1480px] px-6 py-32 md:px-10">
+    <section className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10">
       <div className="grid grid-cols-12 gap-8 lg:gap-16 items-center">
         {/* Copy column */}
         <motion.div
