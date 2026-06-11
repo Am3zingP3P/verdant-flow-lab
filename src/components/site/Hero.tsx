@@ -47,7 +47,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-[1480px] grid-cols-12 gap-6 px-5 sm:px-6 md:px-10">
         <div className="col-span-12 lg:col-span-8">
-          <h1 className="text-display text-[color:var(--moss)]">
+          <h1 className="text-[3.25rem] leading-[0.95] sm:text-display text-[color:var(--moss)]">
             {lines.map((line, i) => (
               <span key={i} className="block overflow-hidden pb-[0.18em]">
                 <motion.span
@@ -74,7 +74,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.9 }}
-            className="text-lede mt-6 sm:mt-8 max-w-xl text-[color:var(--moss)]/75"
+            className="text-[1.15rem] leading-relaxed sm:text-lede mt-6 sm:mt-8 max-w-xl text-[color:var(--moss)]/75"
           >
             {t("hero.lede")}
           </motion.p>
@@ -136,7 +136,7 @@ export function Hero() {
 
 function SeedVisual() {
   return (
-    <svg viewBox="0 0 320 360" className="h-[300px] w-[300px] md:h-[380px] md:w-[380px]" aria-hidden>
+    <svg viewBox="0 0 320 360" className="h-[240px] w-[240px] sm:h-[300px] sm:w-[300px] md:h-[380px] md:w-[380px]" aria-hidden>
       <defs>
         <radialGradient id="seedGrad" cx="50%" cy="45%" r="50%">
           <stop offset="0%" stopColor="#A8D4B2" />
