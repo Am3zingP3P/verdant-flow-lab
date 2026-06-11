@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] overflow-hidden pt-28 sm:pt-32 md:pt-40"
+      className="relative min-h-[100svh] overflow-hidden pt-32 md:pt-40"
     >
       {/* Ambient blobs */}
       <motion.div
@@ -45,7 +45,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-32 top-20 h-[600px] w-[600px] rounded-full bg-[color:var(--moss)]/10 blur-[120px]"
       />
 
-      <div className="relative mx-auto grid max-w-[1480px] grid-cols-12 gap-6 px-5 sm:px-6 md:px-10">
+      <div className="relative mx-auto grid max-w-[1480px] grid-cols-12 gap-6 px-6 md:px-10">
         <div className="col-span-12 lg:col-span-8">
           <h1 className="text-[3.25rem] leading-[0.95] sm:text-display text-[color:var(--moss)]">
             {lines.map((line, i) => (
@@ -74,7 +74,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.9 }}
-            className="text-[1.15rem] leading-relaxed sm:text-lede mt-6 sm:mt-8 max-w-xl text-[color:var(--moss)]/75"
+            className="text-lede mt-8 max-w-xl text-[color:var(--moss)]/75"
           >
             {t("hero.lede")}
           </motion.p>
@@ -83,11 +83,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 1.05 }}
-            className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-5"
+            className="mt-10 flex flex-wrap items-center gap-5"
           >
             <a
               href="#explorer"
-              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[color:var(--moss)] px-6 sm:px-8 py-3.5 sm:py-4 text-[0.72rem] sm:text-[0.78rem] font-medium tracking-[0.18em] text-[color:var(--cream)] uppercase shadow-[0_10px_30px_-12px_rgba(28,53,45,0.45)] transition-all duration-500 hover:shadow-[0_18px_40px_-12px_rgba(110,159,123,0.55)] hover:-translate-y-0.5"
+              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[color:var(--moss)] px-8 py-4 text-[0.78rem] font-medium tracking-[0.18em] text-[color:var(--cream)] uppercase shadow-[0_10px_30px_-12px_rgba(28,53,45,0.45)] transition-all duration-500 hover:shadow-[0_18px_40px_-12px_rgba(110,159,123,0.55)] hover:-translate-y-0.5"
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-[color:var(--sprout)] to-[color:var(--moss)] transition-transform duration-500 group-hover:translate-x-0" />
               <span className="relative">{t("cta.explore")}</span>
@@ -106,7 +106,7 @@ export function Hero() {
         {/* SVG seed visual */}
         <motion.div
           style={{ x: tx2, y: ty2 }}
-          className="col-span-12 lg:col-span-4 relative mt-10 sm:mt-16 lg:mt-0 flex items-center justify-center"
+          className="col-span-12 lg:col-span-4 relative mt-16 lg:mt-0 flex items-center justify-center"
         >
           <motion.div style={{ scale: seedScale }} className="animate-breathe">
             <SeedVisual />
@@ -118,7 +118,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-3 text-eyebrow text-[color:var(--moss)]/60"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-eyebrow text-[color:var(--moss)]/60"
       >
         {t("hero.scroll")}
         <span className="relative block h-10 w-px overflow-hidden bg-[color:var(--moss)]/15">

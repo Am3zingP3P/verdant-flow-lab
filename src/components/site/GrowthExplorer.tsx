@@ -27,7 +27,7 @@ export function GrowthExplorer() {
   const labels = [t("explorer.stages.seed"), t("explorer.stages.germ"), t("explorer.stages.micro")];
 
   return (
-    <section id="explorer" className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10">
+    <section id="explorer" className="relative mx-auto max-w-[1480px] px-6 py-32 md:px-10">
       <div className="grid grid-cols-12 items-end gap-8">
         <div className="col-span-12 lg:col-span-6">
           <p className="text-eyebrow text-[color:var(--sprout)]">{t("explorer.eyebrow")}</p>
@@ -42,10 +42,10 @@ export function GrowthExplorer() {
 
       <div
         data-cursor="grow"
-        className="relative mt-10 sm:mt-16 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[color:var(--moss)]/10 bg-gradient-to-b from-[color:var(--sand)] to-[color:var(--cream)]"
+        className="relative mt-16 overflow-hidden rounded-[2rem] border border-[color:var(--moss)]/10 bg-gradient-to-b from-[color:var(--sand)] to-[color:var(--cream)]"
       >
         {/* Stage scene */}
-        <div className="relative flex h-[420px] sm:h-[460px] md:h-[560px] items-end justify-center overflow-hidden">
+        <div className="relative flex h-[460px] md:h-[560px] items-end justify-center overflow-hidden">
           {/* sun glow */}
           <div className="pointer-events-none absolute -top-32 left-1/2 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[color:var(--sprout)]/20 blur-3xl" />
           {/* soil */}
@@ -64,24 +64,24 @@ export function GrowthExplorer() {
           </AnimatePresence>
 
           {/* stage label */}
-          <div className="absolute top-4 sm:top-6 left-4 sm:left-6 flex items-center gap-2 sm:gap-3 text-eyebrow text-[color:var(--moss)]/70">
+          <div className="absolute top-6 left-6 flex items-center gap-3 text-eyebrow text-[color:var(--moss)]/70">
             <span className="inline-block h-2 w-2 rounded-full bg-[color:var(--sprout)] animate-breathe" />
             {labels[stage]}
           </div>
 
           {/* seed name */}
-          <div className="absolute top-4 sm:top-6 right-4 sm:right-6 text-right max-w-[45%]">
+          <div className="absolute top-6 right-6 text-right">
             <p className="text-eyebrow text-[color:var(--moss)]/60">
               {(t(`seeds.${seed.key}.name`) as string)}
             </p>
-            <p className="mt-1 max-w-[220px] text-xs text-[color:var(--moss)]/55 leading-snug hidden sm:block">
+            <p className="mt-1 max-w-[220px] text-xs text-[color:var(--moss)]/55 leading-snug">
               {t(`seeds.${seed.key}.note`)}
             </p>
           </div>
         </div>
 
         {/* Controls */}
-        <div className="border-t border-[color:var(--moss)]/10 bg-[color:var(--cream)]/70 backdrop-blur p-5 sm:p-6 md:p-8">
+        <div className="border-t border-[color:var(--moss)]/10 bg-[color:var(--cream)]/70 backdrop-blur p-6 md:p-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             {/* Stage slider */}
             <div className="flex-1">
@@ -120,7 +120,7 @@ export function GrowthExplorer() {
             </div>
 
             {/* Seed picker */}
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex items-center gap-2">
               {seeds.map((s, i) => (
                 <button
                   key={s.key}

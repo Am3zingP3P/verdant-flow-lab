@@ -32,7 +32,7 @@ export function Navbar() {
         scrolled ? "bg-[color:var(--cream)]/75 backdrop-blur-xl border-b border-[color:var(--moss)]/8" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-[1480px] items-center justify-between px-5 sm:px-6 py-4 sm:py-5 md:px-10">
+      <div className="mx-auto flex max-w-[1480px] items-center justify-between px-6 py-5 md:px-10">
         <a href="#" className="flex items-center gap-2.5 group">
           <SproutMark className="h-7 w-7 text-[color:var(--moss)] transition-transform duration-700 group-hover:rotate-[8deg]" />
           <span className="font-display text-[1.35rem] tracking-tight text-[color:var(--moss)]">
