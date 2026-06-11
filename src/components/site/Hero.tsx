@@ -47,7 +47,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-[1480px] grid-cols-12 gap-6 px-5 sm:px-6 md:px-10">
         <div className="col-span-12 lg:col-span-8">
-          <h1 className="text-display text-[color:var(--moss)]">
+          <h1 className="text-[3.25rem] leading-[0.95] sm:text-display text-[color:var(--moss)]">
             {lines.map((line, i) => (
               <span key={i} className="block overflow-hidden pb-[0.18em]">
                 <motion.span
