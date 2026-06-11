@@ -1,13 +1,12 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  nitro: true, // <--- EZT A SORT ADDD HOZZÁ! Ez kötelezi a Lovable-t, hogy külső szerveren is felépítse a Nitro-t.
   tanstackStart: {
     server: { entry: "server" },
   },
-  // Add hozzá ezt a részt a meglévő confighoz:
   vite: {
     ssr: {
-      // Ez segít a Vercelnek a megfelelő környezetben futtatni a kódot
       target: "node",
     },
   },
