@@ -15,7 +15,7 @@ export function Marquee() {
             {parts.map((part, j) => (
               <span key={j}>
                 {part}
-                <span className="mx-4 text-[color:var(--cream)]/60">✦</span>
+                <span className="mx-4 text-[color:var(--moss)]/40">✦</span>
               </span>
             ))}
           </span>
