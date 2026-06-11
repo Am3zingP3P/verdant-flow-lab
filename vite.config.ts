@@ -1,7 +1,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  nitro: true, // <--- EZT A SORT ADDD HOZZÁ! Ez kötelezi a Lovable-t, hogy külső szerveren is felépítse a Nitro-t.
+  nitro: true, // <--- EZ KÖTELEZŐ, ez fogja létrehozni az .output mappát!
   tanstackStart: {
     server: { entry: "server" },
   },
