@@ -20,8 +20,8 @@ export function Values() {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-12 gap-6 sm:gap-8 items-start">
-        <div className="col-span-12 lg:col-span-5">
+      <div className="grid grid-cols-12 gap-6 sm:gap-8 items-stretch">
+        <div className="col-span-12 lg:col-span-5 flex">
           {/* Image placeholder */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -56,7 +56,7 @@ export function Values() {
             </div>
           </motion.div>
         </div>
-        <div className="col-span-12 lg:col-span-7 grid gap-px bg-[color:var(--moss)]/10">
+        <div className="col-span-12 lg:col-span-7 grid grid-rows-3 gap-px bg-[color:var(--moss)]/10 rounded-[24px] overflow-hidden">
           {cards.map((k, i) => (
             <motion.article
               key={k}
