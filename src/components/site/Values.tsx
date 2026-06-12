@@ -7,20 +7,21 @@ export function Values() {
 
   return (
     <section id="story" className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10">
-      <div className="grid grid-cols-12 gap-6 sm:gap-8">
-        <div className="col-span-12 lg:col-span-5 flex flex-col gap-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="text-eyebrow text-[color:var(--sprout)]">{t("values.eyebrow")}</p>
-            <h2 className="mt-6 font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[0.95] text-[color:var(--moss)] [text-wrap:balance] max-w-[14ch]">
-              {t("values.title")}
-            </h2>
-          </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-[40ch] mb-12 sm:mb-16"
+      >
+        <p className="text-eyebrow text-[color:var(--sprout)]">{t("values.eyebrow")}</p>
+        <h2 className="mt-6 font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[0.95] text-[color:var(--moss)] [text-wrap:balance] max-w-[14ch]">
+          {t("values.title")}
+        </h2>
+      </motion.div>
 
+      <div className="grid grid-cols-12 gap-6 sm:gap-8 items-start">
+        <div className="col-span-12 lg:col-span-5">
           {/* Image placeholder */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
