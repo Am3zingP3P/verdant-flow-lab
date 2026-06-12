@@ -33,7 +33,6 @@ function Index() {
           <Hero />
           <Marquee />
           <Values />
-          <SlowFast />
           <GrowthExplorer />
         </main>
         <Footer />
