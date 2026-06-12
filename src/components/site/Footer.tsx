@@ -1,10 +1,17 @@
 import { useI18n } from "@/i18n/I18nProvider";
+import { motion } from "framer-motion";
 
 export function Footer() {
   const { t } = useI18n();
   return (
     <footer id="contact" className="border-t border-[color:var(--moss)]/10 bg-[color:var(--sand)]/60">
-      <div className="mx-auto grid max-w-[1480px] grid-cols-12 gap-8 px-5 sm:px-6 py-14 sm:py-20 md:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        className="mx-auto grid max-w-[1480px] grid-cols-12 gap-8 px-5 sm:px-6 py-14 sm:py-20 md:px-10"
+      >
         <div className="col-span-12 md:col-span-6">
           <h3 className="font-display text-[clamp(2rem,5vw,4.2rem)] leading-[0.95] text-[color:var(--moss)] max-w-[14ch]">
             {t("footer.tag")}
@@ -24,7 +31,7 @@ export function Footer() {
           <span>© {new Date().getFullYear()} Natursense — {t("footer.rights")}.</span>
           <span>HU × SRB</span>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }
