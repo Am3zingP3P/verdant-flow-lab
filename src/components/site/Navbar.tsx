@@ -40,7 +40,7 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-7 lg:flex lg:gap-9">
           {items.map((it) => (
             <a
               key={it.key}
