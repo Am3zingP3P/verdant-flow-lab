@@ -9,12 +9,17 @@ export function Values() {
     <section id="story" className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10">
       <div className="grid grid-cols-12 gap-6 sm:gap-8">
         <div className="col-span-12 lg:col-span-5 flex flex-col gap-10">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
             <p className="text-eyebrow text-[color:var(--sprout)]">{t("values.eyebrow")}</p>
             <h2 className="mt-6 font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[0.95] text-[color:var(--moss)] [text-wrap:balance] max-w-[14ch]">
               {t("values.title")}
             </h2>
-          </div>
+          </motion.div>
 
           {/* Image placeholder */}
           <motion.div
@@ -58,7 +63,8 @@ export function Values() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.9, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex items-start gap-4 sm:gap-6 bg-[color:var(--cream)] p-6 sm:p-8 md:p-10"
+              whileHover={{ y: -4 }}
+              className="group flex items-start gap-4 sm:gap-6 bg-[color:var(--cream)] p-6 sm:p-8 md:p-10 transition-colors hover:bg-[color:var(--sand)]/40"
             >
               <span className="font-display text-[color:var(--sprout)] text-3xl tabular-nums">
                 0{i + 1}
