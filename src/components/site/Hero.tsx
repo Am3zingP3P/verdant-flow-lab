@@ -118,7 +118,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-3 text-eyebrow text-[color:var(--moss)]/60"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-3 text-eyebrow text-[color:var(--moss)]/60"
       >
         {t("hero.scroll")}
         <span className="relative block h-10 w-px overflow-hidden bg-[color:var(--moss)]/15">
