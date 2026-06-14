@@ -28,7 +28,7 @@ const dictionaries: Record<Lang, Dict> = {
     values: {
       eyebrow: "Miért Natursense",
       title: "Lassan nevelt. Gyorsan táplál.",
-      one: { title: "Természetesen vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
+      one: { title: "Természetes vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
       three: { title: "Tiszta eredet", body: "GMO-mentes, ellenőrzött, bio tanúsított." },
     },
@@ -40,12 +40,12 @@ const dictionaries: Record<Lang, Dict> = {
       drag: "Húzd",
     },
     seeds: {
-      alfalfa: { name: "Alfalfa", note: "Lágy, édes — a kapudrog a csírák világába." },
+      alfalfa: { name: "Alfalfa", note: "Lágy, édes" },
       broccoli: { name: "Brokkoli", note: "Szulforafán-bomba. Tiszta, friss, élénk." },
       radish: { name: "Retek", note: "Csípős, élénk rózsaszín, ébresztő íz." },
     },
     footer: {
-      tag: "Élő energia. Magról. Magért.",
+      tag: "Valódi frissesség, általad termelve.",
       rights: "Minden jog fenntartva",
     },
   },
