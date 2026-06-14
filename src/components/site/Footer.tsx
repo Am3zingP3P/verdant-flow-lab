@@ -19,7 +19,7 @@ export function Footer() {
         </div>
         <div className="col-span-6 md:col-span-3 space-y-2 text-sm text-[color:var(--moss)]/70">
           <p className="text-eyebrow text-[color:var(--moss)]">Natursense</p>
-          <p>Budapest · Novi Sad</p>
+          <p>Subotica</p>
           <p>hello@natursense.bio</p>
         </div>
         <div className="col-span-6 md:col-span-3 space-y-2 text-sm text-[color:var(--moss)]/70">

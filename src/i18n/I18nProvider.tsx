@@ -40,12 +40,12 @@ const dictionaries: Record<Lang, Dict> = {
       drag: "Húzd",
     },
     seeds: {
-      alfalfa: { name: "Alfalfa", note: "Lágy, édes — a kapudrog a csírák világába." },
+      alfalfa: { name: "Alfalfa", note: "Lágy, édes" },
       broccoli: { name: "Brokkoli", note: "Szulforafán-bomba. Tiszta, friss, élénk." },
       radish: { name: "Retek", note: "Csípős, élénk rózsaszín, ébresztő íz." },
     },
     footer: {
-      tag: "Élő energia. Magról. Magért.",
+      tag: "Valódi frissesség, általad termelve.",
       rights: "Minden jog fenntartva",
     },
   },
