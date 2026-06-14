@@ -60,7 +60,7 @@ export function Hero() {
                   }}
                   className="inline-block"
                 >
-                  {i === 1 ? (
+                  {i === 0 ? (
                     <em className="italic font-light text-[color:var(--sprout)]">{line}</em>
                   ) : (
                     line
