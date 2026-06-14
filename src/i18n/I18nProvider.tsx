@@ -11,9 +11,9 @@ const dictionaries: Record<Lang, Dict> = {
     cta: { shop: "Vásárlás", explore: "Fedezd fel", learn: "Történetünk" },
     hero: {
       eyebrow: "Bio mag · Magyarország × Szerbia",
-      titleA: "A természet",
-      titleB: "legkoncentráltabb",
-      titleC: "energiája.",
+      titleA: "Superfood,",
+      titleB: "kompromisszumok",
+      titleC: "nélkül.",
       lede: "Élő csírák és microgreenek, a konyhapultodon. Egyetlen magból — egy egész ökoszisztéma.",
       scroll: "Görgess a növekedéshez",
     },
