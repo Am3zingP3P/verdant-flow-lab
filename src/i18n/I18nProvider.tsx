@@ -28,7 +28,7 @@ const dictionaries: Record<Lang, Dict> = {
     values: {
       eyebrow: "Miért Natursense",
       title: "Lassan nevelt. Gyorsan táplál.",
-      one: { title: "Természetesen vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
+      one: { title: "Természetes vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
       three: { title: "Tiszta eredet", body: "GMO-mentes, ellenőrzött, bio tanúsított." },
     },
