@@ -201,7 +201,7 @@ function SeedVisual() {
         strokeLinecap="round"
       />
       {/* leaves */}
-      <path d="M160 90 C 130 78, 118 60, 122 40 C 144 44, 160 62, 160 90 Z" fill="url(#leafGrad)" />
+      <path d="M160 82 C 140 72, 130 56, 132 40 C 150 44, 160 60, 160 82 Z" fill="url(#leafGrad)" />
       <path d="M160 78 C 188 66, 200 48, 196 28 C 174 32, 158 50, 160 78 Z" fill="url(#leafGrad)" opacity="0.92" />
     </svg>
   );
