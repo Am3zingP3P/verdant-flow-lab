@@ -41,10 +41,10 @@ export function Footer() {
   return (
     <footer id="contact" className="bg-[color:var(--cream)] px-4 py-12 sm:px-6 sm:py-20 md:px-10">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0, y: 24, filter: "blur(24px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, margin: "-120px" }}
+        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
         className="mx-auto w-full max-w-[1380px] overflow-hidden rounded-3xl border border-[color:var(--moss)]/10 bg-[color:var(--sand)] shadow-[0_30px_80px_-50px_rgba(28,53,45,0.35)]"
       >
         <div className="grid grid-cols-1 md:grid-cols-12">

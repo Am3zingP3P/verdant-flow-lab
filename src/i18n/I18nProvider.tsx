@@ -27,7 +27,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
     values: {
       eyebrow: "Miért Natursense?",
-      title: "A csíramagok mikrozöldek előnyei",
+      title: "A csíramagok előnyei",
       one: { title: "Természetes vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
       three: { title: "Tiszta eredet", body: "GMO-mentes, ellenőrzött, bio tanúsított." },
@@ -70,7 +70,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
     values: {
       eyebrow: "Zašto Natursense?",
-      title: "Prednosti klica mikrogrinija",
+      title: "Prednosti klica",
       one: { title: "Bioraspoloživost", body: "Tokom klijanja, hranljive materije se koncentrišu i do 40×. Živi enzimi, stvaran efekat." },
       two: { title: "Kućna farma", body: "Nekoliko dana, čaša vode, i tvoja kuhinja postaje mini-bašta. Bez zemlje." },
       three: { title: "Čisto poreklo", body: "Samo proverene, GMO-free, bio sertifikovane semenke iz malih gazdinstava Srbije i Mađarske." },
