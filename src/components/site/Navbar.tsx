@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useI18n, type Lang } from "@/i18n/I18nProvider";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/hooks/useTheme";
 
 const langs: Lang[] = ["hu", "sr"];
 
@@ -53,6 +54,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <LangSwitcher lang={lang} setLang={setLang} />
         </div>
       </div>
