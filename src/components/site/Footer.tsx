@@ -1,5 +1,6 @@
 import { useI18n } from "@/i18n/I18nProvider";
 import { motion } from "framer-motion";
+import viberIcon from "@/assets/viber-icon.png.asset.json";
 
 const socials = [
   {
