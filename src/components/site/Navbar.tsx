@@ -19,8 +19,7 @@ export function Navbar() {
   const items = [
     { key: "story", href: "#story" },
     { key: "explorer", href: "#explorer" },
-    { key: "seeds", href: "#seeds" },
-    { key: "journal", href: "#journal" },
+    { key: "seeds", href: "#gallery" },
     { key: "contact", href: "#contact" },
   ];
 

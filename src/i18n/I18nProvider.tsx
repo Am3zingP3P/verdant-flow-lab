@@ -7,7 +7,7 @@ type Dict = { [k: string]: DictNode };
 
 const dictionaries: Record<Lang, Dict> = {
   hu: {
-    nav: { story: "Történet", explorer: "Növekedés", seeds: "Magvak", journal: "Napló", contact: "Kapcsolat" },
+    nav: { story: "Miért?", explorer: "Növekedés", seeds: "Galéria", contact: "Kapcsolat" },
     cta: { shop: "Vásárlás", explore: "Fedezd fel", learn: "Történetünk" },
     hero: {
       eyebrow: "Bio mag · Magyarország × Szerbia",
@@ -27,7 +27,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
     values: {
       eyebrow: "Miért Natursense?",
-      title: "A csíramagok és mikrozöldek előnyei",
+      title: "A csíramagok mikrozöldek előnyei",
       one: { title: "Természetes vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
       three: { title: "Tiszta eredet", body: "GMO-mentes, ellenőrzött, bio tanúsított." },
@@ -50,7 +50,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
   },
   sr: {
-    nav: { story: "Priča", explorer: "Rast", seeds: "Semenke", journal: "Dnevnik", contact: "Kontakt" },
+    nav: { story: "Zašto?", explorer: "Rast", seeds: "Galerija", contact: "Kontakt" },
     cta: { shop: "Kupi", explore: "Istraži", learn: "Naša priča" },
     hero: {
       eyebrow: "Bio seme · Srbija × Mađarska",
@@ -70,7 +70,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
     values: {
       eyebrow: "Zašto Natursense?",
-      title: "Prednosti klica i mikrogrinija",
+      title: "Prednosti klica mikrogrinija",
       one: { title: "Bioraspoloživost", body: "Tokom klijanja, hranljive materije se koncentrišu i do 40×. Živi enzimi, stvaran efekat." },
       two: { title: "Kućna farma", body: "Nekoliko dana, čaša vode, i tvoja kuhinja postaje mini-bašta. Bez zemlje." },
       three: { title: "Čisto poreklo", body: "Samo proverene, GMO-free, bio sertifikovane semenke iz malih gazdinstava Srbije i Mađarske." },
