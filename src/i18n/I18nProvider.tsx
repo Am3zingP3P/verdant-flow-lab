@@ -17,7 +17,7 @@ const dictionaries: Record<Lang, Dict> = {
       lede: "Élő csírák és microgreenek, a konyhapultodon. Egyetlen magból — egy egész ökoszisztéma.",
       scroll: "Görgess a növekedéshez",
     },
-    marquee: "Élő tápanyag · Otthoni farm · 100% bio mag · Természetes vitalitás",
+    marquee: "Fenntartható · Otthoni farm · 100% bio · Természetes",
     slowfast: {
       eyebrow: "Ritmus",
       titleSlow: "Lassú növekedés.",
@@ -60,7 +60,7 @@ const dictionaries: Record<Lang, Dict> = {
       lede: "Žive klice i mikrogriniji, na tvojoj kuhinjskoj radnoj površini. Iz jedne semenke — vitalnost čitavog ekosistema.",
       scroll: "Skroluj ka rastu",
     },
-    marquee: "Žive hranljive · Kućna farma · 100% bio seme · Prirodna vitalnost",
+    marquee: "Održivo · Kućna farma · 100% bio · Prirodna",
     slowfast: {
       eyebrow: "Ritam",
       titleSlow: "Spor rast.",
