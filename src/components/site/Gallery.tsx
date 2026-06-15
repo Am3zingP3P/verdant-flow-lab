@@ -9,13 +9,13 @@ type Item = {
 };
 
 const items: Item[] = [
-  { name: "Radish Microgreens", day: "Day 7", hue: "from-[#c97a6b] to-[#7a3c3a]", span: "md:col-span-5 md:row-span-2", ratio: "aspect-[4/5]" },
-  { name: "Alfalfa Sprouts", day: "Day 4", hue: "from-[#dbe3c4] to-[#7a8c5a]", span: "md:col-span-4", ratio: "aspect-[4/3]" },
-  { name: "Broccoli Microgreens", day: "Day 9", hue: "from-[#4a7c59] to-[#1c352d]", span: "md:col-span-3", ratio: "aspect-square" },
-  { name: "Sunflower Shoots", day: "Day 10", hue: "from-[#e8c07a] to-[#a0522d]", span: "md:col-span-3", ratio: "aspect-square" },
-  { name: "Pea Tendrils", day: "Day 8", hue: "from-[#9bb88a] to-[#3a5a3d]", span: "md:col-span-4", ratio: "aspect-[4/3]" },
-  { name: "Kitchen Counter Farm", day: "Lifestyle", hue: "from-[#f0ebe3] to-[#c9b99a]", span: "md:col-span-7", ratio: "aspect-[16/9]" },
-  { name: "Mustard Microgreens", day: "Day 6", hue: "from-[#e8b84a] to-[#5c4018]", span: "md:col-span-5", ratio: "aspect-[5/4]" },
+  { name: "Retek microgreens", day: "7. nap", hue: "from-[#c97a6b] to-[#7a3c3a]", span: "md:col-span-5 md:row-span-2", ratio: "aspect-[4/5]" },
+  { name: "Lucerna csíra", day: "4. nap", hue: "from-[#dbe3c4] to-[#7a8c5a]", span: "md:col-span-4", ratio: "aspect-[4/3]" },
+  { name: "Brokkoli microgreens", day: "9. nap", hue: "from-[#4a7c59] to-[#1c352d]", span: "md:col-span-3", ratio: "aspect-square" },
+  { name: "Napraforgó hajtás", day: "10. nap", hue: "from-[#e8c07a] to-[#a0522d]", span: "md:col-span-3", ratio: "aspect-square" },
+  { name: "Borsóhajtás", day: "8. nap", hue: "from-[#9bb88a] to-[#3a5a3d]", span: "md:col-span-4", ratio: "aspect-[4/3]" },
+  { name: "Konyhai mini farm", day: "Életmód", hue: "from-[#f0ebe3] to-[#c9b99a]", span: "md:col-span-7", ratio: "aspect-[16/9]" },
+  { name: "Mustár microgreens", day: "6. nap", hue: "from-[#e8b84a] to-[#5c4018]", span: "md:col-span-5", ratio: "aspect-[5/4]" },
 ];
 
 export function Gallery() {
@@ -39,7 +39,7 @@ export function Gallery() {
             </h2>
           </div>
           <p className="max-w-sm text-[color:var(--moss)]/65 sm:text-right">
-            Magról csíráig, csírából élő zöldig — minden szakasz egy portré.
+            A magtól egészen a tányerodig. Napok alatt.
           </p>
         </motion.div>
 
