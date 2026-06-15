@@ -35,7 +35,7 @@ const dictionaries: Record<Lang, Dict> = {
     explorer: {
       eyebrow: "Interaktív növekedés",
       title: "Egy mag élete, három szakaszban.",
-      lede: "Húzd az idővonalat. Lásd, ahogyan a sűrített csend zöld energiává robban.",
+      lede: "Kattints a megadott szakaszokra, és lásd, ahogyan a mag hirtelen zöld energiává robban.",
       stages: { seed: "Mag", germ: "Csírázás", micro: "Microgreen" },
       drag: "Húzd",
     },
@@ -78,7 +78,7 @@ const dictionaries: Record<Lang, Dict> = {
     explorer: {
       eyebrow: "Interaktivni rast",
       title: "Život semenke u tri pokreta.",
-      lede: "Povuci vremensku liniju. Gledaj kako koncentrisana tišina eksplodira u zelenu energiju.",
+      lede: "Klikni na date faze i gledaj kako semenka iznenada eksplodira u zelenu energiju.",
       stages: { seed: "Semenka", germ: "Klijanje", micro: "Mikrogrin" },
       drag: "Povuci",
     },
