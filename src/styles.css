@@ -114,26 +114,26 @@
 .dark {
   /* Natursense night palette — overrides brand vars so all
      [color:var(--cream|sand|moss|sprout|obsidian)] usages flip. */
-  --cream: #0E1411;     /* page background */
-  --sand:  #18211C;     /* surface */
-  --moss:  #E8E2D4;     /* primary text / brand on dark */
-  --sprout: #8FC79A;    /* accent */
-  --obsidian: #F5F2EB;  /* foreground */
+  --cream: #0B1410;     /* page background — deeper forest charcoal */
+  --sand:  #131E18;     /* surface — richer dark green */
+  --moss:  #E2DDD2;     /* primary text / brand on dark — cleaner cream */
+  --sprout: #7BB588;    /* accent — deeper, calmer green */
+  --obsidian: #F0EDE6;  /* foreground — warm off-white */
 
   --background: var(--cream);
   --foreground: var(--obsidian);
-  --card: #16201B;
+  --card: #111C16;
   --card-foreground: var(--obsidian);
-  --popover: #16201B;
+  --popover: #111C16;
   --popover-foreground: var(--obsidian);
   --primary: var(--moss);
-  --primary-foreground: #0E1411;
+  --primary-foreground: #0B1410;
   --secondary: var(--sand);
   --secondary-foreground: var(--moss);
   --muted: var(--sand);
-  --muted-foreground: oklch(0.78 0.02 140);
+  --muted-foreground: oklch(0.74 0.02 140);
   --accent: var(--sprout);
-  --accent-foreground: #0E1411;
+  --accent-foreground: #0B1410;
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: color-mix(in oklab, var(--moss) 14%, transparent);
