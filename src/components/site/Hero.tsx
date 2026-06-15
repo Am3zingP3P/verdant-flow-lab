@@ -93,13 +93,6 @@ export function Hero() {
               <span className="relative">{t("cta.explore")}</span>
               <span className="relative transition-transform duration-500 group-hover:translate-x-1">→</span>
             </a>
-            <a
-              href="#story"
-              className="group inline-flex items-center gap-2 text-[0.78rem] tracking-[0.18em] uppercase text-[color:var(--moss)]/80 transition-colors hover:text-[color:var(--moss)]"
-            >
-              {t("cta.learn")}
-              <span className="block h-px w-8 bg-[color:var(--moss)]/40 transition-all duration-500 group-hover:w-14 group-hover:bg-[color:var(--sprout)]" />
-            </a>
           </motion.div>
         </div>
 
