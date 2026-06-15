@@ -69,8 +69,8 @@ const dictionaries: Record<Lang, Dict> = {
       caption: "7–10 dana od bašte do tanjira.",
     },
     values: {
-      eyebrow: "Zašto Natursense",
-      title: "Sporo gajeno. Brzo hrani.",
+      eyebrow: "Zašto Natursense?",
+      title: "Prednosti klica i mikrogrinija",
       one: { title: "Bioraspoloživost", body: "Tokom klijanja, hranljive materije se koncentrišu i do 40×. Živi enzimi, stvaran efekat." },
       two: { title: "Kućna farma", body: "Nekoliko dana, čaša vode, i tvoja kuhinja postaje mini-bašta. Bez zemlje." },
       three: { title: "Čisto poreklo", body: "Samo proverene, GMO-free, bio sertifikovane semenke iz malih gazdinstava Srbije i Mađarske." },
