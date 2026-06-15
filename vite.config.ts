@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // EZT A BLOKKOT ADTUK HOZZÁ, HOGY CLOUDFLARE HELYETT VERCELEN FUSSON:
+  vite: {
+    ssr: {
+      target: "node",
+    },
+  },
 });
