@@ -78,7 +78,7 @@ const dictionaries: Record<Lang, Dict> = {
     explorer: {
       eyebrow: "Interaktivni rast",
       title: "Život semenke u tri pokreta.",
-      lede: "Povuci vremensku liniju. Gledaj kako koncentrisana tišina eksplodira u zelenu energiju.",
+      lede: "Klikni na date faze i gledaj kako semenka iznenada eksplodira u zelenu energiju.",
       stages: { seed: "Semenka", germ: "Klijanje", micro: "Mikrogrin" },
       drag: "Povuci",
     },
