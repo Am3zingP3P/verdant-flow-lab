@@ -6,6 +6,7 @@ import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { Values } from "@/components/site/Values";
 import { GrowthExplorer } from "@/components/site/GrowthExplorer";
+import { Gallery } from "@/components/site/Gallery";
 
 import { Footer } from "@/components/site/Footer";
 import { CustomCursor } from "@/components/site/CustomCursor";
@@ -34,6 +35,7 @@ function Index() {
           <Marquee />
           <Values />
           <GrowthExplorer />
+          <Gallery />
         </main>
         <Footer />
       </div>
