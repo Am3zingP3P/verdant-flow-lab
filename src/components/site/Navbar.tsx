@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useI18n, type Lang } from "@/i18n/I18nProvider";
 import { useEffect, useState } from "react";
+import { useTheme } from "@/hooks/useTheme";
 
 const langs: Lang[] = ["hu", "sr"];
 
@@ -53,6 +54,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <LangSwitcher lang={lang} setLang={setLang} />
         </div>
       </div>
@@ -82,6 +84,38 @@ function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => voi
         </button>
       ))}
     </div>
+  );
+}
+
+function ThemeToggle() {
+  const { theme, toggle } = useTheme();
+  const isDark = theme === "dark";
+  return (
+    <button
+      onClick={toggle}
+      aria-label={isDark ? "Világos mód" : "Sötét mód"}
+      title={isDark ? "Világos mód" : "Sötét mód"}
+      className="relative grid h-9 w-9 place-items-center rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/60 text-[color:var(--moss)] backdrop-blur transition-colors hover:bg-[color:var(--moss)]/10"
+    >
+      <motion.span
+        key={theme}
+        initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
+        animate={{ rotate: 0, opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="grid place-items-center"
+      >
+        {isDark ? (
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+          </svg>
+        )}
+      </motion.span>
+    </button>
   );
 }
 
