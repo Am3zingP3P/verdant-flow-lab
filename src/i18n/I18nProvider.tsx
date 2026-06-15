@@ -26,8 +26,8 @@ const dictionaries: Record<Lang, Dict> = {
       caption: "7–10 nap a kertedtől a tányérodig.",
     },
     values: {
-      eyebrow: "Miért Natursense",
-      title: "Lassan nevelt. Gyorsan táplál.",
+      eyebrow: "Miért Natursense?",
+      title: "A csíramagok és mikrozöldek előnyei",
       one: { title: "Természetes vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
       three: { title: "Tiszta eredet", body: "GMO-mentes, ellenőrzött, bio tanúsított." },
