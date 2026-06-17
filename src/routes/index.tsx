@@ -9,6 +9,7 @@ import { GrowthExplorer } from "@/components/site/GrowthExplorer";
 import { Gallery } from "@/components/site/Gallery";
 
 import { Footer } from "@/components/site/Footer";
+import { PaletteShowcase } from "@/components/site/PaletteShowcase";
 import { CustomCursor } from "@/components/site/CustomCursor";
 
 export const Route = createFileRoute("/")({
@@ -38,6 +39,7 @@ function Index() {
           <Gallery />
         </main>
         <Footer />
+        <PaletteShowcase />
       </div>
     </I18nProvider>
   );
