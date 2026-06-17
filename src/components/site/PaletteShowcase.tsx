@@ -25,7 +25,7 @@ export function PaletteShowcase() {
     >
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-12 text-center">
-          <p className="text-eyebrow text-[color:var(--moss)]/70">Design system</p>
+          <p className="text-eyebrow text-[color:var(--moss)]/70">Színpaletták</p>
           <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl text-[color:var(--moss)]">
             Színpaletta bemutató
           </h2>
