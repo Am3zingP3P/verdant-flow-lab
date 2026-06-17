@@ -63,7 +63,7 @@ export function Hero() {
                   {i === 0 || i === 2 ? (
                     <em className="italic font-light text-[color:var(--sprout)]">{line}</em>
                   ) : (
-                    <span className="text-[0.92em] sm:text-[1em]">{line}</span>
+                  <span className="text-[0.84em] sm:text-[0.95em]">{line}</span>
                   )}
                 </motion.span>
               </span>

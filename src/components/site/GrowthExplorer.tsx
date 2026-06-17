@@ -37,7 +37,7 @@ export function GrowthExplorer() {
       >
         <div className="col-span-12 lg:col-span-6">
           <p className="text-eyebrow text-[color:var(--sprout)]">{t("explorer.eyebrow")}</p>
-          <h2 className="mt-6 font-display text-[clamp(2.2rem,5.4vw,4.8rem)] leading-[0.95] text-[color:var(--moss)]">
+          <h2 className="mt-6 font-display text-[clamp(2.2rem,5.4vw,4.8rem)] leading-[1.08] text-[color:var(--moss)]">
             {t("explorer.title")}
           </h2>
         </div>
