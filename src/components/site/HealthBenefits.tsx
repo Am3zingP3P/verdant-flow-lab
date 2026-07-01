@@ -350,7 +350,7 @@ export function HealthBenefits() {
                     {chapter.unit}
                   </span>
                 </div>
-                <div className="mt-2 text-[0.65rem] uppercase tracking-[0.4em] text-[color:var(--moss)]/60">
+                <div className="mt-5 text-[0.65rem] uppercase tracking-[0.4em] text-[color:var(--moss)]/60">
                   {copy.kicker}
                 </div>
               </div>
