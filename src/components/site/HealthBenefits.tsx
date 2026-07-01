@@ -227,10 +227,10 @@ export function HealthBenefits() {
               <h2 className="font-serif text-4xl leading-[1.05] tracking-[-0.01em] text-[color:var(--moss)] sm:text-5xl md:text-[3.5rem]">
                 {copy.title}
               </h2>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-[color:var(--moss)]/75 md:text-lg">
+              <p className="mt-10 max-w-md text-base leading-relaxed text-[color:var(--moss)]/75 md:text-lg">
                 {copy.body}
               </p>
-              <p className="mt-6 text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--moss)]/50">
+              <p className="mt-8 text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--moss)]/50">
                 — {copy.caption}
               </p>
             </div>
@@ -350,7 +350,7 @@ export function HealthBenefits() {
                     {chapter.unit}
                   </span>
                 </div>
-                <div className="mt-2 text-[0.65rem] uppercase tracking-[0.4em] text-[color:var(--moss)]/60">
+                <div className="mt-5 text-[0.65rem] uppercase tracking-[0.4em] text-[color:var(--moss)]/60">
                   {copy.kicker}
                 </div>
               </div>
