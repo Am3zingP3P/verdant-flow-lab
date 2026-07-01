@@ -123,7 +123,7 @@ export function SeedJourney() {
       // 00 → 01 : seed cracks, root descends, soil rises
       tl.to(seedRef.current, { rotation: -6, transformOrigin: "center center", duration: 1 }, 0)
         .to(soilRef.current, { scaleY: 1, duration: 1, ease: "power2.out" }, 0.2)
-        .to(crackRef.current, { opacity: 1, duration: 0.4 }, 0.4)
+        .to(crackRef.current, { opacity: 1, scaleX: 1, duration: 0.4 }, 0.4)
         .to(rootRef.current, { scaleY: 1, opacity: 1, duration: 1.2, ease: "power2.out" }, 0.5)
 
         // 01 → 02 : stem shoots up, seed opens further
