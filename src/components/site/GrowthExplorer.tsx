@@ -10,7 +10,7 @@ const seeds = [
   { key: "radish", hue: "#C97283" },
 ] as const;
 
-const AUTOPLAY_MS = 5200;
+const AUTOPLAY_MS = 3200;
 
 export function GrowthExplorer() {
   const { t } = useI18n();
