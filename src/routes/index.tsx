@@ -6,7 +6,7 @@ import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { Values } from "@/components/site/Values";
 import { GrowthExplorer } from "@/components/site/GrowthExplorer";
-import { SeedJourney } from "@/components/site/SeedJourney";
+import { HealthBenefits } from "@/components/site/HealthBenefits";
 import { Gallery } from "@/components/site/Gallery";
 
 import { Footer } from "@/components/site/Footer";
@@ -36,7 +36,7 @@ function Index() {
           <Hero />
           <Marquee />
           <Values />
-          <SeedJourney />
+          <HealthBenefits />
           <GrowthExplorer />
           <Gallery />
         </main>
