@@ -110,7 +110,7 @@ export function SeedJourney() {
       });
 
       // initial state
-      gsap.set(crackRef.current, { drawSVG: 0, opacity: 0 });
+      gsap.set(crackRef.current, { opacity: 0, scaleX: 0, transformOrigin: "center center" });
       gsap.set([rootRef.current, stemRef.current, leafLRef.current, leafRRef.current], {
         scaleY: 0,
         transformOrigin: "center bottom",
