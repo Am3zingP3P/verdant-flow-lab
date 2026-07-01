@@ -164,10 +164,10 @@ export function HealthBenefits() {
       className="relative bg-[color:var(--sand)] text-[color:var(--moss)]"
       aria-label={lang === "sr" ? "Zdravstvene prednosti" : "Egészségügyi előnyök"}
     >
-      <div
-        ref={stageRef}
-        className="relative flex min-h-[100svh] w-full items-center overflow-hidden"
-      >
+        <div
+          ref={stageRef}
+          className="relative flex min-h-[100svh] w-full items-center overflow-hidden py-20 md:py-0"
+        >
         {/* ambient orbs */}
         <div
           ref={orbRef}
@@ -200,7 +200,7 @@ export function HealthBenefits() {
 
         {/* scroll progress bar */}
         <div
-          className="absolute inset-x-0 bottom-0 z-20 h-[2px] bg-[color:var(--moss)]/10"
+          className="absolute inset-x-0 bottom-0 z-20 h-[2px] bg-[color:var(--cream)]"
           role="progressbar"
           aria-label={lang === "sr" ? "Napredak" : "Haladás"}
           aria-valuemin={0}
@@ -209,34 +209,34 @@ export function HealthBenefits() {
         >
           <div
             ref={progressRef}
-            className="h-full origin-left bg-[color:var(--moss)]"
+            className="h-full origin-left bg-[color:color-mix(in_oklab,var(--moss)_35%,var(--cream))]"
             style={{ transform: "scaleX(0)" }}
           />
         </div>
 
-        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-10 px-6 md:px-10 lg:grid-cols-[1fr_1.05fr]">
+        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-5 pt-16 sm:px-6 md:gap-10 md:px-10 md:pt-0 lg:grid-cols-[1fr_1.05fr]">
           {/* Editorial copy */}
-          <div className="relative z-10 max-w-xl">
+          <div className="relative z-10 max-w-xl order-2 lg:order-1">
             <div
               key={active}
               className="animate-[fadeUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]"
             >
-              <div className="mb-4 text-[0.7rem] uppercase tracking-[0.35em] text-[color:var(--sprout)]">
+              <div className="mb-3 text-[0.65rem] uppercase tracking-[0.3em] text-[color:var(--sprout)] sm:text-[0.7rem] sm:tracking-[0.35em]">
                 {copy.kicker}
               </div>
-              <h2 className="font-serif text-4xl leading-[1.05] tracking-[-0.01em] text-[color:var(--moss)] sm:text-5xl md:text-[3.5rem]">
+              <h2 className="text-balance font-serif text-[2rem] leading-[1.08] tracking-[-0.01em] text-[color:var(--moss)] sm:text-4xl md:text-5xl lg:text-[3.5rem]">
                 {copy.title}
               </h2>
-              <p className="mt-10 max-w-md text-base leading-relaxed text-[color:var(--moss)]/75 md:text-lg">
+              <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-[color:var(--moss)]/75 sm:mt-8 sm:text-base md:mt-10 md:text-lg">
                 {copy.body}
               </p>
-              <p className="mt-8 text-[0.72rem] uppercase tracking-[0.28em] text-[color:var(--moss)]/50">
+              <p className="mt-5 text-[0.65rem] uppercase tracking-[0.24em] text-[color:var(--moss)]/50 sm:mt-8 sm:text-[0.72rem] sm:tracking-[0.28em]">
                 — {copy.caption}
               </p>
             </div>
 
             {/* stage dots */}
-            <div className="mt-10 flex items-center gap-2" aria-hidden>
+            <div className="mt-6 flex items-center gap-2 sm:mt-10" aria-hidden>
               {CHAPTERS.map((c, i) => (
                 <span
                   key={c.index}
@@ -254,7 +254,7 @@ export function HealthBenefits() {
           </div>
 
           {/* Nutrient orb — giant animated metric */}
-          <div className="relative mx-auto flex aspect-square w-full max-w-[560px] items-center justify-center">
+          <div className="relative mx-auto flex aspect-square w-full max-w-[300px] items-center justify-center order-1 lg:order-2 sm:max-w-[420px] md:max-w-[560px]">
             {/* concentric decorative rings */}
             <div
               aria-hidden
@@ -343,14 +343,14 @@ export function HealthBenefits() {
                 className="animate-[fadeUp_0.8s_cubic-bezier(0.16,1,0.3,1)_both] text-center"
               >
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="font-serif text-[7rem] leading-none tracking-[-0.04em] text-[color:var(--moss)] sm:text-[9rem] md:text-[10rem]">
+                  <span className="font-serif text-[4.5rem] leading-none tracking-[-0.04em] text-[color:var(--moss)] sm:text-[7rem] md:text-[9rem] lg:text-[10rem]">
                     {chapter.metric}
                   </span>
-                  <span className="font-serif text-4xl italic text-[color:var(--sprout)] sm:text-5xl">
+                  <span className="font-serif text-2xl italic text-[color:var(--sprout)] sm:text-4xl md:text-5xl">
                     {chapter.unit}
                   </span>
                 </div>
-                <div className="mt-5 text-[0.65rem] uppercase tracking-[0.4em] text-[color:var(--moss)]/60">
+                <div className="mt-3 text-[0.55rem] uppercase tracking-[0.3em] text-[color:var(--moss)]/60 sm:mt-5 sm:text-[0.65rem] sm:tracking-[0.4em]">
                   {copy.kicker}
                 </div>
               </div>
