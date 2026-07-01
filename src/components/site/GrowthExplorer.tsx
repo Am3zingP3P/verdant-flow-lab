@@ -70,9 +70,6 @@ export function GrowthExplorer() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         data-cursor="grow"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
         className="relative mt-10 sm:mt-16 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[color:var(--moss)]/10 bg-gradient-to-b from-[color:var(--sand)] to-[color:var(--cream)]"
       >
         {/* Stage scene */}
@@ -117,6 +114,32 @@ export function GrowthExplorer() {
               </span>
               <span className="tabular-nums">{String(stage + 1).padStart(2, "0")} / 03</span>
             </span>
+
+            {/* Play / Pause toggle */}
+            <button
+              onClick={() => setIsPaused((p) => !p)}
+              className="group relative flex h-7 w-7 items-center justify-center rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/80 backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--sprout)]/40 hover:scale-105 active:scale-95"
+              aria-label={isPaused ? "Lejátszás" : "Szünet"}
+            >
+              <motion.div
+                key={isPaused ? "play" : "pause"}
+                initial={{ scale: 0.6, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
+              >
+                {isPaused ? (
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" className="text-[color:var(--moss)] ml-[1px]">
+                    <path d="M2 1.5L8 5L2 8.5V1.5Z" />
+                  </svg>
+                ) : (
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" className="text-[color:var(--moss)]">
+                    <rect x="1.5" y="1" width="2.5" height="8" rx="0.5" />
+                    <rect x="6" y="1" width="2.5" height="8" rx="0.5" />
+                  </svg>
+                )}
+              </motion.div>
+            </button>
+
             <AnimatePresence mode="wait">
               <motion.span
                 key={`label-${stage}`}
