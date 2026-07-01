@@ -70,9 +70,9 @@ export function GrowthExplorer() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         data-cursor="grow"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
+        onMouseEnter={() => {}}
+        onMouseLeave={() => {}}
+        onTouchStart={() => {}}
         className="relative mt-10 sm:mt-16 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[color:var(--moss)]/10 bg-gradient-to-b from-[color:var(--sand)] to-[color:var(--cream)]"
       >
         {/* Stage scene */}
