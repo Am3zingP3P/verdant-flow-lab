@@ -115,7 +115,6 @@ export function GrowthExplorer() {
                 <span className={`absolute inset-0 rounded-full bg-[color:var(--sprout)] ${isPaused ? "" : "animate-ping opacity-60"}`} />
                 <span className="relative inline-block h-2 w-2 rounded-full bg-[color:var(--sprout)]" />
               </span>
-              {isPaused ? t("explorer.stages.seed").length > 0 ? "" : "" : ""}
               <span className="tabular-nums">{String(stage + 1).padStart(2, "0")} / 03</span>
             </span>
             <AnimatePresence mode="wait">
