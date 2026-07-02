@@ -9,8 +9,8 @@ type Chapter = {
   index: string;
   metric: string;
   unit: string;
-  hu: { kicker: string; title: string; body: string; caption: string };
-  sr: { kicker: string; title: string; body: string; caption: string };
+  hu: { name: string; kicker: string; title: string; body: string; caption: string };
+  sr: { name: string; kicker: string; title: string; body: string; caption: string };
 };
 
 const CHAPTERS: Chapter[] = [
@@ -19,12 +19,14 @@ const CHAPTERS: Chapter[] = [
     metric: "40",
     unit: "×",
     hu: {
+      name: "Vitaminsűrűség",
       kicker: "Vitaminsűrűség",
       title: "Negyvenszer több vitamin, mint a felnőtt zöldségben.",
       body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait. C-, E-, K-vitamin és B-komplex — mind koncentrált, élő formában.",
       caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
     },
     sr: {
+      name: "Gustina vitamina",
       kicker: "Gustina vitamina",
       title: "Četrdeset puta više vitamina nego u zrelom povrću.",
       body: "U trenutku klijanja semenka oslobađa svoje rezerve. Vitamini C, E, K i B-kompleks — u koncentrovanom, živom obliku.",
@@ -36,12 +38,14 @@ const CHAPTERS: Chapter[] = [
     metric: "100",
     unit: "%",
     hu: {
+      name: "Élő enzimek",
       kicker: "Élő enzimek",
       title: "Száz százalék aktív enzim — a főzés nem öli meg.",
       body: "Nyersen fogyasztva a csíra minden enzime dolgozik: emészti a fehérjéket, felszabadítja az ásványi anyagokat, tehermentesíti a testet.",
       caption: "Amiláz, proteáz, lipáz — hőkezelés nélkül",
     },
     sr: {
+      name: "Živi enzimi",
       kicker: "Živi enzimi",
       title: "Sto posto aktivnih enzima — kuvanje ih ne uništava.",
       body: "Kada se jedu sirove, sve enzime klica aktivno rade: razgrađuju proteine, oslobađaju minerale, rasterećuju telo.",
@@ -53,12 +57,14 @@ const CHAPTERS: Chapter[] = [
     metric: "3.5",
     unit: "g",
     hu: {
+      name: "Növényi fehérje",
       kicker: "Fehérje / 100g",
       title: "Növényi fehérje, teljes aminosav-profillal.",
       body: "A lucerna, retek és brokkoli csírák komplett fehérjét adnak — mindegyik esszenciális aminosavval, könnyen felszívódó formában.",
       caption: "Átlagos fehérjetartalom friss csírában",
     },
     sr: {
+      name: "Biljni protein",
       kicker: "Protein / 100g",
       title: "Biljni protein sa kompletnim aminokiselinama.",
       body: "Klice lucerke, rotkvice i brokolija daju kompletan protein — sve esencijalne aminokiseline, lako svarljive.",
@@ -70,12 +76,14 @@ const CHAPTERS: Chapter[] = [
     metric: "7",
     unit: "d",
     hu: {
+      name: "Magtól a tányérig",
       kicker: "Magtól a tányérig",
       title: "Hét nap. Nulla szállítás. Nulla veszteség.",
       body: "A konyhapulton nőnek — nem a kamionban öregednek. Amit levágsz, azt eszed: friss oxigén, friss klorofill.",
       caption: "Átlagos ciklus a konyhádban",
     },
     sr: {
+      name: "Od semenke do tanjira",
       kicker: "Od semenke do tanjira",
       title: "Sedam dana. Nula transporta. Nula gubitka.",
       body: "Rastu na tvom pultu — ne stare u kamionu. Ono što isečeš, to jedeš: svež kiseonik, svež hlorofil.",
@@ -202,7 +210,7 @@ export function HealthBenefits() {
             </span>
             <span aria-hidden className="h-3 w-px bg-[color:var(--moss)]/25" />
             <span className="text-[0.6rem] uppercase tracking-[0.28em] text-[color:var(--moss)]/75 sm:text-[0.68rem] sm:tracking-[0.32em]">
-              {lang === "sr" ? "Živi nutrijenti" : "Élő tápanyag"}
+              {copy.name}
             </span>
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[color:var(--sprout)] animate-[breathe_2.4s_ease-in-out_infinite]" />
           </div>
