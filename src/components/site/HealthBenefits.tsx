@@ -22,7 +22,7 @@ const CHAPTERS: Chapter[] = [
       name: "Vitaminsűrűség",
       kicker: "Vitaminsűrűség",
       title: "Negyvenszer több vitamin, mint a felnőtt zöldségben.",
-      body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait. C-, E-, K-vitamin és B-komplex — mind koncentrált, élő formában.",
+      body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait, ezáltal C-, E-, K-vitaminhoz juthatsz, valamint B-komplexhez. Mindezt természetes formában, tabletták nélkül.",
       caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
     },
     sr: {
