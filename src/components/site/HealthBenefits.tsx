@@ -60,7 +60,7 @@ const CHAPTERS: Chapter[] = [
       name: "Növényi fehérje",
       kicker: "Fehérje / 100g",
       title: "Növényi fehérje, teljes aminosav-profillal.",
-      body: "A lucerna, retek és brokkoli csírák komplett fehérjét adnak — mindegyik esszenciális aminosavval, könnyen felszívódó formában.",
+      body: "A lucerna, retek és brokkoli csírák tartalmaznak fehérjét, valamint mindegyik esszenciális aminosavval rendelkezik, könnyen felszívódó formában.",
       caption: "Átlagos fehérjetartalom friss csírában",
     },
     sr: {
