@@ -38,12 +38,14 @@ const CHAPTERS: Chapter[] = [
     metric: "100",
     unit: "%",
     hu: {
+      name: "Élő enzimek",
       kicker: "Élő enzimek",
       title: "Száz százalék aktív enzim — a főzés nem öli meg.",
       body: "Nyersen fogyasztva a csíra minden enzime dolgozik: emészti a fehérjéket, felszabadítja az ásványi anyagokat, tehermentesíti a testet.",
       caption: "Amiláz, proteáz, lipáz — hőkezelés nélkül",
     },
     sr: {
+      name: "Živi enzimi",
       kicker: "Živi enzimi",
       title: "Sto posto aktivnih enzima — kuvanje ih ne uništava.",
       body: "Kada se jedu sirove, sve enzime klica aktivno rade: razgrađuju proteine, oslobađaju minerale, rasterećuju telo.",
