@@ -172,6 +172,24 @@ export function HealthBenefits() {
       className="relative bg-[color:var(--sand)] text-[color:var(--moss)]"
       aria-label={lang === "sr" ? "Zdravstvene prednosti" : "Egészségügyi előnyök"}
     >
+      {/* smooth fade from cream → sand at the top */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-px z-30 h-32 sm:h-40"
+        style={{
+          background:
+            "linear-gradient(to bottom, var(--cream) 0%, color-mix(in oklab, var(--cream) 60%, var(--sand)) 55%, transparent 100%)",
+        }}
+      />
+      {/* smooth fade from sand → cream at the bottom */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -bottom-px z-30 h-32 sm:h-40"
+        style={{
+          background:
+            "linear-gradient(to top, var(--cream) 0%, color-mix(in oklab, var(--cream) 60%, var(--sand)) 55%, transparent 100%)",
+        }}
+      />
         <div
           ref={stageRef}
           className="relative flex min-h-[100svh] w-full items-center overflow-hidden py-20 md:py-0"
