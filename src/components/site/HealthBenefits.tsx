@@ -40,7 +40,7 @@ const CHAPTERS: Chapter[] = [
     hu: {
       name: "Élő enzimek",
       kicker: "Élő enzimek",
-      title: "Száz százalék aktív enzim — a főzés nem öli meg.",
+      title: "Aktív enzimek, egyenesen a konyhapultodról.",
       body: "Nyersen fogyasztva a csíra minden enzime dolgozik: emészti a fehérjéket, felszabadítja az ásványi anyagokat, tehermentesíti a testet.",
       caption: "Amiláz, proteáz, lipáz — hőkezelés nélkül",
     },
