@@ -19,12 +19,14 @@ const CHAPTERS: Chapter[] = [
     metric: "40",
     unit: "×",
     hu: {
+      name: "Vitaminsűrűség",
       kicker: "Vitaminsűrűség",
       title: "Negyvenszer több vitamin, mint a felnőtt zöldségben.",
       body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait. C-, E-, K-vitamin és B-komplex — mind koncentrált, élő formában.",
       caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
     },
     sr: {
+      name: "Gustina vitamina",
       kicker: "Gustina vitamina",
       title: "Četrdeset puta više vitamina nego u zrelom povrću.",
       body: "U trenutku klijanja semenka oslobađa svoje rezerve. Vitamini C, E, K i B-kompleks — u koncentrovanom, živom obliku.",
