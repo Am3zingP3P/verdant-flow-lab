@@ -210,7 +210,7 @@ export function HealthBenefits() {
             </span>
             <span aria-hidden className="h-3 w-px bg-[color:var(--moss)]/25" />
             <span className="text-[0.6rem] uppercase tracking-[0.28em] text-[color:var(--moss)]/75 sm:text-[0.68rem] sm:tracking-[0.32em]">
-              {lang === "sr" ? "Živi nutrijenti" : "Élő tápanyag"}
+              {copy.name}
             </span>
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[color:var(--sprout)] animate-[breathe_2.4s_ease-in-out_infinite]" />
           </div>
