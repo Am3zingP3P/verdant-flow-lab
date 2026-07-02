@@ -22,7 +22,7 @@ const CHAPTERS: Chapter[] = [
       name: "Vitaminsűrűség",
       kicker: "Vitaminsűrűség",
       title: "Negyvenszer több vitamin, mint a felnőtt zöldségben.",
-      body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait. C-, E-, K-vitamin és B-komplex — mind koncentrált, élő formában.",
+      body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait, ezáltal C-, E-, K-vitaminhoz juthatsz, valamint B-komplexhez. Mindezt természetes formában, tabletták nélkül.",
       caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
     },
     sr: {
@@ -40,7 +40,7 @@ const CHAPTERS: Chapter[] = [
     hu: {
       name: "Élő enzimek",
       kicker: "Élő enzimek",
-      title: "Száz százalék aktív enzim — a főzés nem öli meg.",
+      title: "Aktív enzimek, egyenesen a konyhapultodról.",
       body: "Nyersen fogyasztva a csíra minden enzime dolgozik: emészti a fehérjéket, felszabadítja az ásványi anyagokat, tehermentesíti a testet.",
       caption: "Amiláz, proteáz, lipáz — hőkezelés nélkül",
     },
@@ -60,7 +60,7 @@ const CHAPTERS: Chapter[] = [
       name: "Növényi fehérje",
       kicker: "Fehérje / 100g",
       title: "Növényi fehérje, teljes aminosav-profillal.",
-      body: "A lucerna, retek és brokkoli csírák komplett fehérjét adnak — mindegyik esszenciális aminosavval, könnyen felszívódó formában.",
+      body: "A lucerna, retek és brokkoli csírák tartalmaznak fehérjét, valamint mindegyik esszenciális aminosavval rendelkezik, könnyen felszívódó formában.",
       caption: "Átlagos fehérjetartalom friss csírában",
     },
     sr: {
@@ -74,12 +74,12 @@ const CHAPTERS: Chapter[] = [
   {
     index: "04",
     metric: "7",
-    unit: "d",
+    unit: "nap",
     hu: {
       name: "Magtól a tányérig",
       kicker: "Magtól a tányérig",
       title: "Hét nap. Nulla szállítás. Nulla veszteség.",
-      body: "A konyhapulton nőnek — nem a kamionban öregednek. Amit levágsz, azt eszed: friss oxigén, friss klorofill.",
+      body: "A konyhapulton nőnek, és nem a kamionban öregednek. Amit termelsz, azt eszed: a frissesség garantált.",
       caption: "Átlagos ciklus a konyhádban",
     },
     sr: {
@@ -378,7 +378,7 @@ export function HealthBenefits() {
                 key={`${active}-metric`}
                 className="animate-[fadeUp_0.8s_cubic-bezier(0.16,1,0.3,1)_both] text-center"
               >
-                <div className="flex items-baseline justify-center gap-1">
+                <div className="flex items-baseline justify-center gap-2">
                   <span className="font-serif text-[4.5rem] leading-none tracking-[-0.04em] text-[color:var(--moss)] sm:text-[7rem] md:text-[9rem] lg:text-[10rem]">
                     {chapter.metric}
                   </span>
