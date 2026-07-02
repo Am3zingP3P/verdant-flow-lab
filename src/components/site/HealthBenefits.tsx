@@ -187,20 +187,30 @@ export function HealthBenefits() {
           }}
         />
 
-        {/* chapter counter */}
-        <div className="absolute left-1/2 top-6 z-20 -translate-x-1/2 md:left-8 md:translate-x-0">
-          <div className="flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.3em] text-[color:var(--moss)]/70">
-            <span className="font-serif text-xl italic tracking-normal text-[color:var(--moss)]">
+        {/* chapter counter — centered pill above progress bar */}
+        <div className="absolute inset-x-0 bottom-6 z-20 flex justify-center px-4 sm:bottom-8">
+          <div
+            key={`chip-${active}`}
+            className="animate-[fadeUp_0.6s_cubic-bezier(0.16,1,0.3,1)_both] flex items-center gap-3 rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/70 px-4 py-2 backdrop-blur-md sm:gap-4 sm:px-6 sm:py-2.5"
+            style={{
+              boxShadow:
+                "0 1px 0 color-mix(in oklab, var(--cream) 90%, white) inset, 0 8px 30px -12px color-mix(in oklab, var(--moss) 40%, transparent)",
+            }}
+          >
+            <span className="font-serif text-lg italic leading-none text-[color:var(--moss)] sm:text-xl">
               {chapter.index}
             </span>
-            <span className="h-px w-10 bg-[color:var(--moss)]/30" />
-            <span>{lang === "sr" ? "Živi nutrijenti" : "Élő tápanyag"}</span>
+            <span aria-hidden className="h-3 w-px bg-[color:var(--moss)]/25" />
+            <span className="text-[0.6rem] uppercase tracking-[0.28em] text-[color:var(--moss)]/75 sm:text-[0.68rem] sm:tracking-[0.32em]">
+              {lang === "sr" ? "Živi nutrijenti" : "Élő tápanyag"}
+            </span>
+            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[color:var(--sprout)] animate-[breathe_2.4s_ease-in-out_infinite]" />
           </div>
         </div>
 
         {/* scroll progress bar */}
         <div
-          className="absolute inset-x-0 bottom-0 z-20 h-[2px] bg-[color:var(--cream)]"
+          className="absolute inset-x-0 bottom-0 z-10 h-[2px] bg-[color:var(--cream)]"
           role="progressbar"
           aria-label={lang === "sr" ? "Napredak" : "Haladás"}
           aria-valuemin={0}
