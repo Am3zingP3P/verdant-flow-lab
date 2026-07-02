@@ -9,8 +9,8 @@ type Chapter = {
   index: string;
   metric: string;
   unit: string;
-  hu: { kicker: string; title: string; body: string; caption: string };
-  sr: { kicker: string; title: string; body: string; caption: string };
+  hu: { name: string; kicker: string; title: string; body: string; caption: string };
+  sr: { name: string; kicker: string; title: string; body: string; caption: string };
 };
 
 const CHAPTERS: Chapter[] = [
