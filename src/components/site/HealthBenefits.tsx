@@ -378,7 +378,7 @@ export function HealthBenefits() {
                 key={`${active}-metric`}
                 className="animate-[fadeUp_0.8s_cubic-bezier(0.16,1,0.3,1)_both] text-center"
               >
-                <div className="flex items-baseline justify-center gap-1">
+                <div className="flex items-baseline justify-center gap-2">
                   <span className="font-serif text-[4.5rem] leading-none tracking-[-0.04em] text-[color:var(--moss)] sm:text-[7rem] md:text-[9rem] lg:text-[10rem]">
                     {chapter.metric}
                   </span>
