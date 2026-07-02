@@ -79,7 +79,7 @@ const CHAPTERS: Chapter[] = [
       name: "Magtól a tányérig",
       kicker: "Magtól a tányérig",
       title: "Hét nap. Nulla szállítás. Nulla veszteség.",
-      body: "A konyhapulton nőnek — nem a kamionban öregednek. Amit levágsz, azt eszed: friss oxigén, friss klorofill.",
+      body: "A konyhapulton nőnek, és nem a kamionban öregednek. Amit termelsz, azt eszed: a frissesség garantált.",
       caption: "Átlagos ciklus a konyhádban",
     },
     sr: {
