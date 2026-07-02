@@ -57,12 +57,14 @@ const CHAPTERS: Chapter[] = [
     metric: "3.5",
     unit: "g",
     hu: {
+      name: "Növényi fehérje",
       kicker: "Fehérje / 100g",
       title: "Növényi fehérje, teljes aminosav-profillal.",
       body: "A lucerna, retek és brokkoli csírák komplett fehérjét adnak — mindegyik esszenciális aminosavval, könnyen felszívódó formában.",
       caption: "Átlagos fehérjetartalom friss csírában",
     },
     sr: {
+      name: "Biljni protein",
       kicker: "Protein / 100g",
       title: "Biljni protein sa kompletnim aminokiselinama.",
       body: "Klice lucerke, rotkvice i brokolija daju kompletan protein — sve esencijalne aminokiseline, lako svarljive.",
