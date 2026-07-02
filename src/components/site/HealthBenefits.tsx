@@ -74,7 +74,7 @@ const CHAPTERS: Chapter[] = [
   {
     index: "04",
     metric: "7",
-    unit: "d",
+    unit: "nap",
     hu: {
       name: "Magtól a tányérig",
       kicker: "Magtól a tányérig",
