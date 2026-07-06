@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] overflow-hidden pt-28 sm:pt-32 md:pt-40"
+      className="relative overflow-hidden pt-24 sm:pt-32 md:pt-40 pb-16 md:pb-0 md:min-h-[100svh]"
     >
       {/* Ambient blobs */}
       <motion.div
@@ -99,7 +99,7 @@ export function Hero() {
         {/* SVG seed visual */}
         <motion.div
           style={{ x: tx2, y: ty2 }}
-          className="col-span-12 lg:col-span-4 relative mt-10 sm:mt-16 lg:mt-0 flex items-center justify-center lg:justify-end lg:pr-6 xl:pr-10"
+          className="col-span-12 lg:col-span-4 relative mt-6 sm:mt-12 lg:mt-0 flex items-center justify-center lg:justify-end lg:pr-6 xl:pr-10"
         >
           <motion.div style={{ scale: seedScale }} className="animate-breathe">
             <SeedVisual />
@@ -111,7 +111,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="mt-14 sm:mt-16 lg:mt-0 lg:absolute lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 flex flex-col items-center gap-3 text-eyebrow text-[color:var(--moss)]/60 text-center"
+        className="mt-10 sm:mt-14 lg:mt-0 lg:absolute lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 flex flex-col items-center gap-3 text-eyebrow text-[color:var(--moss)]/60 text-center"
       >
         {t("hero.scroll")}
         <span className="relative block h-10 w-px overflow-hidden bg-[color:var(--moss)]/15">
@@ -129,7 +129,12 @@ export function Hero() {
 
 function SeedVisual() {
   return (
-    <svg viewBox="0 0 320 360" className="h-[300px] w-[300px] md:h-[380px] md:w-[380px]" aria-hidden>
+    <svg
+      viewBox="0 0 320 360"
+      preserveAspectRatio="xMidYMid meet"
+      className="h-auto w-[min(78vw,240px)] sm:w-[300px] md:w-[340px] lg:w-[380px] max-w-full"
+      aria-hidden
+    >
       <defs>
         <radialGradient id="seedGrad" cx="50%" cy="45%" r="50%">
           <stop offset="0%" stopColor="#A8D4B2" />
