@@ -8,14 +8,14 @@ type Dict = { [k: string]: DictNode };
 const dictionaries: Record<Lang, Dict> = {
   hu: {
     nav: { story: "Miért?", explorer: "Növekedés", seeds: "Galéria", contact: "Kapcsolat" },
-    cta: { shop: "Vásárlás", explore: "Fedezd fel", learn: "Történetünk" },
+    cta: { shop: "Vásárlás", explore: "Fedezd fel előnyeit", learn: "Történetünk" },
     hero: {
       eyebrow: "Bio mag · Magyarország × Szerbia",
       titleA: "Superfood,",
       titleB: "kompromisszumok",
       titleC: "nélkül.",
       lede: "Élő csírák és microgreenek, a konyhapultodon. Egyetlen magból — egy egész ökoszisztéma.",
-      scroll: "Görgess a növekedéshez",
+      scroll: "Görgess tovább",
     },
     marquee: "Fenntartható · Otthoni farm · 100% bio · Természetes",
     values: {
@@ -23,7 +23,7 @@ const dictionaries: Record<Lang, Dict> = {
       title: "A csíramagok előnyei",
       one: { title: "Természetes vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
-      three: { title: "Tiszta eredet", body: "GMO-mentes, ellenőrzött, bio tanúsított." },
+      three: { title: "Tiszta eredet", body: "Ellenőrzött, valamint bio tanúsított." },
     },
     explorer: {
       eyebrow: "Interaktív növekedés",
