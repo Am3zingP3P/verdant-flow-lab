@@ -14,7 +14,7 @@ const dictionaries: Record<Lang, Dict> = {
       titleA: "Superfood,",
       titleB: "kompromisszumok",
       titleC: "nélkül.",
-      lede: "Élő csírák és microgreenek, a konyhapultodon. Egyetlen magból — egy egész ökoszisztéma.",
+      lede: "Élő csírák, egyenesen a konyhapultodról. Kis magvakból: egy egész ökoszisztéma, általad termelve.",
       scroll: "Görgess tovább",
     },
     marquee: "Fenntartható · Otthoni farm · 100% bio · Természetes",
