@@ -50,6 +50,8 @@ const dictionaries: Record<Lang, Dict> = {
       customize: "Beállítások",
       save: "Mentés",
       settings: "Süti beállítások",
+      thanks: "Köszi!",
+      thanksBody: "A döntésed mentve van.",
       cat: {
         necessary: { name: "Szükséges", desc: "Az oldal alapműködéséhez. Mindig aktív." },
         preferences: { name: "Preferenciák", desc: "Nyelv és megjelenés megjegyzése." },
@@ -102,6 +104,8 @@ const dictionaries: Record<Lang, Dict> = {
       customize: "Podešavanja",
       save: "Sačuvaj",
       settings: "Podešavanja kolačića",
+      thanks: "Hvala!",
+      thanksBody: "Tvoj izbor je sačuvan.",
       cat: {
         necessary: { name: "Neophodni", desc: "Za osnovno funkcionisanje sajta. Uvek aktivni." },
         preferences: { name: "Preferencije", desc: "Pamćenje jezika i izgleda." },
