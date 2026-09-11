@@ -20,12 +20,14 @@ export function CookieConsent() {
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState(false);
   const [showThanks, setShowThanks] = useState(false);
+  const [decided, setDecided] = useState(false);
   const [prefs, setPrefs] = useState<Optional>({ ...NONE });
 
   useEffect(() => {
     initConsentMode();
     const stored = readConsent();
     if (stored) {
+      setDecided(true);
       setPrefs({
         analytics: stored.analytics,
         marketing: stored.marketing,
@@ -62,8 +64,22 @@ export function CookieConsent() {
       setShowThanks(false);
       setOpen(false);
       setDetails(false);
+      setDecided(true);
     }, 2200);
     return () => window.clearTimeout(id);
+  };
+
+  const reopenPanel = () => {
+    const stored = readConsent();
+    if (stored) {
+      setPrefs({
+        analytics: stored.analytics,
+        marketing: stored.marketing,
+        preferences: stored.preferences,
+      });
+    }
+    setDetails(true);
+    setOpen(true);
   };
 
   const categories = [
@@ -74,6 +90,40 @@ export function CookieConsent() {
   ] as const;
 
   return (
+    <>
+    <AnimatePresence>
+      {decided && !open && (
+        <motion.button
+          key="cookie-badge"
+          type="button"
+          onClick={reopenPanel}
+          aria-label={t("cookies.settings")}
+          title={t("cookies.settings")}
+          className="group fixed bottom-[max(0.9rem,env(safe-area-inset-bottom))] left-3 z-[115] flex items-center gap-0 overflow-hidden rounded-full border border-[color:var(--moss)]/12 bg-[color:var(--cream)]/85 py-2 pl-2 pr-2 text-[color:var(--moss)] opacity-55 backdrop-blur-md transition-[opacity,transform,box-shadow] duration-500 hover:-translate-y-0.5 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--sprout)]/50 sm:left-5 sm:bottom-5 md:left-6 md:bottom-6"
+          style={{
+            transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)",
+            boxShadow: "0 10px 30px -14px color-mix(in oklab, var(--moss) 40%, transparent)",
+          }}
+          initial={{ opacity: 0, scale: 1.35, filter: "blur(10px)", y: -6 }}
+          animate={{ opacity: 0.55, scale: 1, filter: "blur(0px)", y: 0 }}
+          exit={{ opacity: 0, scale: 0.8, filter: "blur(8px)" }}
+          transition={{ duration: 0.75, ease: EASE }}
+        >
+          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-[color:var(--sprout)]/12">
+            <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" aria-hidden>
+              <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="9.5" cy="9.5" r="1.15" fill="currentColor" />
+              <circle cx="14.6" cy="12.4" r="1" fill="currentColor" />
+              <circle cx="10.2" cy="15" r="0.9" fill="currentColor" />
+            </svg>
+          </span>
+          <span className="max-w-0 whitespace-nowrap text-[0.72rem] font-semibold uppercase tracking-[0.16em] opacity-0 transition-all duration-500 group-hover:max-w-[14rem] group-hover:pl-2 group-hover:pr-1.5 group-hover:opacity-100 group-focus-visible:max-w-[14rem] group-focus-visible:pl-2 group-focus-visible:pr-1.5 group-focus-visible:opacity-100">
+            {t("cookies.settings")}
+          </span>
+        </motion.button>
+      )}
+    </AnimatePresence>
+
     <AnimatePresence>
       {open && (
         <motion.div
@@ -226,6 +276,7 @@ export function CookieConsent() {
         </motion.div>
       )}
     </AnimatePresence>
+    </>
   );
 }
 
