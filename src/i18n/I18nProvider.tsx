@@ -41,6 +41,22 @@ const dictionaries: Record<Lang, Dict> = {
       tag: "Valódi frissesség, általad termelve.",
       rights: "Minden jog fenntartva",
     },
+    cookies: {
+      eyebrow: "Adatvédelem",
+      title: "Sütik — a te döntésed.",
+      body: "Csak a működéshez szükséges sütiket használjuk alapból. A többihez a te hozzájárulásod kell — bármikor módosíthatod.",
+      acceptAll: "Mindet elfogadom",
+      rejectAll: "Csak a szükséges",
+      customize: "Beállítások",
+      save: "Mentés",
+      settings: "Süti beállítások",
+      cat: {
+        necessary: { name: "Szükséges", desc: "Az oldal alapműködéséhez. Mindig aktív." },
+        preferences: { name: "Preferenciák", desc: "Nyelv és megjelenés megjegyzése." },
+        analytics: { name: "Analitika", desc: "Névtelen látogatottsági statisztika." },
+        marketing: { name: "Marketing", desc: "Személyre szabott hirdetések mérése." },
+      },
+    },
   },
   sr: {
     nav: { story: "Zašto?", explorer: "Rast", seeds: "Galerija", contact: "Kontakt" },
