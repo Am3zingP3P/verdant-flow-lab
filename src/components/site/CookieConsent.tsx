@@ -19,6 +19,7 @@ export function CookieConsent() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState(false);
+  const [showThanks, setShowThanks] = useState(false);
   const [prefs, setPrefs] = useState<Optional>({ ...NONE });
 
   useEffect(() => {
