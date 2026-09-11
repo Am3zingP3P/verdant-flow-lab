@@ -93,6 +93,22 @@ const dictionaries: Record<Lang, Dict> = {
       tag: "Živa energija. Iz semenke. Za semenku.",
       rights: "Sva prava zadržana",
     },
+    cookies: {
+      eyebrow: "Privatnost",
+      title: "Kolačići — tvoj izbor.",
+      body: "Podrazumevano koristimo samo neophodne kolačiće. Za sve ostalo nam treba tvoja saglasnost — možeš je promeniti bilo kada.",
+      acceptAll: "Prihvati sve",
+      rejectAll: "Samo neophodni",
+      customize: "Podešavanja",
+      save: "Sačuvaj",
+      settings: "Podešavanja kolačića",
+      cat: {
+        necessary: { name: "Neophodni", desc: "Za osnovno funkcionisanje sajta. Uvek aktivni." },
+        preferences: { name: "Preferencije", desc: "Pamćenje jezika i izgleda." },
+        analytics: { name: "Analitika", desc: "Anonimna statistika poseta." },
+        marketing: { name: "Marketing", desc: "Merenje personalizovanih oglasa." },
+      },
+    },
   },
 };
 
