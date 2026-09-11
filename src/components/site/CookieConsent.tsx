@@ -64,8 +64,22 @@ export function CookieConsent() {
       setShowThanks(false);
       setOpen(false);
       setDetails(false);
+      setDecided(true);
     }, 2200);
     return () => window.clearTimeout(id);
+  };
+
+  const reopenPanel = () => {
+    const stored = readConsent();
+    if (stored) {
+      setPrefs({
+        analytics: stored.analytics,
+        marketing: stored.marketing,
+        preferences: stored.preferences,
+      });
+    }
+    setDetails(true);
+    setOpen(true);
   };
 
   const categories = [
