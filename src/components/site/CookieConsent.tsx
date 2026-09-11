@@ -276,6 +276,7 @@ export function CookieConsent() {
         </motion.div>
       )}
     </AnimatePresence>
+    </>
   );
 }
 
