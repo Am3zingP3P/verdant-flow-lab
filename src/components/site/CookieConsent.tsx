@@ -57,8 +57,13 @@ export function CookieConsent() {
   const commit = (value: Optional) => {
     saveConsent(value);
     setPrefs(value);
-    setOpen(false);
-    setDetails(false);
+    setShowThanks(true);
+    const id = window.setTimeout(() => {
+      setShowThanks(false);
+      setOpen(false);
+      setDetails(false);
+    }, 2200);
+    return () => window.clearTimeout(id);
   };
 
   const categories = [
