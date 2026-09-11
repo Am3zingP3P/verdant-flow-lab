@@ -88,7 +88,7 @@ export function CookieConsent() {
           aria-label={t("cookies.title")}
         >
           <div
-            className="relative w-full max-w-[min(100%,34rem)] overflow-hidden rounded-[1.6rem] border border-[color:var(--moss)]/10 bg-[color:var(--cream)] p-5 shadow-2xl backdrop-blur-md sm:rounded-[2rem] sm:p-6 md:p-7"
+            className="relative w-full max-w-[min(100%,34rem)] overflow-hidden rounded-[1.6rem] border border-[color:var(--moss)]/10 bg-[color:var(--cream)] p-5 backdrop-blur-md sm:rounded-[2rem] sm:p-6 md:p-7"
             style={{
               boxShadow:
                 "0 28px 80px -24px color-mix(in oklab, var(--moss) 28%, transparent), inset 0 1px 0 color-mix(in oklab, #fff 60%, transparent)",
