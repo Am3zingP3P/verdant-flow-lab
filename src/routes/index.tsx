@@ -12,6 +12,7 @@ import { Gallery } from "@/components/site/Gallery";
 import { Footer } from "@/components/site/Footer";
 import { PaletteShowcase } from "@/components/site/PaletteShowcase";
 import { CustomCursor } from "@/components/site/CustomCursor";
+import { CookieConsent } from "@/components/site/CookieConsent";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -42,6 +43,7 @@ function Index() {
         </main>
         <Footer />
         <PaletteShowcase />
+        <CookieConsent />
       </div>
     </I18nProvider>
   );
