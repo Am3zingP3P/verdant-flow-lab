@@ -20,12 +20,14 @@ export function CookieConsent() {
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState(false);
   const [showThanks, setShowThanks] = useState(false);
+  const [decided, setDecided] = useState(false);
   const [prefs, setPrefs] = useState<Optional>({ ...NONE });
 
   useEffect(() => {
     initConsentMode();
     const stored = readConsent();
     if (stored) {
+      setDecided(true);
       setPrefs({
         analytics: stored.analytics,
         marketing: stored.marketing,
