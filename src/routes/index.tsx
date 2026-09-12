@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { I18nProvider } from "@/i18n/I18nProvider";
 import { useLenis } from "@/hooks/useLenis";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
@@ -29,22 +28,20 @@ export const Route = createFileRoute("/")({
 function Index() {
   useLenis();
   return (
-    <I18nProvider>
-      <div className="grain relative min-h-screen overflow-x-clip bg-[color:var(--cream)] text-[color:var(--obsidian)]">
-        <CustomCursor />
-        <Navbar />
-        <main>
-          <Hero />
-          <Marquee />
-          <Values />
-          <HealthBenefits />
-          <GrowthExplorer />
-          <Gallery />
-        </main>
-        <Footer />
-        <PaletteShowcase />
-        <CookieConsent />
-      </div>
-    </I18nProvider>
+    <div className="grain relative min-h-screen overflow-x-clip bg-[color:var(--cream)] text-[color:var(--obsidian)]">
+      <CustomCursor />
+      <Navbar />
+      <main>
+        <Hero />
+        <Marquee />
+        <Values />
+        <HealthBenefits />
+        <GrowthExplorer />
+        <Gallery />
+      </main>
+      <Footer />
+      <PaletteShowcase />
+      <CookieConsent />
+    </div>
   );
 }
