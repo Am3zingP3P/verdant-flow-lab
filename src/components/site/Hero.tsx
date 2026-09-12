@@ -65,7 +65,7 @@ export function Hero() {
                   ) : i === 1 ? (
                     <em className="italic font-light text-[color:var(--moss)]/80 text-[0.72em] sm:text-[0.82em]">{line}</em>
                   ) : (
-                    <span className="font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)]">{line}</span>
+                    <span className="font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)] max-sm:text-[clamp(1.9rem,7.2vw,3.2rem)]">{line}</span>
                   )}
                 </motion.span>
               </span>
