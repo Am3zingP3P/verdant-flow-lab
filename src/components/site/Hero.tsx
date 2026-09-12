@@ -61,11 +61,11 @@ export function Hero() {
                   className="block"
                 >
                   {i === 0 ? (
-                    <em className="italic font-light text-[color:var(--sprout)]">{line}</em>
+                    <em className="italic font-light text-[color:var(--sprout)] -ml-[0.04em]">{line}</em>
                   ) : i === 1 ? (
                     <em className="italic font-light text-[color:var(--moss)]/80 text-[0.72em] sm:text-[0.82em]">{line}</em>
                   ) : (
-                    <span className="font-normal text-[1.06em] text-[color:var(--sprout)]">{line}</span>
+                    <span className="font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)]">{line}</span>
                   )}
                 </motion.span>
               </span>
