@@ -1,4 +1,5 @@
 import { useI18n } from "@/i18n/I18nProvider";
+import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import viberIcon from "@/assets/viber-icon.png.asset.json";
 import { openConsentSettings } from "@/lib/consent";
@@ -135,14 +136,22 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-[color:var(--moss)]/10 px-6 py-5 text-[10px] uppercase tracking-[0.25em] text-[color:var(--moss)]/50 sm:flex-row sm:px-10">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-[color:var(--moss)]/10 px-6 py-5 text-[10px] uppercase tracking-[0.25em] text-[color:var(--moss)]/50 sm:flex-row sm:px-10">
           <span>© {year} Natursense — {t("footer.rights")}</span>
-          <button
-            onClick={openConsentSettings}
-            className="uppercase tracking-[0.25em] transition-colors hover:text-[color:var(--sprout)]"
-          >
-            {t("cookies.settings")}
-          </button>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 sm:justify-end">
+            <Link
+              to="/jogi-informaciok"
+              className="normal-case tracking-[0.08em] transition-colors hover:text-[color:var(--sprout)]"
+            >
+              Impresszum &amp; Jogi információk
+            </Link>
+            <button
+              onClick={openConsentSettings}
+              className="uppercase tracking-[0.25em] transition-colors hover:text-[color:var(--sprout)]"
+            >
+              {t("cookies.settings")}
+            </button>
+          </div>
         </div>
       </motion.div>
     </footer>
