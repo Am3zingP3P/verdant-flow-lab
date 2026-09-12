@@ -14,7 +14,7 @@ const dictionaries: Record<Lang, Dict> = {
       titleA: "Saját magad",
       titleB: "termeled,",
       titleC: "öt nap múlva eheted.",
-      lede: "Élő csírák, egyenesen a konyhapultodról. Kis magvakból: egy egész ökoszisztéma, általad termelve.",
+      lede: "Élő csírák, egyenesen a konyhapultodról. Kis magvakból, mindez általad termelve.",
       scroll: "Görgess tovább",
     },
     marquee: "Fenntartható · Otthoni farm · 100% bio · Természetes",
