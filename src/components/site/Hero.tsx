@@ -88,7 +88,7 @@ export function Hero() {
             className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-5"
           >
             <a
-              href="#explorer"
+              href="#benefits"
               className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[color:var(--moss)] px-6 sm:px-8 py-3.5 sm:py-4 text-[0.72rem] sm:text-[0.78rem] font-medium tracking-[0.18em] text-[color:var(--cream)] uppercase shadow-[0_10px_30px_-12px_rgba(28,53,45,0.45)] transition-all duration-500 hover:shadow-[0_18px_40px_-12px_rgba(110,159,123,0.55)] hover:-translate-y-0.5"
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-[color:var(--sprout)] to-[color:var(--moss)] transition-transform duration-500 group-hover:translate-x-0" />
