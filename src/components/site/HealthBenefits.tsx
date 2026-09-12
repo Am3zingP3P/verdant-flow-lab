@@ -73,19 +73,19 @@ const CHAPTERS: Chapter[] = [
   },
   {
     index: "04",
-    metric: "7",
+    metric: "5",
     unit: "nap",
     hu: {
       name: "Magtól a tányérig",
       kicker: "Magtól a tányérig",
-      title: "Hét nap. Nulla szállítás. Nulla veszteség.",
+      title: "Öt nap. Nulla szállítás. Nulla veszteség.",
       body: "A konyhapulton nőnek, és nem a kamionban öregednek. Amit termelsz, azt eszed: a frissesség garantált.",
       caption: "Átlagos ciklus a konyhádban",
     },
     sr: {
       name: "Od semenke do tanjira",
       kicker: "Od semenke do tanjira",
-      title: "Sedam dana. Nula transporta. Nula gubitka.",
+      title: "Pet dana. Nula transporta. Nula gubitka.",
       body: "Rastu na tvom pultu — ne stare u kamionu. Ono što isečeš, to jedeš: svež kiseonik, svež hlorofil.",
       caption: "Prosečan ciklus u tvojoj kuhinji",
     },
