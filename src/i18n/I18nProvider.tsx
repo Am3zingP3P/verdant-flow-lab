@@ -137,9 +137,9 @@ const dictionaries: Record<Lang, Dict> = {
     cta: { shop: "Kupi", explore: "Istraži", learn: "Naša priča" },
     hero: {
       eyebrow: "Bio seme · Srbija × Mađarska",
-      titleA: "Samo posadi,",
-      titleB: "za pet dana",
-      titleC: "jedeš.",
+      titleA: "Sam uzgajaš.",
+      titleB: "Za 5 dana",
+      titleC: "bereš.",
       lede: "Žive klice i mikrogriniji, na tvojoj kuhinjskoj radnoj površini. Iz malih semenki, sve to ti uzgajaš.",
       scroll: "Skroluj ka rastu",
     },
