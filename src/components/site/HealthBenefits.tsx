@@ -104,14 +104,28 @@ export function HealthBenefits() {
 
   useLayoutEffect(() => {
     if (!sectionRef.current || !stageRef.current) return;
+
+    const reduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      setActive(0);
+      setRingProgress(1);
+      if (progressRef.current) progressRef.current.style.transform = "scaleX(1)";
+      return;
+    }
+
+    const scrollLength = () => (window.innerWidth < 768 ? "+=140%" : "+=200%");
+
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: sectionRef.current!,
         start: "top top",
-        end: "+=340%",
-        scrub: 0.8,
+        end: scrollLength,
+        scrub: 0.25,
         pin: stageRef.current!,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
         onUpdate: (self) => {
           if (progressRef.current) {
             progressRef.current.style.transform = `scaleX(${self.progress})`;
@@ -128,20 +142,33 @@ export function HealthBenefits() {
       // Ambient orb parallax with scroll
       if (orbRef.current) {
         gsap.to(orbRef.current, {
-          yPercent: -30,
+          yPercent: -14,
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current!,
             start: "top top",
-            end: "+=340%",
-            scrub: true,
+            end: scrollLength,
+            scrub: 0.25,
+            invalidateOnRefresh: true,
           },
         });
       }
     }, sectionRef);
 
-    return () => ctx.revert();
+    let resizeTimer = 0;
+    const onResize = () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => ScrollTrigger.refresh(), 200);
+    };
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.clearTimeout(resizeTimer);
+      window.removeEventListener("resize", onResize);
+      ctx.revert();
+    };
   }, []);
+
 
   // breathing ring
   useEffect(() => {
