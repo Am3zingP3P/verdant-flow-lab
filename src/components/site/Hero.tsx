@@ -47,7 +47,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-[1480px] grid-cols-12 gap-6 px-5 sm:px-6 md:px-10">
         <div className="col-span-12 lg:col-span-8">
-          <h1 className="text-display text-[color:var(--moss)] text-wrap-normal max-w-none">
+          <h1 className="text-display text-[color:var(--moss)] text-wrap-normal max-w-none max-sm:text-[clamp(3.25rem,10vw,4rem)] max-sm:leading-[0.88]">
             {lines.map((line, i) => (
               <span key={i} className="block overflow-hidden pb-[0.18em] text-left">
                 <motion.span
@@ -65,7 +65,7 @@ export function Hero() {
                   ) : i === 1 ? (
                     <em className="italic font-light text-[color:var(--moss)]/80 text-[0.72em] sm:text-[0.82em]">{line}</em>
                   ) : (
-                    <span className="font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)]">{line}</span>
+                    <span className="font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)] max-sm:text-[clamp(1.9rem,7.2vw,3.2rem)]">{line}</span>
                   )}
                 </motion.span>
               </span>
