@@ -61,7 +61,7 @@ export function Navbar() {
   );
 }
 
-function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
+export function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
   return (
     <div className="relative flex items-center rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/60 p-1 backdrop-blur">
       {langs.map((l) => (
@@ -86,14 +86,16 @@ function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => voi
   );
 }
 
-function ThemeToggle() {
+export function ThemeToggle() {
+  const { t } = useI18n();
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
+  const label = isDark ? t("theme.light") : t("theme.dark");
   return (
     <button
       onClick={toggle}
-      aria-label={isDark ? "Világos mód" : "Sötét mód"}
-      title={isDark ? "Világos mód" : "Sötét mód"}
+      aria-label={label}
+      title={label}
       className="relative grid h-9 w-9 place-items-center rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/60 text-[color:var(--moss)] backdrop-blur transition-colors hover:bg-[color:var(--moss)]/10"
     >
       <motion.span
