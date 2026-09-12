@@ -143,7 +143,7 @@ export function Footer() {
               to="/jogi-informaciok"
               className="normal-case tracking-[0.08em] transition-colors hover:text-[color:var(--sprout)]"
             >
-              Impresszum &amp; Jogi információk
+              {t("legal.footerLink")}
             </Link>
             <button
               onClick={openConsentSettings}
