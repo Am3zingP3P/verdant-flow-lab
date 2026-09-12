@@ -7,7 +7,7 @@ type Dict = { [k: string]: DictNode };
 
 const dictionaries: Record<Lang, Dict> = {
   hu: {
-    nav: { story: "Miért?", explorer: "Növekedés", seeds: "Galéria", contact: "Kapcsolat" },
+    nav: { story: "Miért?", explorer: "Interaktív", seeds: "Galéria", contact: "Kapcsolat" },
     cta: { shop: "Vásárlás", explore: "Fedezd fel előnyeit", learn: "Történetünk" },
     hero: {
       eyebrow: "Bio mag · Magyarország × Szerbia",
@@ -133,7 +133,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
   },
   sr: {
-    nav: { story: "Zašto?", explorer: "Rast", seeds: "Galerija", contact: "Kontakt" },
+    nav: { story: "Zašto?", explorer: "Interaktivno", seeds: "Galerija", contact: "Kontakt" },
     cta: { shop: "Kupi", explore: "Istraži", learn: "Naša priča" },
     hero: {
       eyebrow: "Bio seme · Srbija × Mađarska",
