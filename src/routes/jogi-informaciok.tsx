@@ -31,11 +31,10 @@ const details = [
 ] as const;
 
 const controllerDetails = [
-  ["Adatkezelő / felelős szervezet", "[NATURSENSE LEGAL NAME]"],
-  ["Kapcsolattartási e-mail", "[NATURSENSE EMAIL]"],
+  ["Adatkezelő / felelős szervezet", "Bacsó Tünde"],
+  ["Kapcsolattartási e-mail", "natursense2026@gmail.com"],
   ["Adatkezelés célja", "Kapcsolatfelvétel és megkeresések megválaszolása."],
   ["Az érintett által megadott adatok", "Név, e-mail-cím, üzenet és az önkéntesen megadott további információk."],
-  ["Adatmegőrzési idő", "[RETENTION PERIOD — TO BE DETERMINED]"],
 ] as const;
 
 function LegalInformationPage() {
@@ -113,7 +112,7 @@ function LegalInformationPage() {
                 A kapcsolatfelvételi űrlapon keresztül megadott adatokat a Natursense kezeli, és azokat bizalmasan kezeli. Az adatokat nem használjuk fel a megkereséstől eltérő célra, és nem adjuk tovább harmadik félnek, kivéve, ha erre jogszabály kötelez bennünket, vagy az adott szolgáltatás teljesítéséhez ez szükséges.
               </p>
               <p className="font-bold text-[color:var(--moss)]">
-                Kérjük, a kapcsolatfelvételi űrlapon csak a megkereséshez szükséges információkat add meg, és lehetőség szerint ne küldj érzékeny vagy különleges személyes adatokat.
+                Kérjük, a kapcsolatfelvételi űrlapon csak a megkereséshez szükséges információkat add meg, és ne küldj érzékeny vagy különleges személyes adatokat.
               </p>
               <DetailList items={controllerDetails} />
             </LegalSection>
