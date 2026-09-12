@@ -94,7 +94,7 @@ function LegalInformationPage() {
 
             <LegalSection number="05" title="Külső oldalak">
               <p>
-                A weboldal külső webhelyekre, platformokra vagy közösségi oldalakra mutató hivatkozásokat tartalmazhat. Ezek jellemzően a Natursense közösségi oldalai — például Instagram vagy TikTok —, de előfordulhat Google Forms vagy más külső szolgáltatás is.
+                A weboldal külső webhelyekre, platformokra vagy közösségi oldalakra mutató hivatkozásokat tartalmazhat. Ezek jellemzően a Natursense közösségi oldalai (például Instagram vagy TikTok), de előfordulhat Google Forms vagy más külső szolgáltatás is.
               </p>
               <p>
                 A Natursense nem ellenőrzi harmadik felek oldalainak tartalmát, elérhetőségét vagy adatvédelmi gyakorlatát. Ezekre az oldalakra saját feltételeik és adatvédelmi tájékoztatóik vonatkoznak; meglátogatásuk a felhasználó saját döntése alapján történik.
@@ -109,7 +109,7 @@ function LegalInformationPage() {
                 A kapcsolatfelvételi űrlapon megadott személyes adatokat kizárólag a megkeresés kezelése, a válaszadás és az ehhez kapcsolódó kommunikáció céljából kezeljük.
               </p>
               <p>
-                A kapcsolatfelvételi űrlapon keresztül megadott adatokat a Natursense kezeli, és azokat bizalmasan kezeli. Az adatokat nem használjuk fel a megkereséstől eltérő célra, és nem adjuk tovább harmadik félnek, kivéve, ha erre jogszabály kötelez bennünket, vagy az adott szolgáltatás teljesítéséhez ez szükséges.
+                A kapcsolatfelvételi űrlapon keresztül megadott adatokat a Natursense kezeli, bizalmasan. Az adatokat nem használjuk fel a megkereséstől eltérő célra, és nem adjuk tovább harmadik félnek.
               </p>
               <p className="font-bold text-[color:var(--moss)]">
                 Kérjük, a kapcsolatfelvételi űrlapon csak a megkereséshez szükséges információkat add meg, és ne küldj érzékeny vagy különleges személyes adatokat.
@@ -119,25 +119,25 @@ function LegalInformationPage() {
 
             <LegalSection number="07" title="Sütik és technikai adatok">
               <p>
-                A weboldal nem kíván automatikusan Google Analytics, Meta Pixel vagy más hirdetési követőt használni, és nem célja a látogatók profilozása vagy szükségtelen marketingadatok gyűjtése. Az opcionális sütik használatáról a látogató a weboldalon elérhető sütibeállításokban dönthet.
+                A weboldal nem használ Google Analytics, Meta Pixel vagy más hirdetési követét, és nem célja a látogatók profilozása vagy szükségtelen marketingadatok gyűjtése. Az opcionális sütik használatáról a látogató a weboldalon elérhető sütibeállításokban dönthet.
               </p>
               <p>
                 A tárhelyszolgáltató a weboldal biztonságos és megbízható működtetéséhez technikailag szükséges naplóadatokat kezelhet. Ennek részleteire a tárhelyszolgáltató mindenkori adatvédelmi feltételei vonatkoznak.
               </p>
               <p className="font-medium text-[color:var(--moss)]">
-                A Natursense célja, hogy a weboldal használata során csak a szükséges információkat kezelje. A kapcsolatfelvételi űrlapon kívül nem kérünk a látogatóktól személyes adatokat.
+                A Natursense célja, hogy a weboldal használata során csak a szükséges információkat kezelje. A kapcsolatfelvételi űrlapon csak az ügyfél eléréséhez szükséges adatokat kérjük.
               </p>
             </LegalSection>
 
             <LegalSection number="08" title="Felelősségkizárás">
               <p>
-                A weboldal tartalma tájékoztató jellegű. Az egészséggel, táplálkozással, életmóddal vagy más hasonló témákkal kapcsolatos általános információ nem helyettesíti az egyéni helyzetre szabott szakmai tanácsadást, amennyiben arra szükség lehet.
+                A weboldal tartalma tájékoztató jellegű. Az egészséggel, táplálkozással, életmóddal vagy más hasonló témákkal kapcsolatos általános információ nem helyettesíti az egyén szakmai tanácsadást.
               </p>
             </LegalSection>
 
             <LegalSection number="09" title="A tájékoztató módosítása">
               <p>
-                A Natursense fenntartja a jogot arra, hogy ezt a jogi és adatvédelmi tájékoztatót szükség esetén frissítse vagy módosítsa. Az aktuális változat mindig ezen az oldalon érhető el.
+                A Natursense fenntartja a jogot arra, hogy ezt a jogi és adatvédelmi tájékoztatót szükség esetén frissítse vagy módosítsa. Az aktuális változat mindig itt érhető el.
               </p>
               <p className="mt-6 text-sm font-medium text-[color:var(--sprout)]">Utolsó frissítés: 2026.09.12</p>
             </LegalSection>
