@@ -112,12 +112,9 @@ function LegalInformationPage() {
               <p>
                 A kapcsolatfelvételi űrlapon keresztül megadott adatokat a Natursense kezeli, és azokat bizalmasan kezeli. Az adatokat nem használjuk fel a megkereséstől eltérő célra, és nem adjuk tovább harmadik félnek, kivéve, ha erre jogszabály kötelez bennünket, vagy az adott szolgáltatás teljesítéséhez ez szükséges.
               </p>
-              <div className="rounded-2xl border border-[color:var(--sprout)]/20 bg-[color:var(--cream)]/65 p-5 sm:p-6">
-                <p className="font-display text-lg text-[color:var(--moss)]">Egy apró, fontos kérés</p>
-                <p className="mt-2">
-                  Kérjük, a kapcsolatfelvételi űrlapon csak a megkereséshez szükséges információkat add meg, és lehetőség szerint ne küldj érzékeny vagy különleges személyes adatokat.
-                </p>
-              </div>
+              <p className="font-bold text-[color:var(--moss)]">
+                Kérjük, a kapcsolatfelvételi űrlapon csak a megkereséshez szükséges információkat add meg, és lehetőség szerint ne küldj érzékeny vagy különleges személyes adatokat.
+              </p>
               <DetailList items={controllerDetails} />
             </LegalSection>
 
@@ -143,7 +140,7 @@ function LegalInformationPage() {
               <p>
                 A Natursense fenntartja a jogot arra, hogy ezt a jogi és adatvédelmi tájékoztatót szükség esetén frissítse vagy módosítsa. Az aktuális változat mindig ezen az oldalon érhető el.
               </p>
-              <p className="mt-6 text-sm font-medium text-[color:var(--sprout)]">Utolsó frissítés: [DATE]</p>
+              <p className="mt-6 text-sm font-medium text-[color:var(--sprout)]">Utolsó frissítés: 2026.09.12</p>
             </LegalSection>
           </div>
         </div>
