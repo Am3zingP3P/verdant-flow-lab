@@ -140,7 +140,7 @@ const dictionaries: Record<Lang, Dict> = {
       titleA: "Samo posadi,",
       titleB: "za pet dana",
       titleC: "jedeš.",
-      lede: "Žive klice i mikrogriniji, na tvojoj kuhinjskoj radnoj površini. Iz jedne semenke — vitalnost čitavog ekosistema.",
+      lede: "Žive klice i mikrogriniji, na tvojoj kuhinjskoj radnoj površini. Iz malih semenki, sve to ti uzgajaš.",
       scroll: "Skroluj ka rastu",
     },
     marquee: "Održivo · Kućna farma · 100% bio · Prirodna",
