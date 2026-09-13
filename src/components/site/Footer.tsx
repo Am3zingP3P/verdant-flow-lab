@@ -58,11 +58,11 @@ export function Footer() {
               </h3>
               <div className="mt-8 flex items-center gap-4">
                 <span className="h-px w-12 bg-[color:var(--sprout)]" />
-                <span className="text-eyebrow italic text-[color:var(--sprout)]">Írj nekünk</span>
+                <span className="text-eyebrow italic text-[color:var(--sprout)]">{t("footer.writeUs")}</span>
               </div>
             </div>
             <div>
-              <p className="text-eyebrow mb-3 text-[color:var(--moss)]/60">Email</p>
+              <p className="text-eyebrow mb-3 text-[color:var(--moss)]/60">{t("footer.emailLabel")}</p>
               <a
                 href="mailto:hello@natursense.bio"
                 className="font-display text-xl text-[color:var(--moss)] underline decoration-[color:var(--sprout)]/40 underline-offset-[10px] transition-colors hover:text-[color:var(--sprout)] sm:text-2xl"
@@ -76,16 +76,16 @@ export function Footer() {
           <div className="flex flex-col justify-between gap-12 bg-[color:var(--cream)]/50 p-8 sm:p-12 md:col-span-5 md:p-16 lg:p-20">
             <div className="space-y-10">
               <div>
-                <p className="text-eyebrow mb-3 text-[color:var(--sprout)]">A gyökereink</p>
+                <p className="text-eyebrow mb-3 text-[color:var(--sprout)]">{t("footer.locationLabel")}</p>
                 <address className="font-display text-lg not-italic leading-relaxed text-[color:var(--moss)]">
-                  Subotica, Srbija
+                  {t("footer.locationLine1")}
                   <br />
-                  Vojvodina
+                  {t("footer.locationLine2")}
                 </address>
               </div>
 
               <div>
-                <p className="text-eyebrow mb-5 text-[color:var(--sprout)]">Kövess minket</p>
+                <p className="text-eyebrow mb-5 text-[color:var(--sprout)]">{t("footer.followUs")}</p>
                 <ul className="flex flex-col">
                   {socials.map((s) => (
                     <li key={s.name}>

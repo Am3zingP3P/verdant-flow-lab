@@ -40,6 +40,12 @@ const dictionaries: Record<Lang, Dict> = {
     footer: {
       tag: "Valódi frissesség, általad termelve.",
       rights: "Minden jog fenntartva",
+      locationLabel: "Innen növünk",
+      locationLine1: "Szabadka, Szerbia",
+      locationLine2: "Vajdaság",
+      emailLabel: "Email",
+      writeUs: "Írj nekünk",
+      followUs: "Kövess minket",
     },
     cookies: {
       eyebrow: "Adatvédelem",
@@ -166,6 +172,12 @@ const dictionaries: Record<Lang, Dict> = {
     footer: {
       tag: "Živa energija. Iz semenke. Za semenku.",
       rights: "Sva prava zadržana",
+      locationLabel: "Odavde rastemo",
+      locationLine1: "Subotica, Srbija",
+      locationLine2: "Vojvodina",
+      emailLabel: "E-pošta",
+      writeUs: "Piši nam",
+      followUs: "Prati nas",
     },
     cookies: {
       eyebrow: "Privatnost",
