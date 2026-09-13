@@ -40,7 +40,7 @@ const dictionaries: Record<Lang, Dict> = {
     footer: {
       tag: "Valódi frissesség, általad termelve.",
       rights: "Minden jog fenntartva",
-      locationLabel: "Innen növünk",
+      locationLabel: "Székhelyünk",
       locationLine1: "Szabadka, Szerbia",
       locationLine2: "Vajdaság",
       emailLabel: "Email",
@@ -172,7 +172,7 @@ const dictionaries: Record<Lang, Dict> = {
     footer: {
       tag: "Živa energija. Iz semenke. Za semenku.",
       rights: "Sva prava zadržana",
-      locationLabel: "Odavde rastemo",
+      locationLabel: "Naše sedište",
       locationLine1: "Subotica, Srbija",
       locationLine2: "Vojvodina",
       emailLabel: "E-pošta",
