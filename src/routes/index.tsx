@@ -17,9 +17,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Natursense" },
-      { name: "description", content: "Ultra-premium organic sprout and microgreen seeds from Hungary & Serbia. Living energy from a single seed." },
+      { name: "description", content: "Organic sprout seeds from Serbia. Grow fresh microgreens at home — living energy from a single seed." },
       { property: "og:title", content: "Natursense" },
-      { property: "og:description", content: "Living sprouts and microgreens for your kitchen counter." },
+      { property: "og:description", content: "Organic sprout seeds from Serbia. Grow fresh microgreens at home — living energy from a single seed." },
     ],
   }),
   component: Index,
