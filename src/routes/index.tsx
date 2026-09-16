@@ -16,9 +16,9 @@ import { CookieConsent } from "@/components/site/CookieConsent";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Natursense — Living seeds, raw vitality" },
+      { title: "Natursense" },
       { name: "description", content: "Ultra-premium organic sprout and microgreen seeds from Hungary & Serbia. Living energy from a single seed." },
-      { property: "og:title", content: "Natursense — Living seeds, raw vitality" },
+      { property: "og:title", content: "Natursense" },
       { property: "og:description", content: "Living sprouts and microgreens for your kitchen counter." },
     ],
   }),
