@@ -155,10 +155,12 @@ const dictionaries: Record<Lang, Dict> = {
     values: {
       eyebrow: "Zašto Natursense?",
       title: "Prednosti klica",
+      imageAlt: "Natursense — bio klice i semenke",
       one: { title: "Bioraspoloživost", body: "Tokom klijanja, hranljive materije se koncentrišu i do 40×. Živi enzimi, stvaran efekat." },
       two: { title: "Kućna farma", body: "Nekoliko dana, čaša vode, i tvoja kuhinja postaje mini-bašta. Bez zemlje." },
       three: { title: "Čisto poreklo", body: "Samo proverene, GMO-free, bio sertifikovane semenke iz malih gazdinstava Srbije i Mađarske." },
     },
+
     explorer: {
       eyebrow: "Interaktivni rast",
       title: "Život semenke u tri pokreta.",
