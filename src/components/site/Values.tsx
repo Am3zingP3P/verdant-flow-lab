@@ -34,7 +34,7 @@ export function Values() {
             style={{ aspectRatio: "4 / 5", borderRadius: 24 }}
           >
             <img
-              src={heroImage.url}
+              src={heroImage}
               alt={t("values.imageAlt")}
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
