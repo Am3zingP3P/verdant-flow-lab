@@ -21,10 +21,12 @@ const dictionaries: Record<Lang, Dict> = {
     values: {
       eyebrow: "Miért csíráztass?",
       title: "A csíramagok előnyei",
+      imageAlt: "Natursense — bio csírák és magvak",
       one: { title: "Természetes vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
       three: { title: "Tiszta eredet", body: "Ellenőrzött, valamint bio tanúsított." },
     },
+
     explorer: {
       eyebrow: "Interaktív növekedés",
       title: "Egy mag élete, három szakaszban.",
