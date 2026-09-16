@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useI18n } from "@/i18n/I18nProvider";
+import heroImage from "@/assets/IMG_3117.jpg.asset.json";
+
 
 export function Values() {
   const { t } = useI18n();
