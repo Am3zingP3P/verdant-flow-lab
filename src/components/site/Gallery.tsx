@@ -11,7 +11,7 @@ import imgAlfalfa from "@/assets/gallery/07-alfalfa.jpg";
 type Item = {
   name: string;
   day: string;
-  desc: string;
+  desc?: string;
   src: string;
   position: string;
   span: string;
@@ -22,7 +22,7 @@ const items: Item[] = [
   {
     name: "Csíráztató üveg és brokkolimag",
     day: "Az eszköz",
-    desc: "A sárga szűrőtetős csíráztató üveg egy fatönkön, mellette a brokkoli csíramag zacskója.",
+    desc: "A sárga csíráztató üveg egy fatönkön, mellette brokkoli csíramag.",
     src: imgJarBroccoli,
     position: "object-center",
     span: "md:col-span-5 md:row-span-2",
@@ -31,7 +31,7 @@ const items: Item[] = [
   {
     name: "Magvak rekeszekben",
     day: "A választék",
-    desc: "Magtároló doboz felülnézetből: zöld mungóbab, sötét apró, aranysárga és barnás csíramagvak külön rekeszekben.",
+    desc: "Magtároló doboz felülnézetből, tele magvakkal.",
     src: imgSeedBox,
     position: "object-center",
     span: "md:col-span-4",
@@ -40,7 +40,7 @@ const items: Item[] = [
   {
     name: "Retek csíramag",
     day: "Rotkvica",
-    desc: "A retek csíramag zacskója a döntött csíráztató üveg mellett, előttük kiszórt magszemek.",
+    desc: "Retek csíramag a csíráztató üveg mellett.",
     src: imgRadish,
     position: "object-center",
     span: "md:col-span-3",
@@ -58,7 +58,6 @@ const items: Item[] = [
   {
     name: "Egy marék csíramag",
     day: "Kézzel mérve",
-    desc: "Két tenyérben összegyűjtött barnás csíramag, mögötte egy magos zacskó a fa asztallapon.",
     src: imgHands,
     position: "object-center",
     span: "md:col-span-4",
@@ -147,9 +146,11 @@ export function Gallery() {
                     <h3 className="mt-1 font-sans text-base font-medium tracking-tight text-[color:var(--cream)] sm:text-lg">
                       {it.name}
                     </h3>
-                    <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80">
-                      {it.desc}
-                    </p>
+                    {it.desc && (
+                      <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80">
+                        {it.desc}
+                      </p>
+                    )}
                   </div>
                   <svg
                     viewBox="0 0 24 24"
