@@ -115,7 +115,7 @@ export function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative overflow-hidden rounded-2xl bg-[color:var(--sand)] ${it.span} ${it.ratio}`}
+              className={`group relative isolate overflow-hidden rounded-2xl [transform:translateZ(0)] [backface-visibility:hidden] ${it.span} ${it.ratio}`}
             >
               {/* Photo */}
               <img
@@ -123,12 +123,12 @@ export function Gallery() {
                 alt={it.desc}
                 loading="lazy"
                 decoding="async"
-                className={`absolute inset-0 h-full w-full object-cover ${it.position} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
+                className={`absolute inset-0 h-full w-full rounded-2xl object-cover ${it.position} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
               />
               {/* Constant soft bottom shade so captions stay legible */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent dark:from-[color:var(--cream)]/80 dark:via-[color:var(--cream)]/20" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent dark:from-[color:var(--cream)]/80 dark:via-[color:var(--cream)]/20" />
               {/* Hover gradient veil */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-[color:var(--cream)]/92 dark:via-[color:var(--sand)]/45" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-[color:var(--cream)]/92 dark:via-[color:var(--sand)]/45" />
 
               {/* Index marker */}
               <span className="absolute left-5 top-5 z-10 text-[10px] uppercase tracking-[0.25em] text-white/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
