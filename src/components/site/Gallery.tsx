@@ -119,10 +119,16 @@ export function Gallery() {
               transition={{ duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               className={`group relative overflow-hidden rounded-2xl bg-[color:var(--sand)] ${it.span} ${it.ratio}`}
             >
-              {/* Placeholder gradient "image" */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${it.hue} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
+              {/* Photo */}
+              <img
+                src={it.src}
+                alt={it.desc}
+                loading="lazy"
+                decoding="async"
+                className={`absolute inset-0 h-full w-full object-cover ${it.position} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
               />
+              {/* Constant soft bottom shade so captions stay legible */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent" />
               {/* Subtle grain / texture */}
               <div
                 className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
