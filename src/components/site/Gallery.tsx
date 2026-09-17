@@ -136,7 +136,8 @@ export function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative isolate overflow-hidden rounded-2xl [transform:translateZ(0)] [backface-visibility:hidden] ${it.span} ${it.ratio}`}
+              onClick={() => setOpenIndex(i)}
+              className={`group relative isolate cursor-pointer overflow-hidden rounded-2xl [transform:translateZ(0)] [backface-visibility:hidden] ${it.span} ${it.ratio}`}
             >
               {/* Photo */}
               <img
