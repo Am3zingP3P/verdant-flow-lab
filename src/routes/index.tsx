@@ -40,7 +40,6 @@ function Index() {
         <Gallery />
       </main>
       <Footer />
-      <PaletteShowcase />
       <CookieConsent />
     </div>
   );
