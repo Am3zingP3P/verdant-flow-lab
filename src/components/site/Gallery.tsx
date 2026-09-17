@@ -146,9 +146,11 @@ export function Gallery() {
                     <h3 className="mt-1 font-sans text-base font-medium tracking-tight text-[color:var(--cream)] sm:text-lg">
                       {it.name}
                     </h3>
-                    <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80">
-                      {it.desc}
-                    </p>
+                    {it.desc && (
+                      <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80">
+                        {it.desc}
+                      </p>
+                    )}
                   </div>
                   <svg
                     viewBox="0 0 24 24"
