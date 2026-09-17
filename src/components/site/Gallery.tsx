@@ -126,9 +126,9 @@ export function Gallery() {
                 className={`absolute inset-0 h-full w-full object-cover ${it.position} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
               />
               {/* Constant soft bottom shade so captions stay legible */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent dark:from-[color:var(--cream)]/80 dark:via-[color:var(--cream)]/20" />
               {/* Hover gradient veil */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-[color:var(--cream)]/92 dark:via-[color:var(--sand)]/45" />
 
               {/* Index marker */}
               <span className="absolute left-5 top-5 z-10 text-[10px] uppercase tracking-[0.25em] text-white/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
