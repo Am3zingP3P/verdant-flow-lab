@@ -11,7 +11,7 @@ import imgAlfalfa from "@/assets/gallery/07-alfalfa.jpg";
 type Item = {
   name: string;
   day: string;
-  desc: string;
+  desc?: string;
   src: string;
   position: string;
   span: string;
@@ -58,7 +58,6 @@ const items: Item[] = [
   {
     name: "Egy marék csíramag",
     day: "Kézzel mérve",
-    desc: "Két tenyérben összegyűjtött barnás csíramag, mögötte egy magos zacskó a fa asztallapon.",
     src: imgHands,
     position: "object-center",
     span: "md:col-span-4",
