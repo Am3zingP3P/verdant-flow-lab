@@ -150,15 +150,15 @@ export function Gallery() {
               {/* Constant soft bottom shade so captions stay legible */}
               <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent dark:from-[color:var(--cream)]/58 dark:via-[color:var(--cream)]/10" />
               {/* Hover gradient veil */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-[color:var(--cream)]/78 dark:via-[color:var(--sand)]/28" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100 dark:from-[color:var(--cream)]/78 dark:via-[color:var(--sand)]/28" />
 
               {/* Index marker */}
-              <span className="pointer-events-none absolute left-5 top-5 z-10 text-[10px] uppercase tracking-[0.25em] text-white/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              <span className="pointer-events-none absolute left-5 top-5 z-10 text-[10px] uppercase tracking-[0.25em] text-white/80 opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
               {/* Caption */}
-              <figcaption className="absolute inset-x-0 bottom-0 z-10 translate-y-3 p-5 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 sm:p-6">
+              <figcaption className="absolute inset-x-0 bottom-0 z-10 translate-y-0 p-5 opacity-100 transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 sm:p-6">
                 <div className="flex items-end justify-between gap-4">
                   <div className="min-w-0">
                     <p className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--cream)]/70 dark:text-[color:var(--obsidian)]/70">
