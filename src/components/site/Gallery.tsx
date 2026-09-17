@@ -175,7 +175,10 @@ export function Gallery() {
                   </div>
                   <button
                     type="button"
-                    onClick={() => setOpenIndex(i)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenIndex(i);
+                    }}
                     aria-label={`${it.name} megnyitása nagyban`}
                     className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[color:var(--cream)]/35 bg-[color:var(--cream)]/10 text-[color:var(--cream)] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 hover:bg-[color:var(--cream)]/25 dark:border-[color:var(--obsidian)]/25 dark:bg-[color:var(--obsidian)]/10 dark:text-[color:var(--obsidian)] dark:hover:bg-[color:var(--obsidian)]/20"
                   >
