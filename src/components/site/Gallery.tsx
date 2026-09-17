@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+
 
 import imgJarBroccoli from "@/assets/gallery/01-jar-broccoli.jpg";
 import imgSeedBox from "@/assets/gallery/02-seed-box.jpg";
