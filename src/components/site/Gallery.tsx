@@ -85,6 +85,25 @@ const items: Item[] = [
 ];
 
 export function Gallery() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const active = openIndex === null ? null : items[openIndex];
+
+  const close = useCallback(() => setOpenIndex(null), []);
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [openIndex, close]);
+
   return (
     <section id="gallery" className="bg-[color:var(--cream)] px-4 py-24 sm:px-6 sm:py-32 md:px-10">
       <div className="mx-auto max-w-[1380px]">
