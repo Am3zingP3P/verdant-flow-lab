@@ -1,21 +1,87 @@
 import { motion } from "framer-motion";
 
+import imgJarBroccoli from "@/assets/gallery/01-jar-broccoli.jpg";
+import imgSeedBox from "@/assets/gallery/02-seed-box.jpg";
+import imgRadish from "@/assets/gallery/03-radish.jpg";
+import imgMung from "@/assets/gallery/04-mung.jpg";
+import imgHands from "@/assets/gallery/05-hands.jpg";
+import imgFamily from "@/assets/gallery/06-family.jpg";
+import imgAlfalfa from "@/assets/gallery/07-alfalfa.jpg";
+
 type Item = {
   name: string;
   day: string;
-  hue: string;
+  desc: string;
+  src: string;
+  position: string;
   span: string;
   ratio: string;
 };
 
 const items: Item[] = [
-  { name: "Retek microgreens", day: "7. nap", hue: "from-[#c97a6b] to-[#7a3c3a]", span: "md:col-span-5 md:row-span-2", ratio: "aspect-[4/5]" },
-  { name: "Lucerna csíra", day: "4. nap", hue: "from-[#dbe3c4] to-[#7a8c5a]", span: "md:col-span-4", ratio: "aspect-[4/3]" },
-  { name: "Brokkoli microgreens", day: "9. nap", hue: "from-[#4a7c59] to-[#1c352d]", span: "md:col-span-3", ratio: "aspect-square" },
-  { name: "Napraforgó hajtás", day: "10. nap", hue: "from-[#e8c07a] to-[#a0522d]", span: "md:col-span-3", ratio: "aspect-square" },
-  { name: "Borsóhajtás", day: "8. nap", hue: "from-[#9bb88a] to-[#3a5a3d]", span: "md:col-span-4", ratio: "aspect-[4/3]" },
-  { name: "Konyhai mini farm", day: "Életmód", hue: "from-[#f0ebe3] to-[#c9b99a]", span: "md:col-span-7", ratio: "aspect-[16/9]" },
-  { name: "Mustár microgreens", day: "6. nap", hue: "from-[#e8b84a] to-[#5c4018]", span: "md:col-span-5", ratio: "aspect-[5/4]" },
+  {
+    name: "Csíráztató üveg és brokkolimag",
+    day: "Az eszköz",
+    desc: "A sárga szűrőtetős csíráztató üveg egy fatönkön, mellette a brokkoli csíramag zacskója.",
+    src: imgJarBroccoli,
+    position: "object-center",
+    span: "md:col-span-5 md:row-span-2",
+    ratio: "aspect-[4/5]",
+  },
+  {
+    name: "Magvak rekeszekben",
+    day: "A választék",
+    desc: "Magtároló doboz felülnézetből: zöld mungóbab, sötét apró, aranysárga és barnás csíramagvak külön rekeszekben.",
+    src: imgSeedBox,
+    position: "object-center",
+    span: "md:col-span-4",
+    ratio: "aspect-[4/3]",
+  },
+  {
+    name: "Retek csíramag",
+    day: "Rotkvica",
+    desc: "A retek csíramag zacskója a döntött csíráztató üveg mellett, előttük kiszórt magszemek.",
+    src: imgRadish,
+    position: "object-center",
+    span: "md:col-span-3",
+    ratio: "aspect-square",
+  },
+  {
+    name: "Mungóbab a tönkön",
+    day: "Mungo pasulj",
+    desc: "A mungóbab csíramag zacskója az üveg mellett, előtte szétszórt zöld magszemek.",
+    src: imgMung,
+    position: "object-center",
+    span: "md:col-span-3",
+    ratio: "aspect-square",
+  },
+  {
+    name: "Egy marék csíramag",
+    day: "Kézzel mérve",
+    desc: "Két tenyérben összegyűjtött barnás csíramag, mögötte egy magos zacskó a fa asztallapon.",
+    src: imgHands,
+    position: "object-center",
+    span: "md:col-span-4",
+    ratio: "aspect-[4/3]",
+  },
+  {
+    name: "A teljes kínálat",
+    day: "Öt fajta",
+    desc: "Mind az öt csíramag egymás mellett: retek, lucerna, brokkoli, mungóbab és görögszéna.",
+    src: imgFamily,
+    position: "object-center",
+    span: "md:col-span-7",
+    ratio: "aspect-[16/9]",
+  },
+  {
+    name: "Lucerna csíramag",
+    day: "Lucerka",
+    desc: "A lucerna csíramag zacskója a napsütötte fatönkön, körülötte apró aranyszínű magvak.",
+    src: imgAlfalfa,
+    position: "object-center",
+    span: "md:col-span-5",
+    ratio: "aspect-[5/4]",
+  },
 ];
 
 export function Gallery() {
@@ -53,18 +119,16 @@ export function Gallery() {
               transition={{ duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               className={`group relative overflow-hidden rounded-2xl bg-[color:var(--sand)] ${it.span} ${it.ratio}`}
             >
-              {/* Placeholder gradient "image" */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${it.hue} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
+              {/* Photo */}
+              <img
+                src={it.src}
+                alt={it.desc}
+                loading="lazy"
+                decoding="async"
+                className={`absolute inset-0 h-full w-full object-cover ${it.position} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
               />
-              {/* Subtle grain / texture */}
-              <div
-                className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
-                style={{
-                  backgroundImage:
-                    "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
-                }}
-              />
+              {/* Constant soft bottom shade so captions stay legible */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent" />
               {/* Hover gradient veil */}
               <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -80,9 +144,12 @@ export function Gallery() {
                     <p className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--cream)]/70">
                       {it.day}
                     </p>
-                    <h3 className="mt-1 truncate font-sans text-base font-medium tracking-tight text-[color:var(--cream)] sm:text-lg">
+                    <h3 className="mt-1 font-sans text-base font-medium tracking-tight text-[color:var(--cream)] sm:text-lg">
                       {it.name}
                     </h3>
+                    <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80">
+                      {it.desc}
+                    </p>
                   </div>
                   <svg
                     viewBox="0 0 24 24"
