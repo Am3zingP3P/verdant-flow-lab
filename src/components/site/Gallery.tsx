@@ -22,7 +22,7 @@ const items: Item[] = [
   {
     name: "Csíráztató üveg és brokkolimag",
     day: "Az eszköz",
-    desc: "A sárga szűrőtetős csíráztató üveg egy fatönkön, mellette a brokkoli csíramag zacskója.",
+    desc: "A sárga csíráztató üveg egy fatönkön, mellette brokkoli csíramag.",
     src: imgJarBroccoli,
     position: "object-center",
     span: "md:col-span-5 md:row-span-2",
@@ -31,7 +31,7 @@ const items: Item[] = [
   {
     name: "Magvak rekeszekben",
     day: "A választék",
-    desc: "Magtároló doboz felülnézetből: zöld mungóbab, sötét apró, aranysárga és barnás csíramagvak külön rekeszekben.",
+    desc: "Magtároló doboz felülnézetből, tele magvakkal.",
     src: imgSeedBox,
     position: "object-center",
     span: "md:col-span-4",
@@ -40,7 +40,7 @@ const items: Item[] = [
   {
     name: "Retek csíramag",
     day: "Rotkvica",
-    desc: "A retek csíramag zacskója a döntött csíráztató üveg mellett, előttük kiszórt magszemek.",
+    desc: "Retek csíramag a csíráztató üveg mellett.",
     src: imgRadish,
     position: "object-center",
     span: "md:col-span-3",
