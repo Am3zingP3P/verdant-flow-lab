@@ -49,7 +49,6 @@ const items: Item[] = [
   {
     name: "Mungóbab a tönkön",
     day: "Mungo pasulj",
-    desc: "A mungóbab csíramag zacskója az üveg mellett, előtte szétszórt zöld magszemek.",
     src: imgMung,
     position: "object-center",
     span: "md:col-span-3",
