@@ -202,7 +202,7 @@ export function Gallery() {
             role="dialog"
             aria-modal="true"
             aria-label={active.name}
-            className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-[color:var(--moss)]/55 p-4 backdrop-blur-xl sm:p-8 dark:bg-[color:var(--obsidian)]/70"
+            className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-[color:var(--moss)]/55 p-4 backdrop-blur-xl sm:p-8 dark:bg-[color:var(--sand)]/94"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.94, y: 24 }}
