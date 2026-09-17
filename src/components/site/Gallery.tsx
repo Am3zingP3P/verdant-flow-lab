@@ -78,7 +78,7 @@ const items: Item[] = [
     day: "Lucerka",
     desc: "A lucerna csíramag zacskója a napsütötte fatönkön, körülötte apró aranyszínű magvak.",
     src: imgAlfalfa,
-    position: "object-center",
+    position: "object-[center_42%]",
     span: "md:col-span-5",
     ratio: "aspect-[5/4]",
   },
