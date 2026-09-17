@@ -197,7 +197,7 @@ export function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             onClick={close}
             role="dialog"
             aria-modal="true"
@@ -205,10 +205,10 @@ export function Gallery() {
             className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-[color:var(--moss)]/55 p-4 backdrop-blur-xl sm:p-8 dark:bg-[color:var(--sand)]/94"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 24 }}
+              initial={{ opacity: 0, scale: 0.92, y: 28 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 16 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              exit={{ opacity: 0, scale: 0.96, y: 20 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
               className="relative my-auto w-full max-w-3xl rounded-[28px] border border-[color:var(--cream)]/20 bg-[color:var(--cream)]/95 p-3 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.6)] sm:p-4"
             >
