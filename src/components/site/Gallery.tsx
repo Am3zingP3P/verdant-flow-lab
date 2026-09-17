@@ -136,7 +136,8 @@ export function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative isolate overflow-hidden rounded-2xl [transform:translateZ(0)] [backface-visibility:hidden] ${it.span} ${it.ratio}`}
+              onClick={() => setOpenIndex(i)}
+              className={`group relative isolate cursor-pointer overflow-hidden rounded-2xl [transform:translateZ(0)] [backface-visibility:hidden] ${it.span} ${it.ratio}`}
             >
               {/* Photo */}
               <img
@@ -149,15 +150,15 @@ export function Gallery() {
               {/* Constant soft bottom shade so captions stay legible */}
               <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent dark:from-[color:var(--cream)]/58 dark:via-[color:var(--cream)]/10" />
               {/* Hover gradient veil */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-[color:var(--cream)]/78 dark:via-[color:var(--sand)]/28" />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100 dark:from-[color:var(--cream)]/78 dark:via-[color:var(--sand)]/28" />
 
               {/* Index marker */}
-              <span className="pointer-events-none absolute left-5 top-5 z-10 text-[10px] uppercase tracking-[0.25em] text-white/80 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              <span className="pointer-events-none absolute left-5 top-5 z-10 text-[10px] uppercase tracking-[0.25em] text-white/80 opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
               {/* Caption */}
-              <figcaption className="absolute inset-x-0 bottom-0 z-10 translate-y-3 p-5 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 sm:p-6">
+              <figcaption className="absolute inset-x-0 bottom-0 z-10 translate-y-0 p-5 opacity-100 transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 sm:p-6">
                 <div className="flex items-end justify-between gap-4">
                   <div className="min-w-0">
                     <p className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--cream)]/70 dark:text-[color:var(--obsidian)]/70">
@@ -174,7 +175,10 @@ export function Gallery() {
                   </div>
                   <button
                     type="button"
-                    onClick={() => setOpenIndex(i)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenIndex(i);
+                    }}
                     aria-label={`${it.name} megnyitása nagyban`}
                     className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[color:var(--cream)]/35 bg-[color:var(--cream)]/10 text-[color:var(--cream)] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 hover:bg-[color:var(--cream)]/25 dark:border-[color:var(--obsidian)]/25 dark:bg-[color:var(--obsidian)]/10 dark:text-[color:var(--obsidian)] dark:hover:bg-[color:var(--obsidian)]/20"
                   >
