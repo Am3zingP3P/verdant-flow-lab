@@ -139,14 +139,14 @@ export function Gallery() {
               <figcaption className="absolute inset-x-0 bottom-0 z-10 translate-y-3 p-5 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 sm:p-6">
                 <div className="flex items-end justify-between gap-4">
                   <div className="min-w-0">
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--cream)]/70">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--cream)]/70 dark:text-[color:var(--obsidian)]/70">
                       {it.day}
                     </p>
-                    <h3 className="mt-1 font-sans text-base font-medium tracking-tight text-[color:var(--cream)] sm:text-lg">
+                    <h3 className="mt-1 font-sans text-base font-medium tracking-tight text-[color:var(--cream)] dark:text-[color:var(--obsidian)] sm:text-lg">
                       {it.name}
                     </h3>
                     {it.desc && (
-                      <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80">
+                      <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80 dark:text-[color:var(--obsidian)]/85">
                         {it.desc}
                       </p>
                     )}
@@ -156,7 +156,7 @@ export function Gallery() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
-                    className="h-4 w-4 shrink-0 text-[color:var(--cream)]"
+                    className="h-4 w-4 shrink-0 text-[color:var(--cream)] dark:text-[color:var(--obsidian)]"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M7 17 17 7M9 7h8v8" />
                   </svg>
