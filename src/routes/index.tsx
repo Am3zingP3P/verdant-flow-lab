@@ -9,7 +9,7 @@ import { HealthBenefits } from "@/components/site/HealthBenefits";
 import { Gallery } from "@/components/site/Gallery";
 
 import { Footer } from "@/components/site/Footer";
-import { PaletteShowcase } from "@/components/site/PaletteShowcase";
+
 import { CustomCursor } from "@/components/site/CustomCursor";
 import { CookieConsent } from "@/components/site/CookieConsent";
 
@@ -40,7 +40,6 @@ function Index() {
         <Gallery />
       </main>
       <Footer />
-      <PaletteShowcase />
       <CookieConsent />
     </div>
   );
