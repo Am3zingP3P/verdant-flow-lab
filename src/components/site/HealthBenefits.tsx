@@ -381,10 +381,12 @@ export function HealthBenefits() {
               {/* tick marks */}
               {[...Array(48)].map((_, i) => {
                 const a = (i / 48) * Math.PI * 2;
-                const x1 = 200 + Math.cos(a) * 176;
-                const y1 = 200 + Math.sin(a) * 176;
-                const x2 = 200 + Math.cos(a) * (i % 4 === 0 ? 168 : 172);
-                const y2 = 200 + Math.sin(a) * (i % 4 === 0 ? 168 : 172);
+                const radius = i % 4 === 0 ? 168 : 172;
+                const rounded = (value: number) => Number(value.toFixed(4));
+                const x1 = rounded(200 + Math.cos(a) * 176);
+                const y1 = rounded(200 + Math.sin(a) * 176);
+                const x2 = rounded(200 + Math.cos(a) * radius);
+                const y2 = rounded(200 + Math.sin(a) * radius);
                 return (
                   <line
                     key={i}

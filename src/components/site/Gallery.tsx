@@ -152,12 +152,12 @@ export function Gallery() {
 
               {/* Caption */}
               <figcaption className="absolute inset-x-0 bottom-0 z-10 translate-y-0 p-5 opacity-100 transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 sm:p-6">
-                <div className="flex items-end justify-between gap-4">
+                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3 sm:gap-4">
                   <div className="min-w-0">
                     <p className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--cream)]/70 dark:text-[color:var(--obsidian)]/70">
                       {copy.category}
                     </p>
-                    <h3 className="mt-1 font-sans text-base font-medium tracking-tight text-[color:var(--cream)] dark:text-[color:var(--obsidian)] sm:text-lg">
+                    <h3 className="mt-1 break-words font-sans text-base font-medium tracking-tight text-[color:var(--cream)] dark:text-[color:var(--obsidian)] sm:text-lg">
                       {copy.name}
                     </h3>
                     {copy.desc && (
