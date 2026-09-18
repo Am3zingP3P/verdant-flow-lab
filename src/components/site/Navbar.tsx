@@ -45,6 +45,7 @@ export function Navbar() {
             <a
               key={it.key}
               href={it.href}
+              data-direct-scroll
               className="text-eyebrow text-[color:var(--moss)]/70 transition-colors hover:text-[color:var(--moss)]"
             >
               {t(`nav.${it.key}`)}

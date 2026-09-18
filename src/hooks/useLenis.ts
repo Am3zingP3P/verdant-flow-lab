@@ -41,6 +41,17 @@ export function useLenis() {
       if (!target) return;
       e.preventDefault();
       ScrollTrigger.refresh();
+
+      if (anchor.hasAttribute("data-direct-scroll")) {
+        lenis.scrollTo(target, {
+          immediate: true,
+          force: true,
+          onComplete: () => ScrollTrigger.update(),
+        });
+        history.replaceState(null, "", `#${id}`);
+        return;
+      }
+
       lenis.scrollTo(target, {
         offset: 0,
         duration: 1.1,
