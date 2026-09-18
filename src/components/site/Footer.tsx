@@ -140,23 +140,24 @@ export function Footer() {
           <span>© {year} Natursense — {t("footer.rights")}</span>
         </div>
 
-        {/* Legal & cookie links */}
-        <div className="flex flex-col items-center justify-center gap-3 border-t border-[color:var(--moss)]/8 px-6 py-4 text-[10px] text-[color:var(--moss)]/45 sm:flex-row sm:gap-6 sm:px-10">
-          <Link
-            to="/jogi-informaciok"
-            className="normal-case tracking-[0.08em] transition-colors hover:text-[color:var(--sprout)]"
-          >
-            {t("legal.footerLink")}
-          </Link>
-          <span aria-hidden className="hidden h-3 w-px bg-[color:var(--moss)]/15 sm:block" />
-          <button
-            onClick={openConsentSettings}
-            className="uppercase tracking-[0.25em] transition-colors hover:text-[color:var(--sprout)]"
-          >
-            {t("cookies.settings")}
-          </button>
-        </div>
       </motion.div>
+
+      {/* Standalone legal strip below the glass footer */}
+      <div className="mx-auto mt-8 flex w-full max-w-[1380px] flex-col items-center justify-center gap-3 border-t border-[color:var(--moss)]/10 pt-6 text-[10px] text-[color:var(--moss)]/45 sm:flex-row sm:gap-6">
+        <Link
+          to="/jogi-informaciok"
+          className="normal-case tracking-[0.08em] transition-colors hover:text-[color:var(--sprout)]"
+        >
+          {t("legal.footerLink")}
+        </Link>
+        <span aria-hidden className="hidden h-3 w-px bg-[color:var(--moss)]/15 sm:block" />
+        <button
+          onClick={openConsentSettings}
+          className="uppercase tracking-[0.25em] transition-colors hover:text-[color:var(--sprout)]"
+        >
+          {t("cookies.settings")}
+        </button>
+      </div>
     </footer>
   );
 }
