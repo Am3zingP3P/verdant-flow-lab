@@ -143,7 +143,7 @@ export function Footer() {
       </motion.div>
 
       {/* Standalone legal strip below the glass footer */}
-      <div className="mx-auto mt-8 flex w-full max-w-[1380px] flex-col items-center justify-center gap-3 border-t border-[color:var(--moss)]/10 pt-6 text-[10px] text-[color:var(--moss)]/45 sm:flex-row sm:gap-6">
+      <div className="mx-auto mt-8 flex w-full max-w-[1380px] flex-col items-center justify-center gap-3 border-t border-[color:var(--moss)]/10 py-3 pt-6 text-[11px] leading-relaxed text-[color:var(--moss)]/50 sm:flex-row sm:gap-6">
         <Link
           to="/jogi-informaciok"
           className="normal-case tracking-[0.08em] transition-colors hover:text-[color:var(--sprout)]"
@@ -153,7 +153,7 @@ export function Footer() {
         <span aria-hidden className="hidden h-3 w-px bg-[color:var(--moss)]/15 sm:block" />
         <button
           onClick={openConsentSettings}
-          className="uppercase tracking-[0.25em] transition-colors hover:text-[color:var(--sprout)]"
+          className="uppercase tracking-[0.22em] transition-colors hover:text-[color:var(--sprout)]"
         >
           {t("cookies.settings")}
         </button>
