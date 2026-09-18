@@ -219,7 +219,7 @@ export function HealthBenefits() {
       />
         <div
           ref={stageRef}
-          className="relative flex min-h-[100svh] w-full items-center overflow-hidden py-20 md:py-0"
+          className="benefits-stage relative flex min-h-[100svh] min-h-[100dvh] w-full items-center overflow-hidden py-20 md:py-0"
         >
         {/* ambient orbs */}
         <div
@@ -241,7 +241,7 @@ export function HealthBenefits() {
         />
 
         {/* chapter counter — centered pill above progress bar */}
-        <div className="absolute inset-x-0 bottom-6 z-20 flex justify-center px-4 sm:bottom-8">
+        <div className="benefits-chip absolute inset-x-0 bottom-[calc(1.5rem+env(safe-area-inset-bottom))] z-20 flex justify-center px-4 sm:bottom-8">
           <div
             key={`chip-${active}`}
             className="animate-[fadeUp_0.6s_cubic-bezier(0.16,1,0.3,1)_both] flex items-center gap-3 rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/70 px-4 py-2 backdrop-blur-md sm:gap-4 sm:px-6 sm:py-2.5"
@@ -277,9 +277,9 @@ export function HealthBenefits() {
           />
         </div>
 
-        <div className="mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-5 pt-16 sm:px-6 md:gap-10 md:px-10 md:pt-0 lg:grid-cols-[1fr_1.05fr]">
+        <div className="benefits-layout mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-5 pt-16 sm:px-6 md:gap-10 md:px-10 md:pt-0 lg:grid-cols-[1fr_1.05fr]">
           {/* Editorial copy */}
-          <div className="relative z-10 max-w-xl order-2 lg:order-1">
+          <div className="benefits-copy relative z-10 max-w-xl order-2 lg:order-1">
             <div
               key={active}
               className="animate-[fadeUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]"
@@ -290,10 +290,10 @@ export function HealthBenefits() {
               <h2 className="text-balance font-serif text-[2rem] leading-[1.08] tracking-[-0.01em] text-[color:var(--moss)] sm:text-4xl md:text-5xl lg:text-[3.5rem]">
                 {copy.title}
               </h2>
-              <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-[color:var(--moss)]/75 sm:mt-8 sm:text-base md:mt-10 md:text-lg">
+              <p className="benefits-body mt-6 max-w-md text-[0.95rem] leading-relaxed text-[color:var(--moss)]/75 sm:mt-8 sm:text-base md:mt-10 md:text-lg">
                 {copy.body}
               </p>
-              <p className="mt-5 text-[0.65rem] uppercase tracking-[0.24em] text-[color:var(--moss)]/50 sm:mt-8 sm:text-[0.72rem] sm:tracking-[0.28em]">
+              <p className="benefits-caption mt-5 text-[0.65rem] uppercase tracking-[0.24em] text-[color:var(--moss)]/50 sm:mt-8 sm:text-[0.72rem] sm:tracking-[0.28em]">
                 — {copy.caption}
               </p>
             </div>
@@ -317,7 +317,7 @@ export function HealthBenefits() {
           </div>
 
           {/* Nutrient orb — giant animated metric */}
-          <div className="relative mx-auto flex aspect-square w-full max-w-[300px] items-center justify-center order-1 lg:order-2 sm:max-w-[420px] md:max-w-[560px]">
+          <div className="benefits-orb relative mx-auto flex aspect-square w-full max-w-[300px] items-center justify-center order-1 lg:order-2 sm:max-w-[420px] md:max-w-[560px]">
             {/* concentric decorative rings */}
             <div
               aria-hidden
