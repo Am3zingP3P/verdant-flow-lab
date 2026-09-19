@@ -76,7 +76,7 @@ function LegalInformationPage() {
     <div className="grain min-h-screen overflow-x-clip bg-[color:var(--cream)] text-[color:var(--obsidian)]">
       <LegalHeader backToHome={l.backToHome} lang={lang} setLang={setLang} />
 
-      <main className="relative px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40 lg:px-12">
+      <main className="relative px-5 pb-20 pt-36 sm:px-8 sm:pb-28 sm:pt-40 lg:px-12">
         <BotanicalAccent />
         <div className="relative mx-auto max-w-[980px]">
           <motion.header
