@@ -108,11 +108,10 @@ const dictionaries: Record<Lang, Dict> = {
         changes: { number: "09", title: "A tájékoztató módosítása" },
       },
       impressumDetails: [
-        { label: "Tulajdonos / üzemeltető", value: "[NAME / COMPANY]" },
-        { label: "Székhely / cím", value: "[ADDRESS]" },
-        { label: "E-mail", value: "[EMAIL]" },
-        { label: "Tárhelyszolgáltató", value: "[HOSTING PROVIDER]" },
-        { label: "Tárhelyszolgáltató címe", value: "[HOSTING PROVIDER ADDRESS]" },
+        { label: "Tulajdonos / üzemeltető", value: "Natursense, Bacsó Tünde" },
+        { label: "Székhely / cím", value: "ĐERI FERENCA 28, 24000, Subotica" },
+        { label: "E-mail", value: "natursense2026@gmail.com" },
+        { label: "Tárhelyszolgáltató", value: "Lovable Cloud" },
       ],
       privacyDetails: [
         { label: "Adatkezelő / felelős szervezet", value: "Bacsó Tünde" },
@@ -259,11 +258,10 @@ const dictionaries: Record<Lang, Dict> = {
         changes: { number: "09", title: "Izmene obaveštenja" },
       },
       impressumDetails: [
-        { label: "Vlasnik / operater", value: "[NAME / COMPANY]" },
-        { label: "Sedište / adresa", value: "[ADDRESS]" },
-        { label: "E-mail", value: "[EMAIL]" },
-        { label: "Hosting provajder", value: "[HOSTING PROVIDER]" },
-        { label: "Adresa hosting provajdera", value: "[HOSTING PROVIDER ADDRESS]" },
+        { label: "Vlasnik / operater", value: "Natursense, Bacsó Tünde" },
+        { label: "Sedište / adresa", value: "ĐERI FERENCA 28, 24000, Subotica" },
+        { label: "E-mail", value: "natursense2026@gmail.com" },
+        { label: "Hosting provajder", value: "Lovable Cloud" },
       ],
       privacyDetails: [
         { label: "Rukovalac podataka / odgovorna organizacija", value: "Bacsó Tünde" },
