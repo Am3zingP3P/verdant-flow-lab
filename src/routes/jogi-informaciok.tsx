@@ -76,7 +76,7 @@ function LegalInformationPage() {
     <div className="grain min-h-screen overflow-x-clip bg-[color:var(--cream)] text-[color:var(--obsidian)]">
       <LegalHeader backToHome={l.backToHome} lang={lang} setLang={setLang} />
 
-      <main className="relative px-5 pb-20 pt-32 sm:px-8 sm:pb-28 sm:pt-40 lg:px-12">
+      <main className="relative px-5 pb-20 pt-36 sm:px-8 sm:pb-28 sm:pt-40 lg:px-12">
         <BotanicalAccent />
         <div className="relative mx-auto max-w-[980px]">
           <motion.header
@@ -189,17 +189,17 @@ function LegalHeader({
 }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[color:var(--moss)]/8 bg-[color:var(--cream)]/85 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-[1100px] items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
-        <Link to="/" className="group flex items-center gap-2.5 text-[color:var(--moss)]">
+      <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-y-3 px-5 py-4 sm:px-8 sm:py-5">
+        <Link to="/" className="group flex min-w-0 items-center gap-2.5 text-[color:var(--moss)]">
           <SproutMark />
-          <span className="font-display text-xl">natursense<span className="text-[color:var(--sprout)]">.</span></span>
+          <span className="truncate font-display text-xl">natursense<span className="text-[color:var(--sprout)]">.</span></span>
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
           <ThemeToggle />
           <LangSwitcher lang={lang} setLang={setLang} />
           <Link
             to="/"
-            className="inline-flex min-h-9 items-center gap-2 rounded-full border border-[color:var(--moss)]/15 px-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[color:var(--moss)] transition-colors hover:bg-[color:var(--moss)] hover:text-[color:var(--cream)] sm:px-4"
+            className="inline-flex min-h-9 shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-[color:var(--moss)]/15 px-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[color:var(--moss)] transition-colors hover:bg-[color:var(--moss)] hover:text-[color:var(--cream)] sm:px-4"
           >
             <span aria-hidden>←</span>
             <span>{backToHome}</span>
