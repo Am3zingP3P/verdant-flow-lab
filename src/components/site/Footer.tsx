@@ -64,10 +64,10 @@ export function Footer() {
             <div>
               <p className="text-eyebrow mb-3 text-[color:var(--moss)]/60">{t("footer.emailLabel")}</p>
               <a
-                href="mailto:hello@natursense.bio"
+                href="mailto:natursense2026@gmail.com"
                 className="font-display text-xl text-[color:var(--moss)] underline decoration-[color:var(--sprout)]/40 underline-offset-[10px] transition-colors hover:text-[color:var(--sprout)] sm:text-2xl"
               >
-                hello@natursense.bio
+                natursense2026@gmail.com
               </a>
             </div>
           </div>
