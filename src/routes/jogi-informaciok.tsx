@@ -87,7 +87,7 @@ function LegalInformationPage() {
           >
             <p className="text-eyebrow text-[color:var(--sprout)]">{l.eyebrow}</p>
             <h1 className="mt-5 text-balance font-display text-[clamp(2.35rem,6vw,5rem)] leading-[1.02] text-[color:var(--moss)]">
-              {l.title}
+              <AmpersandTitle text={l.title} />
             </h1>
             <p className="mx-auto mt-6 max-w-[680px] text-[0.98rem] leading-7 text-[color:var(--moss)]/70 sm:text-[1.08rem] sm:leading-8">
               {l.intro}
@@ -255,6 +255,20 @@ function DetailList({ items }: { items: ReadonlyArray<DetailItem> }) {
         </div>
       ))}
     </dl>
+  );
+}
+
+function AmpersandTitle({ text }: { text: string }) {
+  const parts = text.split("&");
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {part}
+          {i < parts.length - 1 && <span className="font-sans">&</span>}
+        </span>
+      ))}
+    </>
   );
 }
 
