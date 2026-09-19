@@ -35,7 +35,7 @@ const dictionaries: Record<Lang, Dict> = {
       drag: "Húzd",
     },
     seeds: {
-      alfalfa: { name: "Alfalfa", note: "Lágy, édes" },
+      alfalfa: { name: "Lucerna", note: "Lágy, édes" },
       broccoli: { name: "Brokkoli", note: "Szulforafán-bomba. Tiszta, friss, élénk." },
       radish: { name: "Retek", note: "Csípős, élénk rózsaszín, ébresztő íz." },
     },
