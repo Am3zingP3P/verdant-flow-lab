@@ -249,6 +249,14 @@ html.lenis, html.lenis body { height: auto; }
     max-width: min(54vw, 12.5rem);
   }
 
+  .benefits-orb-label {
+    max-width: 82%;
+    font-size: 0.44rem;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-wrap: balance;
+  }
+
   .benefits-copy h2 {
     font-size: 1.65rem;
     line-height: 1.06;
