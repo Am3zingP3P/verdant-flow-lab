@@ -26,6 +26,42 @@ const dictionaries: Record<Lang, Dict> = {
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
       three: { title: "Tiszta eredet", body: "Ellenőrzött, valamint bio tanúsított." },
     },
+    benefits: {
+      aria: "Egészségügyi előnyök",
+      progressAria: "Haladás",
+      chapters: {
+        c1: {
+          name: "Vitaminsűrűség",
+          kicker: "Vitaminsűrűség",
+          title: "Negyvenszer több vitamin, mint a felnőtt zöldségben.",
+          body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait, ezáltal C-, E-, K-vitaminhoz juthatsz, valamint B-komplexhez. Mindezt természetes formában, tabletták nélkül.",
+          caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
+        },
+        c2: {
+          name: "Élő enzimek",
+          kicker: "Élő enzimek",
+          title: "Aktív enzimek, egyenesen a konyhapultodról.",
+          body: "Nyersen fogyasztva a csíra minden enzime dolgozik: emészti a fehérjéket, felszabadítja az ásványi anyagokat, tehermentesíti a testet.",
+          caption: "Amiláz, proteáz, lipáz — hőkezelés nélkül",
+        },
+        c3: {
+          name: "Növényi fehérje",
+          kicker: "Fehérje / 100g",
+          title: "Növényi fehérje, teljes aminosav-profillal.",
+          body: "A lucerna, retek és brokkoli csírák tartalmaznak fehérjét, valamint mindegyik esszenciális aminosavval rendelkezik, könnyen felszívódó formában.",
+          caption: "Átlagos fehérjetartalom friss csírában",
+        },
+        c4: {
+          name: "Magtól a tányérig",
+          kicker: "Magtól a tányérig",
+          title: "Öt nap. Nulla szállítás. Nulla veszteség.",
+          body: "A konyhapulton nőnek, és nem a kamionban öregednek. Amit termelsz, azt eszed: a frissesség garantált.",
+          caption: "Átlagos ciklus a konyhádban",
+        },
+      },
+    },
+
+
 
     explorer: {
       eyebrow: "Interaktív növekedés",
@@ -176,6 +212,42 @@ const dictionaries: Record<Lang, Dict> = {
       two: { title: "Kućna farma", body: "Nekoliko dana, čaša vode, i tvoja kuhinja postaje mini-bašta. Bez zemlje." },
       three: { title: "Čisto poreklo", body: "Samo proverene, GMO-free, bio sertifikovane semenke iz malih gazdinstava Srbije i Mađarske." },
     },
+    benefits: {
+      aria: "Zdravstvene prednosti",
+      progressAria: "Napredak",
+      chapters: {
+        c1: {
+          name: "Gustina vitamina",
+          kicker: "Gustina vitamina",
+          title: "Četrdeset puta više vitamina nego u zrelom povrću.",
+          body: "U trenutku klijanja semenka oslobađa svoje rezerve. Vitamini C, E, K i B-kompleks — u koncentrovanom, živom obliku.",
+          caption: "Klica brokolija vs. zrela brokoli · sadržaj sulforafana",
+        },
+        c2: {
+          name: "Živi enzimi",
+          kicker: "Živi enzimi",
+          title: "Sto posto aktivnih enzima — kuvanje ih ne uništava.",
+          body: "Kada se jedu sirove, sve enzime klica aktivno rade: razgrađuju proteine, oslobađaju minerale, rasterećuju telo.",
+          caption: "Amilaza, proteaza, lipaza — bez toplotne obrade",
+        },
+        c3: {
+          name: "Biljni protein",
+          kicker: "Protein / 100g",
+          title: "Biljni protein sa kompletnim aminokiselinama.",
+          body: "Klice lucerke, rotkvice i brokolija daju kompletan protein — sve esencijalne aminokiseline, lako svarljive.",
+          caption: "Prosečan sadržaj proteina u svežoj klici",
+        },
+        c4: {
+          name: "Od semenke do tanjira",
+          kicker: "Od semenke do tanjira",
+          title: "Pet dana. Nula transporta. Nula gubitka.",
+          body: "Rastu na tvom pultu — ne stare u kamionu. Ono što isečeš, to jedeš: svež kiseonik, svež hlorofil.",
+          caption: "Prosečan ciklus u tvojoj kuhinji",
+        },
+      },
+    },
+
+
 
     explorer: {
       eyebrow: "Interaktivni rast",
