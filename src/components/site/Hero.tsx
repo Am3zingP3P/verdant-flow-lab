@@ -1,7 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useI18n } from "@/i18n/I18nProvider";
-import { LogoAnimation } from "@/components/site/LogoAnimation";
 
 export function Hero() {
   const { t } = useI18n();
@@ -99,19 +98,11 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Animated wordmark + SVG seed visual */}
+        {/* SVG seed visual */}
         <motion.div
           style={{ x: tx2, y: ty2 }}
-          className="col-span-12 lg:col-span-4 relative mt-6 sm:mt-12 lg:mt-0 flex flex-col items-center justify-center gap-4 sm:gap-6 lg:items-end lg:justify-center lg:pr-6 xl:pr-10"
+          className="col-span-12 lg:col-span-4 relative mt-6 sm:mt-12 lg:mt-0 flex items-center justify-center lg:justify-end lg:pr-6 xl:pr-10"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-[min(78vw,320px)] sm:max-w-[340px] lg:max-w-[380px]"
-          >
-            <LogoAnimation />
-          </motion.div>
           <motion.div style={{ scale: seedScale }} className="animate-breathe">
             <SeedVisual />
           </motion.div>

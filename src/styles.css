@@ -292,24 +292,3 @@ html.lenis, html.lenis body { height: auto; }
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
-
-/* Animated Natursense wordmark (white-background video blended into the page) */
-.natursense-logo-anim {
-  max-width: min(78vw, 360px);
-}
-
-.natursense-logo-media {
-  display: block;
-  mix-blend-mode: multiply;
-}
-
-.dark .natursense-logo-media {
-  mix-blend-mode: screen;
-  filter: invert(1) hue-rotate(180deg) saturate(1.15) brightness(1.05);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .natursense-logo-media {
-    animation: none;
-  }
-}
