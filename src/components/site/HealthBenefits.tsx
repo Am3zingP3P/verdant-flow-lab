@@ -202,7 +202,7 @@ export function HealthBenefits() {
         <div
           className="absolute inset-x-0 bottom-0 z-10 h-[2px] bg-[color:var(--cream)]"
           role="progressbar"
-          aria-label={lang === "sr" ? "Napredak" : "Haladás"}
+          aria-label={t("benefits.progressAria")}
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={Math.round(ringProgress * 100)}
