@@ -116,7 +116,13 @@ export function HealthBenefits() {
   }, []);
 
   const chapter = CHAPTERS[active];
-  const copy = lang === "sr" ? chapter.sr : chapter.hu;
+  const copy = {
+    name: t(`benefits.chapters.${chapter.key}.name`),
+    kicker: t(`benefits.chapters.${chapter.key}.kicker`),
+    title: t(`benefits.chapters.${chapter.key}.title`),
+    body: t(`benefits.chapters.${chapter.key}.body`),
+    caption: t(`benefits.chapters.${chapter.key}.caption`),
+  };
 
   const RADIUS = 152;
   const CIRC = 2 * Math.PI * RADIUS;
@@ -127,8 +133,9 @@ export function HealthBenefits() {
       ref={sectionRef}
       id="benefits"
       className="relative bg-[color:var(--sand)] text-[color:var(--moss)]"
-      aria-label={lang === "sr" ? "Zdravstvene prednosti" : "Egészségügyi előnyök"}
+      aria-label={t("benefits.aria")}
     >
+
       {/* smooth fade from cream → sand at the top */}
       <div
         aria-hidden
