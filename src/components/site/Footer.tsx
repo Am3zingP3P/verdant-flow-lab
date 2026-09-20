@@ -51,7 +51,10 @@ export function Footer() {
   const { t } = useI18n();
   const year = new Date().getFullYear();
   return (
-    <footer id="contact" className="bg-[color:var(--cream)] px-4 py-12 sm:px-6 sm:py-20 md:px-10">
+    <footer
+      id="contact"
+      className="bg-[color:var(--cream)] px-4 pb-4 pt-12 sm:px-6 sm:pb-6 sm:pt-20 md:px-10"
+    >
       <motion.div
         initial={{ opacity: 0, y: 24, filter: "blur(24px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
