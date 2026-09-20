@@ -26,6 +26,42 @@ const dictionaries: Record<Lang, Dict> = {
       two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
       three: { title: "Tiszta eredet", body: "Ellenőrzött, valamint bio tanúsított." },
     },
+    benefits: {
+      aria: "Egészségügyi előnyök",
+      progressAria: "Haladás",
+      chapters: {
+        c1: {
+          name: "Vitaminsűrűség",
+          kicker: "Vitaminsűrűség",
+          title: "Negyvenszer több vitamin, mint a felnőtt zöldségben.",
+          body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait, ezáltal C-, E-, K-vitaminhoz juthatsz, valamint B-komplexhez. Mindezt természetes formában, tabletták nélkül.",
+          caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
+        },
+        c2: {
+          name: "Élő enzimek",
+          kicker: "Élő enzimek",
+          title: "Aktív enzimek, egyenesen a konyhapultodról.",
+          body: "Nyersen fogyasztva a csíra minden enzime dolgozik: emészti a fehérjéket, felszabadítja az ásványi anyagokat, tehermentesíti a testet.",
+          caption: "Amiláz, proteáz, lipáz — hőkezelés nélkül",
+        },
+        c3: {
+          name: "Növényi fehérje",
+          kicker: "Fehérje / 100g",
+          title: "Növényi fehérje, teljes aminosav-profillal.",
+          body: "A lucerna, retek és brokkoli csírák tartalmaznak fehérjét, valamint mindegyik esszenciális aminosavval rendelkezik, könnyen felszívódó formában.",
+          caption: "Átlagos fehérjetartalom friss csírában",
+        },
+        c4: {
+          name: "Magtól a tányérig",
+          kicker: "Magtól a tányérig",
+          title: "Öt nap. Nulla szállítás. Nulla veszteség.",
+          body: "A konyhapulton nőnek, és nem a kamionban öregednek. Amit termelsz, azt eszed: a frissesség garantált.",
+          caption: "Átlagos ciklus a konyhádban",
+        },
+      },
+    },
+
+
 
     explorer: {
       eyebrow: "Interaktív növekedés",
