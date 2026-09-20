@@ -2,7 +2,7 @@ import { useI18n } from "@/i18n/context";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { openConsentSettings } from "@/lib/consent";
-import viberLogoDark from "@/assets/viber-logo-dark.png";
+import viberLogoDark from "@/assets/viber-logo-dark.png.asset.json";
 import viberLogoLight from "@/assets/viber-logo-light.png";
 
 const socials = [
