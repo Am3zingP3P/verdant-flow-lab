@@ -2,6 +2,8 @@ import { useI18n } from "@/i18n/I18nProvider";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { openConsentSettings } from "@/lib/consent";
+import viberLogoDark from "@/assets/viber-logo-dark.png";
+import viberLogoLight from "@/assets/viber-logo-light.png";
 
 const socials = [
   {
@@ -31,9 +33,10 @@ const socials = [
     handle: "+381 60 000 0000",
     href: "viber://chat?number=%2B381600000000",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-        <path d="M12.1 2c-2.4 0-5.5.3-7 1.7C4 4.8 3.6 6.5 3.5 8.6c0 2.1-.1 6 3.7 7.1v1.7c0 .6.1 1 .4 1.1.3.1.6 0 1-.4.3-.3 1.4-1.6 1.9-2.2h1.6c2.4 0 3.8-.1 5.3-1.4 1.1-1.1 1.6-2.7 1.6-4.9 0-2.2-.4-3.8-1.6-4.9C16 2.3 14.5 2 12.1 2Zm0 1.5c2.1 0 3.4.2 4.3 1.1.9.9 1.2 2.1 1.2 3.9 0 1.8-.3 3.1-1.2 3.9-.9.9-2.2 1-4.3 1h-1.9c-.2 0-.4.1-.6.3-.4.5-1 1.2-1.4 1.6v-1.2c0-.3-.2-.6-.6-.7-3-.7-3.1-3.6-3-5 0-1.8.3-3 1.2-3.9.9-.8 2.2-1 4.3-1Zm-2.7 2.1c-.2 0-.4.1-.7.2-.5.3-1 .8-1 1.6 0 .4.1.8.3 1.3.5 1 1.8 2.7 3.6 3.5.8.4 1.4.5 1.9.5.7 0 1.3-.4 1.6-.9.2-.3.2-.6.2-.8 0-.1 0-.2-.2-.3-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.5.1l-.6.8c-.1.1-.2.1-.4.1-.2-.1-.9-.4-1.6-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4l.4-.4c.1-.1.1-.2.2-.4v-.3c0-.1-.5-1.1-.6-1.5-.1-.3-.2-.3-.4-.3h-.3Z" />
-      </svg>
+      <>
+        <img src={viberLogoDark} alt="" className="h-4 w-4 object-contain dark:hidden" />
+        <img src={viberLogoLight} alt="" className="hidden h-4 w-4 object-contain dark:block" />
+      </>
     ),
   },
 ] as const;
