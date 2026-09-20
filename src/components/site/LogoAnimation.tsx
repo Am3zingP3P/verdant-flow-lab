@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import logoVideo from "@/assets/natursense-logo.mp4.asset.json";
+import logoVideoWebm from "@/assets/natursense-logo.webm.asset.json";
 import logoPoster from "@/assets/natursense-logo-poster.jpg.asset.json";
 
 /**
@@ -75,7 +76,6 @@ export function LogoAnimation({ className = "" }: { className?: string }) {
         <video
           ref={videoRef}
           className="natursense-logo-media h-auto w-full"
-          src={logoVideo.url}
           poster={logoPoster.url}
           muted
           loop
@@ -84,7 +84,10 @@ export function LogoAnimation({ className = "" }: { className?: string }) {
           preload="metadata"
           disablePictureInPicture
           aria-hidden
-        />
+        >
+          <source src={logoVideoWebm.url} type="video/webm" />
+          <source src={logoVideo.url} type="video/mp4" />
+        </video>
       )}
     </div>
   );
