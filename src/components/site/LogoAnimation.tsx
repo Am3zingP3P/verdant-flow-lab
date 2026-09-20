@@ -51,9 +51,13 @@ export function LogoAnimation({ className = "" }: { className?: string }) {
     io.observe(el);
 
     document.addEventListener("visibilitychange", sync);
+    video.addEventListener("loadeddata", sync);
+    video.addEventListener("canplay", sync);
     return () => {
       io.disconnect();
       document.removeEventListener("visibilitychange", sync);
+      video.removeEventListener("loadeddata", sync);
+      video.removeEventListener("canplay", sync);
     };
   }, []);
 
