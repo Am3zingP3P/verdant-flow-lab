@@ -150,7 +150,7 @@ export function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 flex flex-col items-start justify-between gap-6 sm:mb-24 sm:flex-row sm:items-end"
+          className="mb-12 flex flex-col items-start justify-between gap-6 sm:mb-16 sm:flex-row sm:items-end"
         >
           <div className="max-w-xl">
             <div className="mb-5 flex items-center gap-4">
