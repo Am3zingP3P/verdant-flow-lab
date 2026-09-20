@@ -9,10 +9,10 @@ const dictionaries: Record<Lang, Dict> = {
     cta: { shop: "Vásárlás", explore: "Fedezd fel előnyeit", learn: "Történetünk" },
     hero: {
       eyebrow: "Bio mag · Magyarország × Szerbia",
-      titleA: "Magad",
+      titleA: "Saját magad",
       titleB: "termeled,",
       titleC: "öt nap múlva eheted.",
-      lede: "Élő csírák, egyenesen a konyhapultodról. Kis magvakból, saját kezűleg.",
+      lede: "Élő csírák, egyenesen a konyhapultodról. Otthon termesztve, általad.",
       scroll: "Görgess tovább",
     },
     marquee: "Fenntartható · Otthoni farm · 100% bio · Természetes",
@@ -22,13 +22,16 @@ const dictionaries: Record<Lang, Dict> = {
       imageAlt: "Natursense — bio csírák és magvak",
       one: {
         title: "Természetes vitaminok",
-        body: "A csírázás során a tápanyagok akár negyvenszeresére dúsulnak. Élő enzimek, valódi hatás.",
+        body: "A csírázás során egyes tápanyagok és vitaminok mennyisége megnő, mások pedig könnyebben hozzáférhetővé válnak a szervezet számára.",
       },
       two: {
         title: "Önellátás (kicsiben)",
-        body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül.",
+        body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kertté válik. Föld nélkül.",
       },
-      three: { title: "Tiszta eredet", body: "Ellenőrzött, bio minőségű magvak." },
+      three: {
+        title: "Tiszta eredet",
+        body: "Megbízható bio magvak, amelyek tökéletesek a sikeres csíráztatáshoz.",
+      },
     },
     benefits: {
       aria: "Egészségügyi előnyök",
@@ -39,7 +42,7 @@ const dictionaries: Record<Lang, Dict> = {
           kicker: "Vitaminsűrűség",
           title: "Negyvenszer több vitamin, mint az érett zöldségben.",
           body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait, ezáltal C-, E-, K-vitaminhoz juthatsz, valamint B-komplexhez. Mindezt természetes formában, tabletták nélkül.",
-          caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
+          caption: "Csírázó brokkoli vs. érett brokkoli",
         },
         c2: {
           name: "Élő enzimek",
@@ -52,7 +55,7 @@ const dictionaries: Record<Lang, Dict> = {
           name: "Növényi fehérje",
           kicker: "Fehérje / 100g",
           title: "Növényi fehérje, teljes aminosav-profillal.",
-          body: "A lucerna-, retek- és brokkolicsíra fehérjét tartalmaz. Az esszenciális aminosavak könnyen felszívódó formában vannak jelen.",
+          body: "A lucerna-, retek- és brokkolicsíra értékes növényi fehérjeforrás, és esszenciális aminosavakat is tartalmaz, amelyek könnyen felszívódó formában vannak jelen.",
           caption: "Átlagos fehérjetartalom friss csírában",
         },
         c4: {
@@ -68,7 +71,7 @@ const dictionaries: Record<Lang, Dict> = {
     explorer: {
       eyebrow: "Interaktív növekedés",
       title: "Egy mag élete, három szakaszban.",
-      lede: "Kattints a megadott szakaszokra, és lásd, ahogyan a mag hirtelen zöld energiává robban.",
+      lede: "Kattints a szakaszokra, és kövesd végig a mag fejlődését, egészen a csírázás első lépéseitől a friss csíráig.",
       stages: { seed: "Mag", germ: "Csírázás", micro: "Mikrozöld" },
       drag: "Húzd",
     },
