@@ -16,10 +16,10 @@ import { CookieConsent } from "@/components/site/CookieConsent";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Natursense" },
-      { name: "description", content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home — living energy from a single seed." },
-      { property: "og:title", content: "Natursense" },
-      { property: "og:description", content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home — living energy from a single seed." },
+      { title: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
+      { name: "description", content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
+      { property: "og:title", content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
+      { property: "og:description", content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
     ],
   }),
   component: Index,
