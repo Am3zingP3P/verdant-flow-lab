@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/context";
 import heroImage from "@/assets/IMG_3117.jpg";
-
 
 export function Values() {
   const { t } = useI18n();
   const cards = ["one", "two", "three"] as const;
 
   return (
-    <section id="story" className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10">
+    <section
+      id="story"
+      className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10"
+    >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +43,6 @@ export function Values() {
               decoding="async"
             />
           </motion.div>
-
         </div>
         <div className="col-span-12 lg:col-span-7 grid grid-rows-3 gap-px bg-[color:var(--moss)]/10 rounded-[24px] overflow-hidden">
           {cards.map((k, i) => (

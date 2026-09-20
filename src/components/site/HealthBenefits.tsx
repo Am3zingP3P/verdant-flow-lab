@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/context";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,7 +99,6 @@ export function HealthBenefits() {
     };
   }, []);
 
-
   // breathing ring
   useEffect(() => {
     if (!ringRef.current) return;
@@ -135,7 +134,6 @@ export function HealthBenefits() {
       className="relative bg-[color:var(--sand)] text-[color:var(--moss)]"
       aria-label={t("benefits.aria")}
     >
-
       {/* smooth fade from cream → sand at the top */}
       <div
         aria-hidden
@@ -154,10 +152,10 @@ export function HealthBenefits() {
             "linear-gradient(to top, var(--cream) 0%, color-mix(in oklab, var(--cream) 60%, var(--sand)) 55%, transparent 100%)",
         }}
       />
-        <div
-          ref={stageRef}
-          className="benefits-stage relative flex min-h-[100svh] min-h-[100dvh] w-full items-center overflow-hidden py-20 md:py-0"
-        >
+      <div
+        ref={stageRef}
+        className="benefits-stage relative flex min-h-[100svh] min-h-[100dvh] w-full items-center overflow-hidden py-20 md:py-0"
+      >
         {/* ambient orbs */}
         <div
           ref={orbRef}
@@ -194,7 +192,10 @@ export function HealthBenefits() {
             <span className="text-[0.6rem] uppercase tracking-[0.28em] text-[color:var(--moss)]/75 sm:text-[0.68rem] sm:tracking-[0.32em]">
               {copy.name}
             </span>
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[color:var(--sprout)] animate-[breathe_2.4s_ease-in-out_infinite]" />
+            <span
+              aria-hidden
+              className="h-1.5 w-1.5 rounded-full bg-[color:var(--sprout)] animate-[breathe_2.4s_ease-in-out_infinite]"
+            />
           </div>
         </div>
 
@@ -217,10 +218,7 @@ export function HealthBenefits() {
         <div className="benefits-layout mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-5 pt-16 sm:px-6 md:gap-10 md:px-10 md:pt-0 lg:grid-cols-[1fr_1.05fr]">
           {/* Editorial copy */}
           <div className="benefits-copy relative z-10 max-w-xl order-2 lg:order-1">
-            <div
-              key={active}
-              className="animate-[fadeUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]"
-            >
+            <div key={active} className="animate-[fadeUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]">
               <div className="mb-3 text-[0.65rem] uppercase tracking-[0.3em] text-[color:var(--sprout)] sm:text-[0.7rem] sm:tracking-[0.35em]">
                 {copy.kicker}
               </div>
@@ -265,11 +263,7 @@ export function HealthBenefits() {
               className="absolute inset-10 rounded-full border border-[color:var(--moss)]/10"
             />
 
-            <svg
-              viewBox="0 0 400 400"
-              className="relative h-full w-full -rotate-90"
-              aria-hidden
-            >
+            <svg viewBox="0 0 400 400" className="relative h-full w-full -rotate-90" aria-hidden>
               <defs>
                 <linearGradient id="hb-ring" x1="0" x2="1" y1="0" y2="1">
                   <stop offset="0%" stopColor="var(--sprout)" />
@@ -283,13 +277,7 @@ export function HealthBenefits() {
               </defs>
 
               {/* breathing glow */}
-              <circle
-                ref={ringRef}
-                cx="200"
-                cy="200"
-                r="150"
-                fill="url(#hb-glow)"
-              />
+              <circle ref={ringRef} cx="200" cy="200" r="150" fill="url(#hb-glow)" />
 
               {/* faint base ring */}
               <circle

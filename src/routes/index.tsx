@@ -17,9 +17,18 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
-      { name: "description", content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
-      { property: "og:title", content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
-      { property: "og:description", content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
+      {
+        name: "description",
+        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+      },
+      {
+        property: "og:title",
+        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+      },
+      {
+        property: "og:description",
+        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+      },
     ],
   }),
   component: Index,

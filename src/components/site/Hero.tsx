@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/context";
 
 export function Hero() {
   const { t } = useI18n();
@@ -61,11 +61,17 @@ export function Hero() {
                   className="block"
                 >
                   {i === 0 ? (
-                    <em className="italic font-light text-[color:var(--sprout)] -ml-[0.04em]">{line}</em>
+                    <em className="italic font-light text-[color:var(--sprout)] -ml-[0.04em]">
+                      {line}
+                    </em>
                   ) : i === 1 ? (
-                    <em className="italic font-light text-[color:var(--moss)]/80 text-[0.78em] sm:text-[0.82em] -ml-[0.05em]">{line}</em>
+                    <em className="italic font-light text-[color:var(--moss)]/80 text-[0.78em] sm:text-[0.82em] -ml-[0.05em]">
+                      {line}
+                    </em>
                   ) : (
-                    <span className="font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)] max-sm:text-[clamp(1.9rem,7.2vw,3.2rem)]">{line}</span>
+                    <span className="font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)] max-sm:text-[clamp(1.9rem,7.2vw,3.2rem)]">
+                      {line}
+                    </span>
                   )}
                 </motion.span>
               </span>
@@ -93,7 +99,9 @@ export function Hero() {
             >
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-[color:var(--sprout)] to-[color:var(--moss)] transition-transform duration-500 group-hover:translate-x-0" />
               <span className="relative">{t("cta.explore")}</span>
-              <span className="relative transition-transform duration-500 group-hover:translate-x-1">→</span>
+              <span className="relative transition-transform duration-500 group-hover:translate-x-1">
+                →
+              </span>
             </a>
           </motion.div>
         </div>
@@ -181,7 +189,15 @@ function SeedVisual() {
       </defs>
 
       {/* outer halo ring */}
-      <circle cx="160" cy="180" r="148" fill="none" stroke="#1C352D" strokeOpacity="0.08" strokeDasharray="2 6" />
+      <circle
+        cx="160"
+        cy="180"
+        r="148"
+        fill="none"
+        stroke="#1C352D"
+        strokeOpacity="0.08"
+        strokeDasharray="2 6"
+      />
       <circle cx="160" cy="180" r="118" fill="none" stroke="#1C352D" strokeOpacity="0.12" />
 
       {/* contact shadow */}
@@ -197,7 +213,12 @@ function SeedVisual() {
       </g>
       {/* soft specular highlight */}
       <ellipse cx="142" cy="178" rx="22" ry="14" fill="url(#seedSpec)" />
-      <path d="M160 138 C 145 165, 145 220, 160 285" stroke="#0F1F1A" strokeOpacity="0.25" fill="none" />
+      <path
+        d="M160 138 C 145 165, 145 220, 160 285"
+        stroke="#0F1F1A"
+        strokeOpacity="0.25"
+        fill="none"
+      />
 
       {/* sprout stem */}
       <path
@@ -209,7 +230,11 @@ function SeedVisual() {
       />
       {/* leaves */}
       <path d="M160 82 C 140 72, 130 56, 132 40 C 150 44, 160 60, 160 82 Z" fill="url(#leafGrad)" />
-      <path d="M160 78 C 188 66, 200 48, 196 28 C 174 32, 158 50, 160 78 Z" fill="url(#leafGrad)" opacity="0.92" />
+      <path
+        d="M160 78 C 188 66, 200 48, 196 28 C 174 32, 158 50, 160 78 Z"
+        fill="url(#leafGrad)"
+        opacity="0.92"
+      />
     </svg>
   );
 }

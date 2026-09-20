@@ -22,7 +22,11 @@ export function useTheme() {
     const root = document.documentElement;
     root.classList.toggle("dark", theme === "dark");
     root.style.colorScheme = theme;
-    try { window.localStorage.setItem(STORAGE_KEY, theme); } catch {}
+    try {
+      window.localStorage.setItem(STORAGE_KEY, theme);
+    } catch {
+      // Storage may be unavailable in private or restricted browsing contexts.
+    }
   }, [theme, hydrated]);
 
   const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));

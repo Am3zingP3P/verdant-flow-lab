@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/context";
 
 type Stage = 0 | 1 | 2;
 
@@ -25,7 +25,7 @@ export function GrowthExplorer() {
   useEffect(() => {
     if (isPaused) return;
     timerRef.current = window.setTimeout(() => {
-      setStage((s) => (((s + 1) % 3) as Stage));
+      setStage((s) => ((s + 1) % 3) as Stage);
     }, AUTOPLAY_MS);
     return () => {
       if (timerRef.current) window.clearTimeout(timerRef.current);
@@ -45,7 +45,10 @@ export function GrowthExplorer() {
   };
 
   return (
-    <section id="explorer" className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10">
+    <section
+      id="explorer"
+      className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10"
+    >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -82,10 +85,16 @@ export function GrowthExplorer() {
             className="pointer-events-none absolute -top-32 left-1/2 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[color:var(--sprout)]/20 blur-3xl"
           />
           {/* concentric decorative rings */}
-          <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
             <div className="h-[280px] w-[280px] sm:h-[360px] sm:w-[360px] rounded-full border border-[color:var(--moss)]/10" />
           </div>
-          <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
             <div className="h-[380px] w-[380px] sm:h-[480px] sm:w-[480px] rounded-full border border-[color:var(--moss)]/[0.06]" />
           </div>
           {/* floating pollen particles */}
@@ -109,7 +118,9 @@ export function GrowthExplorer() {
           <div className="absolute top-4 sm:top-6 left-4 sm:left-6 flex items-center gap-3">
             <span className="inline-flex items-center gap-2 text-eyebrow text-[color:var(--moss)]/70">
               <span className="relative inline-flex h-2 w-2">
-                <span className={`absolute inset-0 rounded-full bg-[color:var(--sprout)] ${isPaused ? "" : "animate-ping opacity-60"}`} />
+                <span
+                  className={`absolute inset-0 rounded-full bg-[color:var(--sprout)] ${isPaused ? "" : "animate-ping opacity-60"}`}
+                />
                 <span className="relative inline-block h-2 w-2 rounded-full bg-[color:var(--sprout)]" />
               </span>
               <span className="tabular-nums">{String(stage + 1).padStart(2, "0")} / 03</span>
@@ -128,11 +139,23 @@ export function GrowthExplorer() {
                 transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
               >
                 {isPaused ? (
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" className="text-[color:var(--moss)] ml-[1px]">
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="currentColor"
+                    className="text-[color:var(--moss)] ml-[1px]"
+                  >
                     <path d="M2 1.5L8 5L2 8.5V1.5Z" />
                   </svg>
                 ) : (
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" className="text-[color:var(--moss)]">
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="currentColor"
+                    className="text-[color:var(--moss)]"
+                  >
                     <rect x="1.5" y="1" width="2.5" height="8" rx="0.5" />
                     <rect x="6" y="1" width="2.5" height="8" rx="0.5" />
                   </svg>
@@ -157,7 +180,7 @@ export function GrowthExplorer() {
           {/* seed name */}
           <div className="absolute top-4 sm:top-6 right-4 sm:right-6 text-right max-w-[45%]">
             <p className="text-eyebrow text-[color:var(--moss)]/60">
-              {(t(`seeds.${seed.key}.name`) as string)}
+              {t(`seeds.${seed.key}.name`) as string}
             </p>
             <p className="mt-1 max-w-[220px] text-xs text-[color:var(--moss)]/55 leading-snug hidden sm:block">
               {t(`seeds.${seed.key}.note`)}
@@ -187,6 +210,7 @@ export function GrowthExplorer() {
                       <button
                         key={s}
                         onClick={() => handleStageClick(s)}
+                        aria-pressed={active}
                         className="group relative flex flex-col items-center gap-3"
                         aria-label={labels[s]}
                       >
@@ -244,6 +268,7 @@ export function GrowthExplorer() {
                 <button
                   key={s.key}
                   onClick={() => setSeedIdx(i)}
+                  aria-pressed={seedIdx === i}
                   className="group relative flex items-center gap-2 rounded-full border border-[color:var(--moss)]/10 bg-[color:var(--cream)] px-4 py-2 transition-all hover:border-[color:var(--sprout)]/40"
                 >
                   <span
@@ -255,7 +280,7 @@ export function GrowthExplorer() {
                       seedIdx === i ? "text-[color:var(--moss)]" : "text-[color:var(--moss)]/50"
                     }`}
                   >
-                    {(t(`seeds.${s.key}.name`) as string)}
+                    {t(`seeds.${s.key}.name`) as string}
                   </span>
                   {seedIdx === i && (
                     <motion.span
@@ -320,7 +345,12 @@ function StageSvg({ stage, hue }: { stage: Stage; hue: string }) {
         ry={stage === 0 ? 30 : 12}
         fill={hue}
         initial={false}
-        animate={{ cy: stage === 0 ? 260 : 290, rx: stage === 0 ? 22 : 10, ry: stage === 0 ? 30 : 12, opacity: stage === 2 ? 0.4 : 1 }}
+        animate={{
+          cy: stage === 0 ? 260 : 290,
+          rx: stage === 0 ? 22 : 10,
+          ry: stage === 0 ? 30 : 12,
+          opacity: stage === 2 ? 0.4 : 1,
+        }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       />
 
@@ -332,7 +362,10 @@ function StageSvg({ stage, hue }: { stage: Stage; hue: string }) {
         fill="none"
         strokeLinecap="round"
         initial={false}
-        animate={{ pathLength: stage === 0 ? 0 : stage === 1 ? 0.55 : 1, opacity: stage === 0 ? 0 : 1 }}
+        animate={{
+          pathLength: stage === 0 ? 0 : stage === 1 ? 0.55 : 1,
+          opacity: stage === 0 ? 0 : 1,
+        }}
         transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
       />
 
@@ -344,17 +377,28 @@ function StageSvg({ stage, hue }: { stage: Stage; hue: string }) {
         style={{ transformOrigin: "100px 220px" }}
       >
         <path d="M100 220 C 80 215, 70 205, 72 192 C 90 196, 100 208, 100 220 Z" fill="#7CB58A" />
-        <path d="M100 220 C 120 215, 130 205, 128 192 C 110 196, 100 208, 100 220 Z" fill="#7CB58A" />
+        <path
+          d="M100 220 C 120 215, 130 205, 128 192 C 110 196, 100 208, 100 220 Z"
+          fill="#7CB58A"
+        />
       </motion.g>
 
       {/* Microgreen leaves */}
       <motion.g
         initial={false}
-        animate={{ opacity: stage === 2 ? 1 : 0, scale: stage === 2 ? 1 : 0.4, y: stage === 2 ? 0 : 30 }}
+        animate={{
+          opacity: stage === 2 ? 1 : 0,
+          scale: stage === 2 ? 1 : 0.4,
+          y: stage === 2 ? 0 : 30,
+        }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         style={{ transformOrigin: "100px 150px" }}
       >
-        <path d="M100 160 C 70 140, 50 110, 58 78 C 90 86, 102 124, 100 160 Z" fill={hue} opacity="0.95" />
+        <path
+          d="M100 160 C 70 140, 50 110, 58 78 C 90 86, 102 124, 100 160 Z"
+          fill={hue}
+          opacity="0.95"
+        />
         <path d="M100 150 C 130 130, 152 100, 144 70 C 112 78, 100 116, 100 150 Z" fill={hue} />
         <path d="M100 140 C 100 110, 108 80, 100 50 C 92 80, 100 110, 100 140 Z" fill="#4A7C59" />
       </motion.g>

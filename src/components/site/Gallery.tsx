@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useEffect, useState } from "react";
-import { useI18n } from "@/i18n/I18nProvider";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useI18n } from "@/i18n/context";
 import imgJarBroccoli from "@/assets/gallery/01-jar-broccoli.jpg";
 import imgSeedBox from "@/assets/gallery/02-seed-box.jpg";
 import imgRadish from "@/assets/gallery/03-radish.jpg";
@@ -72,6 +72,9 @@ const items: Item[] = [
 export function Gallery() {
   const { t } = useI18n();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const lastFocusedElement = useRef<HTMLElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const active = openIndex === null ? null : items[openIndex];
   const itemCopy = (key: string) => ({
     name: t(`gallery.items.${key}.name`),
@@ -79,16 +82,60 @@ export function Gallery() {
     desc: t(`gallery.items.${key}.desc`),
   });
 
-  const close = useCallback(() => setOpenIndex(null), []);
+  const close = useCallback(() => {
+    setOpenIndex(null);
+    window.requestAnimationFrame(() => lastFocusedElement.current?.focus());
+  }, []);
+
+  const open = useCallback((index: number, trigger: HTMLElement) => {
+    lastFocusedElement.current = trigger;
+    setOpenIndex(index);
+  }, []);
 
   useEffect(() => {
     if (openIndex === null) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+        return;
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        setOpenIndex((index) =>
+          index === null ? null : (index - 1 + items.length) % items.length,
+        );
+        return;
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        setOpenIndex((index) => (index === null ? null : (index + 1) % items.length));
+        return;
+      }
+      if (e.key === "Tab") {
+        const dialog = dialogRef.current;
+        if (!dialog) return;
+        const focusable = [
+          ...dialog.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])',
+          ),
+        ];
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
+    closeButtonRef.current?.focus();
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
@@ -108,80 +155,87 @@ export function Gallery() {
           <div className="max-w-xl">
             <div className="mb-5 flex items-center gap-4">
               <span className="h-px w-12 bg-[color:var(--sprout)]" />
-              <span className="text-eyebrow italic text-[color:var(--sprout)]">{t("gallery.eyebrow")}</span>
+              <span className="text-eyebrow italic text-[color:var(--sprout)]">
+                {t("gallery.eyebrow")}
+              </span>
             </div>
             <h2 className="font-display text-[clamp(2.25rem,5vw,4.5rem)] font-light leading-[1.02] tracking-[-0.02em] text-[color:var(--moss)]">
-              {t("gallery.title")} <em className="italic text-[color:var(--sprout)]">{t("gallery.titleAccent")}</em>.
+              {t("gallery.title")}{" "}
+              <em className="italic text-[color:var(--sprout)]">{t("gallery.titleAccent")}</em>.
             </h2>
           </div>
-          <p className="max-w-sm text-[color:var(--moss)]/65 sm:text-right">
-            {t("gallery.intro")}
-          </p>
+          <p className="max-w-sm text-[color:var(--moss)]/65 sm:text-right">{t("gallery.intro")}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 md:grid-cols-12 md:gap-7">
           {items.map((it, i) => {
             const copy = itemCopy(it.key);
             return (
-            <motion.figure
-              key={it.key}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              onClick={() => setOpenIndex(i)}
-              className={`group relative isolate cursor-pointer overflow-hidden rounded-2xl [transform:translateZ(0)] [backface-visibility:hidden] ${it.span} ${it.ratio}`}
-            >
-              {/* Photo */}
-              <img
-                src={it.src}
-                alt={copy.desc || copy.name}
-                loading="lazy"
-                decoding="async"
-                className={`absolute inset-0 h-full w-full rounded-2xl object-cover ${it.position} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
-              />
-              {/* Constant soft bottom shade so captions stay legible */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent dark:from-[color:var(--cream)]/58 dark:via-[color:var(--cream)]/10" />
-              {/* Hover gradient veil */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100 dark:from-[color:var(--cream)]/78 dark:via-[color:var(--sand)]/28" />
+              <motion.figure
+                key={it.key}
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                onClick={(e) => open(i, e.currentTarget)}
+                className={`group relative isolate cursor-pointer overflow-hidden rounded-2xl [transform:translateZ(0)] [backface-visibility:hidden] ${it.span} ${it.ratio}`}
+              >
+                {/* Photo */}
+                <img
+                  src={it.src}
+                  alt={copy.desc || copy.name}
+                  loading="lazy"
+                  decoding="async"
+                  className={`absolute inset-0 h-full w-full rounded-2xl object-cover ${it.position} transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]`}
+                />
+                {/* Constant soft bottom shade so captions stay legible */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/45 via-transparent to-transparent dark:from-[color:var(--cream)]/58 dark:via-[color:var(--cream)]/10" />
+                {/* Hover gradient veil */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-[color:var(--moss)]/85 via-[color:var(--moss)]/20 to-transparent opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100 dark:from-[color:var(--cream)]/78 dark:via-[color:var(--sand)]/28" />
 
-              {/* Index marker */}
-              <span className="pointer-events-none absolute left-5 top-5 z-10 text-[10px] uppercase tracking-[0.25em] text-white/80 opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+                {/* Index marker */}
+                <span className="pointer-events-none absolute left-5 top-5 z-10 text-[10px] uppercase tracking-[0.25em] text-white/80 opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
 
-              {/* Caption */}
-              <figcaption className="absolute inset-x-0 bottom-0 z-10 translate-y-0 p-5 opacity-100 transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 sm:p-6">
-                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3 sm:gap-4">
-                  <div className="min-w-0">
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--cream)]/70 dark:text-[color:var(--obsidian)]/70">
-                      {copy.category}
-                    </p>
-                    <h3 className="mt-1 break-words font-sans text-base font-medium tracking-tight text-[color:var(--cream)] dark:text-[color:var(--obsidian)] sm:text-lg">
-                      {copy.name}
-                    </h3>
-                    {copy.desc && (
-                      <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80 dark:text-[color:var(--obsidian)]/85">
-                        {copy.desc}
+                {/* Caption */}
+                <figcaption className="absolute inset-x-0 bottom-0 z-10 translate-y-0 p-5 opacity-100 transition-all duration-500 ease-out md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 sm:p-6">
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3 sm:gap-4">
+                    <div className="min-w-0">
+                      <p className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--cream)]/70 dark:text-[color:var(--obsidian)]/70">
+                        {copy.category}
                       </p>
-                    )}
+                      <h3 className="mt-1 break-words font-sans text-base font-medium tracking-tight text-[color:var(--cream)] dark:text-[color:var(--obsidian)] sm:text-lg">
+                        {copy.name}
+                      </h3>
+                      {copy.desc && (
+                        <p className="mt-1.5 text-[13px] leading-snug text-[color:var(--cream)]/80 dark:text-[color:var(--obsidian)]/85">
+                          {copy.desc}
+                        </p>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        open(i, e.currentTarget);
+                      }}
+                      aria-label={`${copy.name} — ${t("gallery.open")}`}
+                      className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[color:var(--cream)]/35 bg-[color:var(--cream)]/10 text-[color:var(--cream)] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 hover:bg-[color:var(--cream)]/25 dark:border-[color:var(--obsidian)]/25 dark:bg-[color:var(--obsidian)]/10 dark:text-[color:var(--obsidian)] dark:hover:bg-[color:var(--obsidian)]/20"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        className="h-4 w-4"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M7 17 17 7M9 7h8v8" />
+                      </svg>
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setOpenIndex(i);
-                    }}
-                    aria-label={`${copy.name} — ${t("gallery.open")}`}
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[color:var(--cream)]/35 bg-[color:var(--cream)]/10 text-[color:var(--cream)] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 hover:bg-[color:var(--cream)]/25 dark:border-[color:var(--obsidian)]/25 dark:bg-[color:var(--obsidian)]/10 dark:text-[color:var(--obsidian)] dark:hover:bg-[color:var(--obsidian)]/20"
-                  >
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17 17 7M9 7h8v8" />
-                    </svg>
-                  </button>
-                </div>
-              </figcaption>
-            </motion.figure>
+                </figcaption>
+              </motion.figure>
             );
           })}
         </div>
@@ -189,63 +243,80 @@ export function Gallery() {
 
       {/* Lightbox */}
       <AnimatePresence>
-        {active && (() => {
-          const copy = itemCopy(active.key);
-          return (
-          <motion.div
-            key="lightbox"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            onClick={close}
-            role="dialog"
-            aria-modal="true"
-            aria-label={copy.name}
-            className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-[color:var(--moss)]/55 p-4 backdrop-blur-xl sm:p-8 dark:bg-[color:var(--sand)]/94"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 28 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 20 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative my-auto w-full max-w-3xl rounded-[28px] border border-[color:var(--cream)]/20 bg-[color:var(--cream)]/95 p-3 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.6)] sm:p-4"
-            >
-              <button
-                type="button"
+        {active &&
+          (() => {
+            const copy = itemCopy(active.key);
+            return (
+              <motion.div
+                key="lightbox"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
                 onClick={close}
-                 aria-label={t("gallery.close")}
-                className="absolute -top-3 right-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-[color:var(--cream)]/30 bg-[color:var(--moss)] text-[color:var(--cream)] shadow-lg transition-transform duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 sm:-top-4 sm:-right-4"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="gallery-lightbox-title"
+                ref={dialogRef}
+                className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto bg-[color:var(--moss)]/55 p-4 backdrop-blur-xl sm:p-8 dark:bg-[color:var(--sand)]/94"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5">
-                  <path strokeLinecap="round" d="M6 6l12 12M18 6 6 18" />
-                </svg>
-              </button>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.92, y: 28 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96, y: 20 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="relative my-auto w-full max-w-3xl rounded-[28px] border border-[color:var(--cream)]/20 bg-[color:var(--cream)]/95 p-3 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.6)] sm:p-4"
+                >
+                  <button
+                    type="button"
+                    onClick={close}
+                    aria-label={t("gallery.close")}
+                    ref={closeButtonRef}
+                    className="absolute -top-3 right-2 z-10 grid h-11 w-11 place-items-center rounded-full border border-[color:var(--cream)]/30 bg-[color:var(--moss)] text-[color:var(--cream)] shadow-lg transition-transform duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 sm:-top-4 sm:-right-4"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      className="h-5 w-5"
+                    >
+                      <path strokeLinecap="round" d="M6 6l12 12M18 6 6 18" />
+                    </svg>
+                  </button>
 
-              <img
-                src={active.src}
-                alt={copy.desc || copy.name}
-                className="max-h-[62vh] w-full rounded-[20px] object-contain"
-              />
+                  <img
+                    src={active.src}
+                    alt={copy.desc || copy.name}
+                    className="max-h-[62vh] w-full rounded-[20px] object-contain"
+                  />
 
-              <div className="px-2 pb-2 pt-5 sm:px-4 sm:pb-3">
-                <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--sprout)]">{copy.category}</p>
-                <h3 className="mt-2 font-display text-2xl font-light tracking-[-0.01em] text-[color:var(--moss)] sm:text-3xl">
-                  {copy.name}
-                </h3>
-                {copy.desc && (
-                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-[color:var(--moss)]/70">{copy.desc}</p>
-                )}
-                <div className="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-[color:var(--moss)]/45">
-                  <span className="h-px w-8 bg-[color:var(--sprout)]/50" />
-                  {String((openIndex ?? 0) + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-          );
-        })()}
+                  <div className="px-2 pb-2 pt-5 sm:px-4 sm:pb-3">
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--sprout)]">
+                      {copy.category}
+                    </p>
+                    <h3
+                      id="gallery-lightbox-title"
+                      className="mt-2 font-display text-2xl font-light tracking-[-0.01em] text-[color:var(--moss)] sm:text-3xl"
+                    >
+                      {copy.name}
+                    </h3>
+                    {copy.desc && (
+                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-[color:var(--moss)]/70">
+                        {copy.desc}
+                      </p>
+                    )}
+                    <div className="mt-5 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-[color:var(--moss)]/45">
+                      <span className="h-px w-8 bg-[color:var(--sprout)]/50" />
+                      {String((openIndex ?? 0) + 1).padStart(2, "0")} /{" "}
+                      {String(items.length).padStart(2, "0")}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })()}
       </AnimatePresence>
     </section>
   );

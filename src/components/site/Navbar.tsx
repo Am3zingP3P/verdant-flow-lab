@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useI18n, type Lang } from "@/i18n/I18nProvider";
+import { useI18n, type Lang } from "@/i18n/context";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/hooks/useTheme";
 
@@ -29,7 +29,9 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[color:var(--cream)]/75 backdrop-blur-xl border-b border-[color:var(--moss)]/8" : ""
+        scrolled
+          ? "bg-[color:var(--cream)]/75 backdrop-blur-xl border-b border-[color:var(--moss)]/8"
+          : ""
       }`}
     >
       <div className="mx-auto flex max-w-[1480px] items-center justify-between px-5 sm:px-6 py-4 sm:py-5 md:px-10">
@@ -69,9 +71,12 @@ export function LangSwitcher({ lang, setLang }: { lang: Lang; setLang: (l: Lang)
         <button
           key={l}
           onClick={() => setLang(l)}
+          aria-pressed={lang === l}
           className="relative z-10 px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.18em]"
         >
-          <span className={`relative z-10 transition-colors ${lang === l ? "text-[color:var(--cream)]" : "text-[color:var(--moss)]/60"}`}>
+          <span
+            className={`relative z-10 transition-colors ${lang === l ? "text-[color:var(--cream)]" : "text-[color:var(--moss)]/60"}`}
+          >
             {l === "sr" ? "SRB" : "HU"}
           </span>
           {lang === l && (
@@ -107,7 +112,16 @@ export function ThemeToggle() {
         className="grid place-items-center"
       >
         {isDark ? (
-          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <svg
+            viewBox="0 0 24 24"
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
             <circle cx="12" cy="12" r="4" />
             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
           </svg>
@@ -124,21 +138,13 @@ export function ThemeToggle() {
 function SproutMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" fill="none" className={className} aria-hidden>
-      <path
-        d="M16 28 V14"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
+      <path d="M16 28 V14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       <path
         d="M16 16 C 9 16, 5 11, 5 6 C 11 6, 16 10, 16 16 Z"
         fill="currentColor"
         opacity="0.85"
       />
-      <path
-        d="M16 18 C 22 18, 27 13, 27 8 C 21 8, 16 12, 16 18 Z"
-        fill="currentColor"
-      />
+      <path d="M16 18 C 22 18, 27 13, 27 8 C 21 8, 16 12, 16 18 Z" fill="currentColor" />
     </svg>
   );
 }

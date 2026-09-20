@@ -1,6 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useI18n, type Lang } from "@/i18n/I18nProvider";
+import { useI18n, type Lang } from "@/i18n/context";
 import { LangSwitcher, ThemeToggle } from "@/components/site/Navbar";
 
 export const Route = createFileRoute("/jogi-informaciok")({
@@ -9,7 +9,8 @@ export const Route = createFileRoute("/jogi-informaciok")({
       { title: "Impresszum és jogi információk — Natursense" },
       {
         name: "description",
-        content: "A Natursense weboldal impresszuma, felhasználási feltételei és adatvédelmi tájékoztatója.",
+        content:
+          "A Natursense weboldal impresszuma, felhasználási feltételei és adatvédelmi tájékoztatója.",
       },
       { property: "og:title", content: "Impresszum és jogi információk — Natursense" },
       {
@@ -69,7 +70,7 @@ interface LegalContent {
 
 function LegalInformationPage() {
   const { lang, setLang, dict } = useI18n();
-  const l = (dict.legal as unknown) as LegalContent;
+  const l = dict.legal as unknown as LegalContent;
   const year = new Date().getFullYear();
 
   return (
@@ -192,7 +193,9 @@ function LegalHeader({
       <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-y-3 px-5 py-4 sm:px-8 sm:py-5">
         <Link to="/" className="group flex min-w-0 items-center gap-2.5 text-[color:var(--moss)]">
           <SproutMark />
-          <span className="truncate font-display text-xl">natursense<span className="text-[color:var(--sprout)]">.</span></span>
+          <span className="truncate font-display text-xl">
+            natursense<span className="text-[color:var(--sprout)]">.</span>
+          </span>
         </Link>
         <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
           <ThemeToggle />
@@ -233,9 +236,13 @@ function LegalSection({
         <span className="h-px w-7 bg-[color:var(--sprout)]" />
       </div>
       <div className="grid gap-5 md:grid-cols-[3rem_minmax(0,1fr)] md:gap-7">
-        <span className="text-[0.68rem] font-semibold tracking-[0.2em] text-[color:var(--sprout)]">{number}</span>
+        <span className="text-[0.68rem] font-semibold tracking-[0.2em] text-[color:var(--sprout)]">
+          {number}
+        </span>
         <div>
-          <h2 className="pr-12 font-display text-[clamp(1.65rem,3vw,2.35rem)] leading-tight text-[color:var(--moss)]">{title}</h2>
+          <h2 className="pr-12 font-display text-[clamp(1.65rem,3vw,2.35rem)] leading-tight text-[color:var(--moss)]">
+            {title}
+          </h2>
           <div className="mt-5 space-y-5 text-[0.94rem] leading-7 text-[color:var(--moss)]/72 sm:text-[1rem] sm:leading-8">
             {children}
           </div>
@@ -249,8 +256,13 @@ function DetailList({ items }: { items: ReadonlyArray<DetailItem> }) {
   return (
     <dl className="overflow-hidden rounded-2xl border border-[color:var(--moss)]/10 bg-[color:var(--cream)]/70">
       {items.map((item, i) => (
-        <div key={i} className="grid gap-1 border-b border-[color:var(--moss)]/8 px-4 py-4 last:border-b-0 sm:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] sm:gap-6 sm:px-5">
-          <dt className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[color:var(--moss)]/55">{item.label}</dt>
+        <div
+          key={i}
+          className="grid gap-1 border-b border-[color:var(--moss)]/8 px-4 py-4 last:border-b-0 sm:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] sm:gap-6 sm:px-5"
+        >
+          <dt className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[color:var(--moss)]/55">
+            {item.label}
+          </dt>
           <dd className="min-w-0 break-words font-medium text-[color:var(--moss)]">{item.value}</dd>
         </div>
       ))}
@@ -274,8 +286,18 @@ function AmpersandTitle({ text }: { text: string }) {
 
 function BotanicalAccent() {
   return (
-    <svg aria-hidden viewBox="0 0 180 220" fill="none" className="pointer-events-none absolute right-[-2rem] top-32 h-52 w-44 text-[color:var(--sprout)] opacity-[0.09] sm:right-4 sm:h-64 sm:w-52 lg:right-[5vw]">
-      <path d="M89 208C85 155 94 103 137 42" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <svg
+      aria-hidden
+      viewBox="0 0 180 220"
+      fill="none"
+      className="pointer-events-none absolute right-[-2rem] top-32 h-52 w-44 text-[color:var(--sprout)] opacity-[0.09] sm:right-4 sm:h-64 sm:w-52 lg:right-[5vw]"
+    >
+      <path
+        d="M89 208C85 155 94 103 137 42"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
       <path d="M105 116C133 111 151 93 156 70C128 70 109 87 105 116Z" fill="currentColor" />
       <path d="M91 157C62 153 42 134 36 109C66 109 87 127 91 157Z" fill="currentColor" />
       <circle cx="41" cy="56" r="3" fill="currentColor" />
@@ -286,7 +308,12 @@ function BotanicalAccent() {
 
 function SproutMark() {
   return (
-    <svg viewBox="0 0 32 32" fill="none" className="h-7 w-7 transition-transform duration-500 group-hover:rotate-[8deg]" aria-hidden>
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      className="h-7 w-7 transition-transform duration-500 group-hover:rotate-[8deg]"
+      aria-hidden
+    >
       <path d="M16 28V14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
       <path d="M16 16C9 16 5 11 5 6C11 6 16 10 16 16Z" fill="currentColor" opacity=".85" />
       <path d="M16 18C22 18 27 13 27 8C21 8 16 12 16 18Z" fill="currentColor" />

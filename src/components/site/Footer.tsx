@@ -1,4 +1,4 @@
-import { useI18n } from "@/i18n/I18nProvider";
+import { useI18n } from "@/i18n/context";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { openConsentSettings } from "@/lib/consent";
@@ -11,7 +11,13 @@ const socials = [
     handle: "@natursense",
     href: "https://instagram.com",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        className="h-4 w-4"
+      >
         <rect x="3" y="3" width="18" height="18" rx="5" />
         <circle cx="12" cy="12" r="4" />
         <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -62,11 +68,15 @@ export function Footer() {
               </h3>
               <div className="mt-8 flex items-center gap-4">
                 <span className="h-px w-12 bg-[color:var(--sprout)]" />
-                <span className="text-eyebrow italic text-[color:var(--sprout)]">{t("footer.writeUs")}</span>
+                <span className="text-eyebrow italic text-[color:var(--sprout)]">
+                  {t("footer.writeUs")}
+                </span>
               </div>
             </div>
             <div>
-              <p className="text-eyebrow mb-3 text-[color:var(--moss)]/60">{t("footer.emailLabel")}</p>
+              <p className="text-eyebrow mb-3 text-[color:var(--moss)]/60">
+                {t("footer.emailLabel")}
+              </p>
               <a
                 href="mailto:natursense2026@gmail.com"
                 className="font-display text-xl text-[color:var(--moss)] underline decoration-[color:var(--sprout)]/40 underline-offset-[10px] transition-colors hover:text-[color:var(--sprout)] sm:text-2xl"
@@ -80,7 +90,9 @@ export function Footer() {
           <div className="flex flex-col justify-between gap-12 bg-[color:var(--cream)]/50 p-8 sm:p-12 md:col-span-5 md:p-16 lg:p-20">
             <div className="space-y-10">
               <div>
-                <p className="text-eyebrow mb-3 text-[color:var(--sprout)]">{t("footer.locationLabel")}</p>
+                <p className="text-eyebrow mb-3 text-[color:var(--sprout)]">
+                  {t("footer.locationLabel")}
+                </p>
                 <address className="font-display text-lg not-italic leading-relaxed text-[color:var(--moss)]">
                   {t("footer.locationLine1")}
                   <br />
@@ -89,7 +101,9 @@ export function Footer() {
               </div>
 
               <div>
-                <p className="text-eyebrow mb-5 text-[color:var(--sprout)]">{t("footer.followUs")}</p>
+                <p className="text-eyebrow mb-5 text-[color:var(--sprout)]">
+                  {t("footer.followUs")}
+                </p>
                 <ul className="flex flex-col">
                   {socials.map((s) => (
                     <li key={s.name}>
@@ -119,7 +133,11 @@ export function Footer() {
                           strokeWidth="1.5"
                           className="h-4 w-4 -translate-x-2 text-[color:var(--sprout)] opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M7 17 17 7M9 7h8v8" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M7 17 17 7M9 7h8v8"
+                          />
                         </svg>
                       </a>
                     </li>
@@ -141,9 +159,10 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-[color:var(--moss)]/10 px-6 py-5 text-[10px] uppercase tracking-[0.25em] text-[color:var(--moss)]/50 sm:flex-row sm:px-10">
-          <span>© {year} Natursense — {t("footer.rights")}</span>
+          <span>
+            © {year} Natursense — {t("footer.rights")}
+          </span>
         </div>
-
       </motion.div>
 
       {/* Standalone legal strip below the glass footer */}

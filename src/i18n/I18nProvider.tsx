@@ -1,9 +1,7 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { I18nContext, type Dict, type Lang } from "@/i18n/context";
 
-export type Lang = "hu" | "sr";
-
-type DictNode = string | boolean | DictNode[] | { [k: string]: DictNode };
-type Dict = { [k: string]: DictNode };
+export type { Lang } from "@/i18n/context";
 
 const dictionaries: Record<Lang, Dict> = {
   hu: {
@@ -11,10 +9,10 @@ const dictionaries: Record<Lang, Dict> = {
     cta: { shop: "Vásárlás", explore: "Fedezd fel előnyeit", learn: "Történetünk" },
     hero: {
       eyebrow: "Bio mag · Magyarország × Szerbia",
-      titleA: "Saját magad",
+      titleA: "Magad",
       titleB: "termeled,",
       titleC: "öt nap múlva eheted.",
-      lede: "Élő csírák, egyenesen a konyhapultodról. Kis magvakból, mindez általad termelve.",
+      lede: "Élő csírák, egyenesen a konyhapultodról. Kis magvakból, saját kezűleg.",
       scroll: "Görgess tovább",
     },
     marquee: "Fenntartható · Otthoni farm · 100% bio · Természetes",
@@ -22,9 +20,15 @@ const dictionaries: Record<Lang, Dict> = {
       eyebrow: "Miért csíráztass?",
       title: "A csíramagok előnyei",
       imageAlt: "Natursense — bio csírák és magvak",
-      one: { title: "Természetes vitaminok", body: "A csírázás során a tápanyagok akár 40×-esre koncentrálódnak. Élő enzimek, valódi hatás." },
-      two: { title: "Önellátás (kicsiben)", body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül." },
-      three: { title: "Tiszta eredet", body: "Ellenőrzött, valamint bio tanúsított." },
+      one: {
+        title: "Természetes vitaminok",
+        body: "A csírázás során a tápanyagok akár negyvenszeresére dúsulnak. Élő enzimek, valódi hatás.",
+      },
+      two: {
+        title: "Önellátás (kicsiben)",
+        body: "Néhány nap, egy üvegcse víz, és a konyhád egy mini-kerté válik. Föld nélkül.",
+      },
+      three: { title: "Tiszta eredet", body: "Ellenőrzött, bio minőségű magvak." },
     },
     benefits: {
       aria: "Egészségügyi előnyök",
@@ -33,7 +37,7 @@ const dictionaries: Record<Lang, Dict> = {
         c1: {
           name: "Vitaminsűrűség",
           kicker: "Vitaminsűrűség",
-          title: "Negyvenszer több vitamin, mint a felnőtt zöldségben.",
+          title: "Negyvenszer több vitamin, mint az érett zöldségben.",
           body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait, ezáltal C-, E-, K-vitaminhoz juthatsz, valamint B-komplexhez. Mindezt természetes formában, tabletták nélkül.",
           caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
         },
@@ -48,7 +52,7 @@ const dictionaries: Record<Lang, Dict> = {
           name: "Növényi fehérje",
           kicker: "Fehérje / 100g",
           title: "Növényi fehérje, teljes aminosav-profillal.",
-          body: "A lucerna, retek és brokkoli csírák tartalmaznak fehérjét, valamint mindegyik esszenciális aminosavval rendelkezik, könnyen felszívódó formában.",
+          body: "A lucerna-, retek- és brokkolicsíra fehérjét tartalmaz. Az esszenciális aminosavak könnyen felszívódó formában vannak jelen.",
           caption: "Átlagos fehérjetartalom friss csírában",
         },
         c4: {
@@ -61,13 +65,11 @@ const dictionaries: Record<Lang, Dict> = {
       },
     },
 
-
-
     explorer: {
       eyebrow: "Interaktív növekedés",
       title: "Egy mag élete, három szakaszban.",
       lede: "Kattints a megadott szakaszokra, és lásd, ahogyan a mag hirtelen zöld energiává robban.",
-      stages: { seed: "Mag", germ: "Csírázás", micro: "Microgreen" },
+      stages: { seed: "Mag", germ: "Csírázás", micro: "Mikrozöld" },
       drag: "Húzd",
     },
     seeds: {
@@ -83,13 +85,33 @@ const dictionaries: Record<Lang, Dict> = {
       open: "megnyitása nagyban",
       close: "Bezárás",
       items: {
-        jar: { name: "Csíráztató üveg és brokkolimag", category: "Az eszköz", desc: "A sárga csíráztató üveg egy fatönkön, mellette brokkoli csíramag." },
-        box: { name: "Magvak rekeszekben", category: "A választék", desc: "Magtároló doboz felülnézetből, tele magvakkal." },
-        radish: { name: "Retek csíramag", category: "Rotkvica", desc: "Retek csíramag a csíráztató üveg mellett." },
-        mung: { name: "Mungóbab a tönkön", category: "Mungo pasulj", desc: "" },
+        jar: {
+          name: "Csíráztató üveg és brokkolimag",
+          category: "Az eszköz",
+          desc: "A sárga csíráztató üveg egy fatönkön, mellette brokkoli csíramag.",
+        },
+        box: {
+          name: "Magvak rekeszekben",
+          category: "A választék",
+          desc: "Magtároló doboz felülnézetből, tele magvakkal.",
+        },
+        radish: {
+          name: "Retek csíramag",
+          category: "Retek",
+          desc: "Retek csíramag a csíráztató üveg mellett.",
+        },
+        mung: { name: "Mungóbab a tönkön", category: "Mungóbab", desc: "" },
         hands: { name: "Egy marék csíramag", category: "Kézzel mérve", desc: "" },
-        family: { name: "A teljes kínálat", category: "Öt fajta", desc: "Mind az öt csíramag egymás mellett: retek, lucerna, brokkoli, mungóbab és görögszéna." },
-        alfalfa: { name: "Lucerna csíramag", category: "Lucerka", desc: "A lucerna csíramag zacskója a napsütötte fatönkön, körülötte apró aranyszínű magvak." },
+        family: {
+          name: "A teljes kínálat",
+          category: "Öt fajta",
+          desc: "Mind az öt csíramag egymás mellett: retek, lucerna, brokkoli, mungóbab és görögszéna.",
+        },
+        alfalfa: {
+          name: "Lucerna csíramag",
+          category: "Lucerna",
+          desc: "A lucerna csíramag zacskója a napsütötte fatönkön, körülötte apró aranyszínű magvak.",
+        },
       },
     },
     footer: {
@@ -98,7 +120,7 @@ const dictionaries: Record<Lang, Dict> = {
       locationLabel: "Székhelyünk",
       locationLine1: "Szabadka, Szerbia",
       locationLine2: "Vajdaság",
-      emailLabel: "Email",
+      emailLabel: "E-mail",
       writeUs: "Írj nekünk",
       followUs: "Kövess minket",
     },
@@ -123,12 +145,14 @@ const dictionaries: Record<Lang, Dict> = {
     theme: { light: "Világos mód", dark: "Sötét mód" },
     legal: {
       metaTitle: "Impresszum és jogi információk — Natursense",
-      metaDesc: "A Natursense weboldal impresszuma, felhasználási feltételei és adatvédelmi tájékoztatója.",
+      metaDesc:
+        "A Natursense weboldal impresszuma, felhasználási feltételei és adatvédelmi tájékoztatója.",
       ogTitle: "Impresszum és jogi információk — Natursense",
       ogDesc: "A Natursense weboldal jogi, szerzői jogi és adatvédelmi információi.",
       eyebrow: "Jogi információk",
       title: "Impresszum & Jogi információk",
-      intro: "Az alábbi információk a weboldal használatával, a tartalmak felhasználásával és a kapcsolatfelvétellel kapcsolatos legfontosabb tudnivalókat tartalmazzák.",
+      intro:
+        "Az alábbi információk a weboldal használatával, a tartalmak felhasználásával és a kapcsolatfelvétellel kapcsolatos legfontosabb tudnivalókat tartalmazzák.",
       backToHome: "Főoldal",
       lastUpdated: "Utolsó frissítés: 2026.09.12.",
       footerLink: "Impresszum & Jogi információk",
@@ -153,7 +177,10 @@ const dictionaries: Record<Lang, Dict> = {
         { label: "Adatkezelő / felelős szervezet", value: "Bacsó Tünde" },
         { label: "Kapcsolattartási e-mail", value: "natursense2026@gmail.com" },
         { label: "Adatkezelés célja", value: "Kapcsolatfelvétel és megkeresések megválaszolása." },
-        { label: "Az érintett által megadott adatok", value: "Név, e-mail-cím, üzenet és az önkéntesen megadott további információk." },
+        {
+          label: "Az érintett által megadott adatok",
+          value: "Név, e-mail-cím, üzenet és az önkéntesen megadott további információk.",
+        },
       ],
       paragraphs: {
         about: [
@@ -173,18 +200,18 @@ const dictionaries: Record<Lang, Dict> = {
           "A Natursense nem ellenőrzi harmadik felek oldalainak tartalmát, elérhetőségét vagy adatvédelmi gyakorlatát. Ezekre az oldalakra saját feltételeik és adatvédelmi tájékoztatóik vonatkoznak; meglátogatásuk a felhasználó saját döntése alapján történik.",
         ],
         privacy: [
-          "A kapcsolatfelvételi űrlapon a látogató önkéntesen adhat meg személyes adatokat, például nevét, e-mail-címét, üzenetének tartalmát és az üzenetben önkéntesen közölt további információkat.",
-          "A kapcsolatfelvételi űrlapon megadott személyes adatokat kizárólag a megkeresés kezelése, a válaszadás és az ehhez kapcsolódó kommunikáció céljából kezeljük.",
-          "A kapcsolatfelvételi űrlapon keresztül megadott adatokat a Natursense kezeli, bizalmasan. Az adatokat nem használjuk fel a megkereséstől eltérő célra, és nem adjuk tovább harmadik félnek.",
-          "Kérjük, a kapcsolatfelvételi űrlapon csak a megkereséshez szükséges információkat add meg, és ne küldj érzékeny vagy különleges személyes adatokat.",
+          "A látogató e-mailben önkéntesen adhat meg személyes adatokat, például nevét, e-mail-címét, üzenetének tartalmát és az üzenetben közölt további információkat.",
+          "Az e-mailben megadott személyes adatokat kizárólag a megkeresés kezelése, a válaszadás és az ehhez kapcsolódó kommunikáció céljából kezeljük.",
+          "A Natursense bizalmasan kezeli az e-mailben megadott adatokat. Az adatokat nem használjuk fel a megkereséstől eltérő célra, és nem adjuk tovább harmadik félnek.",
+          "Kérjük, e-mailben csak a megkereséshez szükséges információkat add meg, és ne küldj érzékeny vagy különleges személyes adatokat.",
         ],
         cookies: [
-          "A weboldal nem használ Google Analytics, Meta Pixel vagy más hirdetési követét, és nem célja a látogatók profilozása vagy szükségtelen marketingadatok gyűjtése. Az opcionális sütik használatáról a látogató a weboldalon elérhető sütibeállításokban dönthet.",
+          "A weboldal nem használ Google Analytics, Meta Pixel vagy más hirdetési követést, és nem célja a látogatók profilozása vagy szükségtelen marketingadatok gyűjtése. Az opcionális sütik használatáról a látogató a weboldalon elérhető sütibeállításokban dönthet.",
           "A tárhelyszolgáltató a weboldal biztonságos és megbízható működtetéséhez technikailag szükséges naplóadatokat kezelhet. Ennek részleteire a tárhelyszolgáltató mindenkori adatvédelmi feltételei vonatkoznak.",
-          "A Natursense célja, hogy a weboldal használata során csak a szükséges információkat kezelje. A kapcsolatfelvételi űrlapon csak az ügyfél eléréséhez szükséges adatokat kérjük.",
+          "A Natursense célja, hogy a weboldal használata során csak a szükséges információkat kezelje. E-mailes megkereséskor csak az ügyfél eléréséhez szükséges adatokat kérjük.",
         ],
         disclaimer: [
-          "A weboldal tartalma tájékoztató jellegű. Az egészséggel, táplálkozással, életmóddal vagy más hasonló témákkal kapcsolatos általános információ nem helyettesíti az egyén szakmai tanácsadást.",
+          "A weboldal tartalma tájékoztató jellegű. Az egészséggel, táplálkozással, életmóddal vagy más hasonló témákkal kapcsolatos általános információ nem helyettesíti az egyéni szakmai tanácsadást.",
         ],
         changes: [
           "A Natursense fenntartja a jogot arra, hogy ezt a jogi és adatvédelmi tájékoztatót szükség esetén frissítse vagy módosítsa. Az aktuális változat mindig itt érhető el.",
@@ -200,7 +227,7 @@ const dictionaries: Record<Lang, Dict> = {
       titleA: "Sam uzgajaš.",
       titleB: "Za 5 dana",
       titleC: "bereš.",
-      lede: "Žive klice i mikrogriniji, na tvojoj kuhinjskoj radnoj površini. Iz malih semenki, sve to ti uzgajaš.",
+      lede: "Žive klice i mikrozeleni, na tvojoj kuhinjskoj radnoj površini. Iz malih semenki, sve to ti uzgajaš.",
       scroll: "Skroluj ka rastu",
     },
     marquee: "Održivo · Kućna farma · 100% bio · Prirodna",
@@ -208,9 +235,18 @@ const dictionaries: Record<Lang, Dict> = {
       eyebrow: "Zašto Natursense?",
       title: "Prednosti klica",
       imageAlt: "Natursense — bio klice i semenke",
-      one: { title: "Bioraspoloživost", body: "Tokom klijanja, hranljive materije se koncentrišu i do 40×. Živi enzimi, stvaran efekat." },
-      two: { title: "Kućna farma", body: "Nekoliko dana, čaša vode, i tvoja kuhinja postaje mini-bašta. Bez zemlje." },
-      three: { title: "Čisto poreklo", body: "Samo proverene, GMO-free, bio sertifikovane semenke iz malih gazdinstava Srbije i Mađarske." },
+      one: {
+        title: "Bioraspoloživost",
+        body: "Tokom klijanja, hranljive materije se koncentrišu i do 40×. Živi enzimi, stvaran efekat.",
+      },
+      two: {
+        title: "Kućna farma",
+        body: "Nekoliko dana, čaša vode, i tvoja kuhinja postaje mini-bašta. Bez zemlje.",
+      },
+      three: {
+        title: "Čisto poreklo",
+        body: "Samo proverene, GMO-free, bio sertifikovane semenke iz malih gazdinstava Srbije i Mađarske.",
+      },
     },
     benefits: {
       aria: "Zdravstvene prednosti",
@@ -221,13 +257,13 @@ const dictionaries: Record<Lang, Dict> = {
           kicker: "Gustina vitamina",
           title: "Četrdeset puta više vitamina nego u zrelom povrću.",
           body: "U trenutku klijanja semenka oslobađa svoje rezerve. Vitamini C, E, K i B-kompleks — u koncentrovanom, živom obliku.",
-          caption: "Klica brokolija vs. zrela brokoli · sadržaj sulforafana",
+          caption: "Klica brokolija u odnosu na zreli brokoli · sadržaj sulforafana",
         },
         c2: {
           name: "Živi enzimi",
           kicker: "Živi enzimi",
           title: "Sto posto aktivnih enzima — kuvanje ih ne uništava.",
-          body: "Kada se jedu sirove, sve enzime klica aktivno rade: razgrađuju proteine, oslobađaju minerale, rasterećuju telo.",
+          body: "Kada se jedu sirove, enzimi klica aktivno rade: razgrađuju proteine, oslobađaju minerale i rasterećuju telo.",
           caption: "Amilaza, proteaza, lipaza — bez toplotne obrade",
         },
         c3: {
@@ -247,13 +283,11 @@ const dictionaries: Record<Lang, Dict> = {
       },
     },
 
-
-
     explorer: {
       eyebrow: "Interaktivni rast",
       title: "Život semenke u tri pokreta.",
       lede: "Klikni na date faze i gledaj kako semenka iznenada eksplodira u zelenu energiju.",
-      stages: { seed: "Semenka", germ: "Klijanje", micro: "Mikrogrin" },
+      stages: { seed: "Semenka", germ: "Klijanje", micro: "Mikrozeleni" },
       drag: "Povuci",
     },
     seeds: {
@@ -269,13 +303,33 @@ const dictionaries: Record<Lang, Dict> = {
       open: "otvori u velikom prikazu",
       close: "Zatvori",
       items: {
-        jar: { name: "Tegla za klijanje i seme brokolija", category: "Oprema", desc: "Žuta tegla za klijanje na panju, pored nje seme brokolija." },
-        box: { name: "Semenke u pregradama", category: "Izbor", desc: "Kutija sa pregradama, fotografisana odozgo i ispunjena semenkama." },
-        radish: { name: "Seme rotkvice", category: "Rotkvica", desc: "Seme rotkvice pored tegle za klijanje." },
+        jar: {
+          name: "Tegla za klijanje i seme brokolija",
+          category: "Oprema",
+          desc: "Žuta tegla za klijanje na panju, pored nje seme brokolija.",
+        },
+        box: {
+          name: "Semenke u pregradama",
+          category: "Izbor",
+          desc: "Kutija sa pregradama, fotografisana odozgo i ispunjena semenkama.",
+        },
+        radish: {
+          name: "Seme rotkvice",
+          category: "Rotkvica",
+          desc: "Seme rotkvice pored tegle za klijanje.",
+        },
         mung: { name: "Mungo pasulj na panju", category: "Mungo pasulj", desc: "" },
         hands: { name: "Šaka semenki za klijanje", category: "U rukama", desc: "" },
-        family: { name: "Celokupan izbor", category: "Pet vrsta", desc: "Pet vrsta semenki za klijanje jedna pored druge: rotkvica, lucerka, brokoli, mungo pasulj i piskavica." },
-        alfalfa: { name: "Seme lucerke", category: "Lucerka", desc: "Pakovanje semena lucerke na osunčanom panju, okruženo sitnim zlatnim semenkama." },
+        family: {
+          name: "Celokupan izbor",
+          category: "Pet vrsta",
+          desc: "Pet vrsta semenki za klijanje jedna pored druge: rotkvica, lucerka, brokoli, mungo pasulj i piskavica.",
+        },
+        alfalfa: {
+          name: "Seme lucerke",
+          category: "Lucerka",
+          desc: "Pakovanje semena lucerke na osunčanom panju, okruženo sitnim zlatnim semenkama.",
+        },
       },
     },
     footer: {
@@ -314,7 +368,8 @@ const dictionaries: Record<Lang, Dict> = {
       ogDesc: "Pravne, autorske i privatnosne informacije veb-sajta Natursense.",
       eyebrow: "Pravne informacije",
       title: "Impresum & Pravne informacije",
-      intro: "Sledeće informacije sadrže najvažnije napomene o korišćenju veb-sajta, korišćenju sadržaja i kontaktu.",
+      intro:
+        "Sledeće informacije sadrže najvažnije napomene o korišćenju veb-sajta, korišćenju sadržaja i kontaktu.",
       backToHome: "Početna",
       lastUpdated: "Poslednje ažuriranje: 12.09.2026.",
       footerLink: "Impresum & Pravne informacije",
@@ -339,19 +394,22 @@ const dictionaries: Record<Lang, Dict> = {
         { label: "Rukovalac podataka / odgovorna organizacija", value: "Bacsó Tünde" },
         { label: "E-mail za kontakt", value: "natursense2026@gmail.com" },
         { label: "Svrha obrade podataka", value: "Kontakt i odgovaranje na upite." },
-        { label: "Podaci koje dostavi korisnik", value: "Ime, adresa e-pošte, poruka i dodatne dobrovoljno navedene informacije." },
+        {
+          label: "Podaci koje dostavi korisnik",
+          value: "Ime, adresa e-pošte, poruka i dodatne dobrovoljno navedene informacije.",
+        },
       ],
       paragraphs: {
         about: [
-          "Veb-sajt Natursense prvenstveno sluzi za predstavljanje brenda, njegovih aktivnosti, sadržaja, ideja i povezanih tema. Veb-sajt nije onlajn prodavnica, ne prodaje direktno proizvode, i jednostavno pregledanje ne stvara ugovor o kupovini.",
+          "Veb-sajt Natursense prvenstveno služi za predstavljanje brenda, njegovih aktivnosti, sadržaja, ideja i povezanih tema. Veb-sajt nije onlajn prodavnica, ne prodaje direktno proizvode, i jednostavno pregledanje ne stvara ugovor o kupovini.",
         ],
         terms: [
-          "Sadržaj na veb-sajtu sluzi prvenstveno informativne svrhe; ne predstavlja ugovornu ponudu, a veb-sajt nije onlajn prodajna platforma. Posetioci mogu slobodno da pretražuju i čitaju sadržaj.",
+          "Sadržaj na veb-sajtu služi prvenstveno u informativne svrhe; ne predstavlja ugovornu ponudu, a veb-sajt nije onlajn prodajna platforma. Posetioci mogu slobodno da pretražuju i čitaju sadržaj.",
           "Trudimo se da informacije budu tačne i ažurne, ali ipak može doći do netačnosti, nedostataka, zastarelih informacija ili dvosmislenih formulacija. Operater ne preuzima odgovornost, u meri dozvoljenoj primenjivim pravom, za štetu nastalu oslanjanjem na objavljene informacije.",
           "Veb-sajt i njegov sadržaj mogu se u svakom trenutku izmeniti, ažurirati, zameniti ili ukloniti bez prethodnog obaveštenja.",
         ],
         copyright: [
-          "Osnovno bez drugačije oznake, tekstovi, grafike, fotografije, vizuelni materijali, logotipi i drugi originalni sadržaji koji se pojavljuju na veb-sajtu uživaju autorsku zaštitu. Oni se ne mogu kopirati, umnožavati, distribuirati, menjati ili koristiti u komercijalne svrhe bez prethodne dozvole, osim ako to primenjivo pravo izričito dozvoljava.",
+          "Osim ako nije drugačije navedeno, tekstovi, grafike, fotografije, vizuelni materijali, logotipi i drugi originalni sadržaji koji se pojavljuju na veb-sajtu uživaju autorsku zaštitu. Oni se ne mogu kopirati, umnožavati, distribuirati, menjati ili koristiti u komercijalne svrhe bez prethodne dozvole, osim ako to primenjivo pravo izričito dozvoljava.",
           "Materijali koji potiču od trećih lica ostaju u vlasništvu odgovarajućih nosilaca prava.",
         ],
         external: [
@@ -359,15 +417,15 @@ const dictionaries: Record<Lang, Dict> = {
           "Natursense ne proverava sadržaj, dostupnost ili praksu zaštite podataka sajtova trećih lica. Te sajtove uređuju sopstveni uslovi i izjave o privatnosti; njihovo posećivanje se odvija na sopstvenu odluku korisnika.",
         ],
         privacy: [
-          "U kontakt formularu posetilac može dobrovoljno ostaviti lične podatke, kao što su ime, adresa e-pošte, sadržaj poruke i dodatne informacije koje dobrovoljno navede u poruci.",
-          "Lični podaci navedeni u kontakt formularu obrađuju se isključivo u svrhu obrade upita, davanja odgovora i povezane komunikacije.",
-          "Podatke prosleđene putem kontakt formulara upravlja Natursense, poverljivo. Podatke ne koristimo u svrhe različite od upita i ne prosleđujemo ih trećim licima.",
-          "Molimo te da u kontakt formularu navedeš samo podatke neophodne za upit i da ne šalješ osetljive ili posebne lične podatke.",
+          "Posetilac može dobrovoljno ostaviti lične podatke putem e-pošte, kao što su ime, adresa e-pošte, sadržaj poruke i dodatne informacije koje navede u poruci.",
+          "Lični podaci navedeni u e-pošti obrađuju se isključivo u svrhu obrade upita, davanja odgovora i povezane komunikacije.",
+          "Natursense poverljivo obrađuje podatke prosleđene putem e-pošte. Podatke ne koristimo u svrhe različite od upita i ne prosleđujemo ih trećim licima.",
+          "Molimo te da putem e-pošte navedeš samo podatke neophodne za upit i da ne šalješ osetljive ili posebne lične podatke.",
         ],
         cookies: [
-          "Veb-sajt ne koristi Google Analytics, Meta Pixel niti druga oglašavačka praćenja, i ne ima za cilj profilisanje posetilaca niti prikupljanje nepotrebnih marketing podataka. Posetilac odlučuje o korišćenju opcionih kolačića u podešavanjima kolačića dostupnim na veb-sajtu.",
+          "Veb-sajt ne koristi Google Analytics, Meta Pixel niti druga oglašavačka praćenja i nema za cilj profilisanje posetilaca niti prikupljanje nepotrebnih marketinških podataka. Posetilac odlučuje o korišćenju opcionih kolačića u podešavanjima kolačića dostupnim na veb-sajtu.",
           "Hosting provajder može obrađivati tehnički neophodne podatke dnevnika za bezbedan i pouzdan rad veb-sajta. Detalje uređuju važeći uslovi zaštite podataka hosting provajdera.",
-          "Cilj Natursense je da obrađuje samo neophodne informacije tokom korišćenja veb-sajta. U kontakt formularu tražimo samo podatke neophodne za kontaktiranje klijenta.",
+          "Cilj Natursense je da obrađuje samo neophodne informacije tokom korišćenja veb-sajta. U e-pošti tražimo samo podatke neophodne za kontaktiranje klijenta.",
         ],
         disclaimer: [
           "Sadržaj veb-sajta je informativnog karaktera. Opšte informacije vezane za zdravlje, ishranu, životni stil ili slične teme ne zamenjuju stručno savetovanje prilagođeno pojedincu.",
@@ -387,15 +445,18 @@ type Ctx = {
   dict: Dict;
 };
 
-const I18nCtx = createContext<Ctx | null>(null);
-
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("hu");
 
   useEffect(() => {
-    const stored = (typeof window !== "undefined" && (localStorage.getItem("ns-lang") as Lang | null)) || null;
+    const stored =
+      (typeof window !== "undefined" && (localStorage.getItem("ns-lang") as Lang | null)) || null;
     if (stored === "hu" || stored === "sr") setLangState(stored);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const setLang = (l: Lang) => {
     setLangState(l);
@@ -415,11 +476,9 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     return typeof cur === "string" ? cur : path;
   };
 
-  return <I18nCtx.Provider value={{ lang, setLang, t, dict: dictionaries[lang] }}>{children}</I18nCtx.Provider>;
-}
-
-export function useI18n() {
-  const ctx = useContext(I18nCtx);
-  if (!ctx) throw new Error("useI18n must be used within I18nProvider");
-  return ctx;
+  return (
+    <I18nContext.Provider value={{ lang, setLang, t, dict: dictionaries[lang] }}>
+      {children}
+    </I18nContext.Provider>
+  );
 }

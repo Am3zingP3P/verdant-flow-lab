@@ -13,7 +13,10 @@ export function CustomCursor() {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(hover: none)").matches) return;
     setEnabled(true);
-    const move = (e: MouseEvent) => { x.set(e.clientX); y.set(e.clientY); };
+    const move = (e: MouseEvent) => {
+      x.set(e.clientX);
+      y.set(e.clientY);
+    };
     const over = (e: MouseEvent) => {
       const tgt = e.target as HTMLElement | null;
       setHovering(!!tgt?.closest("a, button, [data-cursor='grow']"));
