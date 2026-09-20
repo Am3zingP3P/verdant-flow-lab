@@ -40,7 +40,7 @@ const socials = [
     href: "viber://chat?number=%2B381600000000",
     icon: (
       <>
-        <img src={viberLogoDark} alt="" className="h-4 w-4 object-contain dark:hidden" />
+        <img src={viberLogoDark.url} alt="" className="h-4 w-4 object-contain dark:hidden" />
         <img src={viberLogoLight} alt="" className="hidden h-4 w-4 object-contain dark:block" />
       </>
     ),
