@@ -6,94 +6,24 @@ import { useI18n } from "@/i18n/I18nProvider";
 gsap.registerPlugin(ScrollTrigger);
 
 type Chapter = {
+  key: string;
   index: string;
   metric: string;
   unit: string;
-  hu: { name: string; kicker: string; title: string; body: string; caption: string };
-  sr: { name: string; kicker: string; title: string; body: string; caption: string };
 };
 
+// Numbers stay here; every piece of copy lives in the i18n dictionary
+// under `benefits.chapters.<key>`.
 const CHAPTERS: Chapter[] = [
-  {
-    index: "01",
-    metric: "40",
-    unit: "×",
-    hu: {
-      name: "Vitaminsűrűség",
-      kicker: "Vitaminsűrűség",
-      title: "Negyvenszer több vitamin, mint a felnőtt zöldségben.",
-      body: "A csírázás pillanatában a mag felszabadítja tartalék tápanyagait, ezáltal C-, E-, K-vitaminhoz juthatsz, valamint B-komplexhez. Mindezt természetes formában, tabletták nélkül.",
-      caption: "Csírázó brokkoli vs. érett brokkoli · szulforafán tartalom",
-    },
-    sr: {
-      name: "Gustina vitamina",
-      kicker: "Gustina vitamina",
-      title: "Četrdeset puta više vitamina nego u zrelom povrću.",
-      body: "U trenutku klijanja semenka oslobađa svoje rezerve. Vitamini C, E, K i B-kompleks — u koncentrovanom, živom obliku.",
-      caption: "Klica brokolija vs. zrela brokoli · sadržaj sulforafana",
-    },
-  },
-  {
-    index: "02",
-    metric: "100",
-    unit: "%",
-    hu: {
-      name: "Élő enzimek",
-      kicker: "Élő enzimek",
-      title: "Aktív enzimek, egyenesen a konyhapultodról.",
-      body: "Nyersen fogyasztva a csíra minden enzime dolgozik: emészti a fehérjéket, felszabadítja az ásványi anyagokat, tehermentesíti a testet.",
-      caption: "Amiláz, proteáz, lipáz — hőkezelés nélkül",
-    },
-    sr: {
-      name: "Živi enzimi",
-      kicker: "Živi enzimi",
-      title: "Sto posto aktivnih enzima — kuvanje ih ne uništava.",
-      body: "Kada se jedu sirove, sve enzime klica aktivno rade: razgrađuju proteine, oslobađaju minerale, rasterećuju telo.",
-      caption: "Amilaza, proteaza, lipaza — bez toplotne obrade",
-    },
-  },
-  {
-    index: "03",
-    metric: "3.5",
-    unit: "g",
-    hu: {
-      name: "Növényi fehérje",
-      kicker: "Fehérje / 100g",
-      title: "Növényi fehérje, teljes aminosav-profillal.",
-      body: "A lucerna, retek és brokkoli csírák tartalmaznak fehérjét, valamint mindegyik esszenciális aminosavval rendelkezik, könnyen felszívódó formában.",
-      caption: "Átlagos fehérjetartalom friss csírában",
-    },
-    sr: {
-      name: "Biljni protein",
-      kicker: "Protein / 100g",
-      title: "Biljni protein sa kompletnim aminokiselinama.",
-      body: "Klice lucerke, rotkvice i brokolija daju kompletan protein — sve esencijalne aminokiseline, lako svarljive.",
-      caption: "Prosečan sadržaj proteina u svežoj klici",
-    },
-  },
-  {
-    index: "04",
-    metric: "5",
-    unit: "nap",
-    hu: {
-      name: "Magtól a tányérig",
-      kicker: "Magtól a tányérig",
-      title: "Öt nap. Nulla szállítás. Nulla veszteség.",
-      body: "A konyhapulton nőnek, és nem a kamionban öregednek. Amit termelsz, azt eszed: a frissesség garantált.",
-      caption: "Átlagos ciklus a konyhádban",
-    },
-    sr: {
-      name: "Od semenke do tanjira",
-      kicker: "Od semenke do tanjira",
-      title: "Pet dana. Nula transporta. Nula gubitka.",
-      body: "Rastu na tvom pultu — ne stare u kamionu. Ono što isečeš, to jedeš: svež kiseonik, svež hlorofil.",
-      caption: "Prosečan ciklus u tvojoj kuhinji",
-    },
-  },
+  { key: "c1", index: "01", metric: "40", unit: "×" },
+  { key: "c2", index: "02", metric: "100", unit: "%" },
+  { key: "c3", index: "03", metric: "3.5", unit: "g" },
+  { key: "c4", index: "04", metric: "5", unit: "nap" },
 ];
 
 export function HealthBenefits() {
-  const { lang } = useI18n();
+  const { t } = useI18n();
+
   const sectionRef = useRef<HTMLElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const progressRef = useRef<HTMLDivElement | null>(null);
