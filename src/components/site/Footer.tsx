@@ -2,7 +2,7 @@ import { useI18n } from "@/i18n/context";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { openConsentSettings } from "@/lib/consent";
-import viberLogoDark from "@/assets/viber-logo-dark.png.asset.json";
+import viberLogoDark from "@/assets/viber-logo-dark.png";
 import viberLogoLight from "@/assets/viber-logo-light.png";
 
 const socials = [
@@ -40,7 +40,7 @@ const socials = [
     href: "viber://chat?number=%2B381600000000",
     icon: (
       <>
-        <img src={viberLogoDark.url} alt="" className="h-4 w-4 object-contain dark:hidden" />
+        <img src={viberLogoDark} alt="" className="h-4 w-4 object-contain dark:hidden" />
         <img src={viberLogoLight} alt="" className="hidden h-4 w-4 object-contain dark:block" />
       </>
     ),
