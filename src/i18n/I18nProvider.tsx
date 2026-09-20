@@ -461,6 +461,15 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = lang;
   }, [lang]);
 
+  useEffect(() => {
+    if (window.location.pathname === "/") {
+      document.title =
+        lang === "hu"
+          ? "Natursense - Saját magad termeled, öt nap múlva eheted."
+          : "Natursense - Sam uzgajaš. Za 5 dana bereš.";
+    }
+  }, [lang]);
+
   const setLang = (l: Lang) => {
     setLangState(l);
     if (typeof window !== "undefined") localStorage.setItem("ns-lang", l);

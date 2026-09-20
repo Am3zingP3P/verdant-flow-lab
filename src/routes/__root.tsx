@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
+      { title: "Natursense - Saját magad termeled, öt nap múlva eheted." },
       {
         name: "description",
         content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
