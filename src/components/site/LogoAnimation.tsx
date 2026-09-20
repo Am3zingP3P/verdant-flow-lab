@@ -32,7 +32,9 @@ export function LogoAnimation({ className = "" }: { className?: string }) {
       const v = videoRef.current;
       if (!v) return;
       if (visible && !document.hidden) {
-        void v.play().catch(() => setStaticOnly(true));
+        void v.play().catch(() => {
+          /* autoplay blocked — the poster frame stays visible */
+        });
       } else {
         v.pause();
       }
