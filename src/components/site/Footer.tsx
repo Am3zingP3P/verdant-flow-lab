@@ -8,8 +8,8 @@ import viberLogoLight from "@/assets/viber-logo-light.png";
 const socials = [
   {
     name: "Instagram",
-    handle: "@natursense",
-    href: "https://instagram.com",
+    handle: "@natursense2026",
+    href: "https://instagram.com/natursense2026",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -26,8 +26,8 @@ const socials = [
   },
   {
     name: "Facebook",
-    handle: "/natursense",
-    href: "https://facebook.com",
+    handle: "Natursense",
+    href: "https://www.facebook.com/profile.php?id=61576519508451",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
         <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8h3.4z" />
@@ -36,8 +36,8 @@ const socials = [
   },
   {
     name: "Viber",
-    handle: "+381 60 000 0000",
-    href: "viber://chat?number=%2B381600000000",
+    handle: "+381 63 840 5686",
+    href: "viber://chat?number=%2B381638405686",
     icon: (
       <>
         <img src={viberLogoDark} alt="" className="h-4 w-4 object-contain dark:hidden" />
