@@ -82,7 +82,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.9 }}
-            className="text-lede mt-6 sm:mt-8 max-w-xl text-[color:var(--moss)]/75"
+            className="text-lede mt-8 sm:mt-10 max-w-xl text-[color:var(--moss)]/75"
           >
             {t("hero.lede")}
           </motion.p>
@@ -91,7 +91,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 1.05 }}
-            className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-5"
+            className="mt-10 sm:mt-12 flex flex-wrap items-center gap-4 sm:gap-5"
           >
             <a
               href="#benefits"
