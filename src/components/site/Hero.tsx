@@ -49,7 +49,7 @@ export function Hero() {
         <div className="col-span-12 lg:col-span-8">
           <h1 className="text-display text-[color:var(--moss)] text-wrap-normal max-w-none max-sm:text-[clamp(3.25rem,10vw,4rem)] max-sm:leading-[0.88]">
             {lines.map((line, i) => (
-              <span key={i} className="block overflow-hidden pb-[0.18em] text-left">
+              <span key={i} className="block overflow-hidden pb-[0.24em] text-left">
                 <motion.span
                   initial={{ y: "110%", opacity: 0 }}
                   animate={{ y: "0%", opacity: 1 }}
@@ -82,7 +82,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.9 }}
-            className="text-lede mt-6 sm:mt-8 max-w-xl text-[color:var(--moss)]/75"
+            className="text-lede mt-8 sm:mt-10 max-w-xl text-[color:var(--moss)]/75"
           >
             {t("hero.lede")}
           </motion.p>
@@ -91,7 +91,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 1.05 }}
-            className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-5"
+            className="mt-10 sm:mt-12 flex flex-wrap items-center gap-4 sm:gap-5"
           >
             <a
               href="#benefits"
