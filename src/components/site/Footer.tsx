@@ -53,7 +53,7 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-[color:var(--cream)] px-4 pb-4 pt-12 sm:px-6 sm:pb-6 sm:pt-20 md:px-10"
+      className="bg-[color:var(--cream)] px-4 pb-4 pt-16 sm:px-6 sm:pb-6 sm:pt-24 md:px-10 md:pt-28"
     >
       <motion.div
         initial={{ opacity: 0, y: 24, filter: "blur(24px)" }}
@@ -64,7 +64,7 @@ export function Footer() {
       >
         <div className="grid grid-cols-1 md:grid-cols-12">
           {/* Left — tagline + email */}
-          <div className="flex flex-col justify-between gap-12 border-b border-[color:var(--moss)]/10 p-8 sm:p-12 md:col-span-7 md:border-b-0 md:border-r md:p-16 lg:p-20">
+          <div className="flex flex-col justify-between gap-12 border-b border-[color:var(--moss)]/10 p-8 sm:p-12 md:col-span-7 md:border-b-0 md:border-r md:p-20 lg:p-24">
             <div>
               <h3 className="font-display text-[clamp(2rem,4.6vw,4rem)] font-light leading-[1.05] tracking-[-0.02em] text-[color:var(--moss)]">
                 {t("footer.tag")}
@@ -90,7 +90,7 @@ export function Footer() {
           </div>
 
           {/* Right — contact + social */}
-          <div className="flex flex-col gap-8 bg-[color:var(--cream)]/50 p-8 sm:p-12 md:col-span-5 md:p-16 lg:p-20">
+          <div className="flex flex-col gap-8 bg-[color:var(--cream)]/50 p-8 sm:p-12 md:col-span-5 md:p-20 lg:p-24">
             <div className="space-y-8">
               <div>
                 <p className="text-eyebrow mb-3 text-[color:var(--sprout)]">
