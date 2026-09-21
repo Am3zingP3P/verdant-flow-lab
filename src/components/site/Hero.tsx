@@ -33,7 +33,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden pt-24 sm:pt-32 md:pt-32 lg:pt-40 pb-16 md:pb-0 md:min-h-[100svh]"
+      className="relative overflow-hidden pt-[5.5rem] sm:pt-[7.5rem] md:pt-[7.5rem] lg:pt-[9.5rem] pb-16 md:pb-0 md:min-h-[100svh]"
     >
       {/* Ambient blobs */}
       <motion.div
@@ -69,7 +69,7 @@ export function Hero() {
                       {line}
                     </em>
                   ) : (
-                    <span className="font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)] max-sm:text-[clamp(1.9rem,7.2vw,3.2rem)]">
+                    <span className="block -translate-y-[0.08em] font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)] max-sm:text-[clamp(1.9rem,7.2vw,3.2rem)]">
                       {line}
                     </span>
                   )}
