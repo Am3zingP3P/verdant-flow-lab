@@ -142,7 +142,7 @@ function SeedVisual() {
     <svg
       viewBox="0 0 320 360"
       preserveAspectRatio="xMidYMid meet"
-      className="h-auto w-[min(78vw,240px)] sm:w-[300px] md:w-[280px] lg:w-[380px] max-w-full"
+      className="h-auto w-[min(78vw,240px)] sm:w-[300px] md:w-[280px] lg:w-[420px] max-w-full"
       aria-hidden
     >
       <defs>
