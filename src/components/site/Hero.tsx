@@ -109,9 +109,9 @@ export function Hero() {
         {/* SVG seed visual */}
         <motion.div
           style={{ x: tx2, y: ty2 }}
-          className="col-span-12 lg:col-span-4 relative mt-6 sm:mt-12 md:mt-4 lg:mt-0 md:-translate-y-6 flex items-center justify-center lg:justify-end lg:pr-6 xl:pr-10"
+          className="col-span-12 lg:col-span-5 relative mt-6 sm:mt-12 md:mt-4 lg:mt-0 md:-translate-y-6 flex items-center justify-center lg:justify-end lg:pr-4 xl:pr-8"
         >
-          <motion.div style={{ scale: seedScale }} className="animate-breathe">
+          <motion.div style={{ scale: seedScale }} className="animate-breathe w-full flex justify-center lg:justify-end">
             <SeedVisual />
           </motion.div>
         </motion.div>
