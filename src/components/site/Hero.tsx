@@ -69,7 +69,7 @@ export function Hero() {
                       {line}
                     </em>
                   ) : (
-                    <span className="block -translate-y-[0.08em] font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)] max-sm:text-[clamp(1.9rem,7.2vw,3.2rem)]">
+                    <span className="block font-normal text-[color:var(--sprout)] whitespace-nowrap text-[clamp(1.75rem,6.5vw,5.5rem)] max-sm:text-[clamp(1.9rem,7.2vw,3.2rem)]">
                       {line}
                     </span>
                   )}
