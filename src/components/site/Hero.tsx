@@ -109,7 +109,7 @@ export function Hero() {
         {/* SVG seed visual */}
         <motion.div
           style={{ x: tx2, y: ty2 }}
-          className="col-span-12 lg:col-span-4 relative mt-6 sm:mt-12 lg:mt-0 flex items-center justify-center lg:justify-end lg:pr-6 xl:pr-10"
+          className="col-span-12 lg:col-span-4 relative mt-6 sm:mt-12 md:mt-4 lg:mt-0 md:-translate-y-6 flex items-center justify-center lg:justify-end lg:pr-6 xl:pr-10"
         >
           <motion.div style={{ scale: seedScale }} className="animate-breathe">
             <SeedVisual />
@@ -142,7 +142,7 @@ function SeedVisual() {
     <svg
       viewBox="0 0 320 360"
       preserveAspectRatio="xMidYMid meet"
-      className="h-auto w-[min(78vw,240px)] sm:w-[300px] md:w-[340px] lg:w-[380px] max-w-full"
+      className="h-auto w-[min(78vw,240px)] sm:w-[300px] md:w-[280px] lg:w-[380px] max-w-full"
       aria-hidden
     >
       <defs>
