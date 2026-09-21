@@ -46,7 +46,7 @@ export function Hero() {
       />
 
       <div className="relative mx-auto grid max-w-[1480px] grid-cols-12 gap-6 px-5 sm:px-6 md:px-10">
-        <div className="col-span-12 lg:col-span-8">
+        <div className="col-span-12 lg:col-span-7">
           <h1 className="text-display text-[color:var(--moss)] text-wrap-normal max-w-none max-sm:text-[clamp(3.25rem,10vw,4rem)] max-sm:leading-[0.88]">
             {lines.map((line, i) => (
               <span key={i} className="block overflow-hidden pb-[0.20em] text-left">
