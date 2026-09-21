@@ -90,8 +90,8 @@ export function Footer() {
           </div>
 
           {/* Right — contact + social */}
-          <div className="flex flex-col justify-between gap-12 bg-[color:var(--cream)]/50 p-8 sm:p-12 md:col-span-5 md:p-16 lg:p-20">
-            <div className="space-y-10">
+          <div className="flex flex-col gap-8 bg-[color:var(--cream)]/50 p-8 sm:p-12 md:col-span-5 md:p-16 lg:p-20">
+            <div className="space-y-8">
               <div>
                 <p className="text-eyebrow mb-3 text-[color:var(--sprout)]">
                   {t("footer.locationLabel")}
@@ -114,7 +114,7 @@ export function Footer() {
                         href={s.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="group flex items-center justify-between border-b border-[color:var(--moss)]/10 py-4 transition-colors hover:border-[color:var(--sprout)]"
+                        className="group flex items-center justify-between border-b border-[color:var(--moss)]/10 py-3 transition-colors hover:border-[color:var(--sprout)]"
                       >
                         <span className="flex items-center gap-4">
                           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--moss)]/15 text-[color:var(--moss)] transition-all duration-500 group-hover:border-transparent group-hover:bg-[color:var(--sprout)] group-hover:text-[color:var(--cream)]">
@@ -146,15 +146,6 @@ export function Footer() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-end">
-              <div className="relative">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[color:var(--sprout)]/25">
-                  <span className="h-6 w-3 rounded-full bg-[color:var(--sprout)]/50" />
-                </div>
-                <span className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-[color:var(--sprout)]" />
               </div>
             </div>
           </div>
