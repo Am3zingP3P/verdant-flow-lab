@@ -22,7 +22,7 @@ const CHAPTERS: Chapter[] = [
 ];
 
 export function HealthBenefits() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
@@ -337,7 +337,7 @@ export function HealthBenefits() {
                     {chapter.metric}
                   </span>
                   <span className="font-serif text-2xl italic text-[color:var(--sprout)] sm:text-4xl md:text-5xl">
-                    {chapter.unit}
+                    {chapter.key === "c4" && lang === "sr" ? "dana" : chapter.unit}
                   </span>
                 </div>
                 <div className="benefits-orb-label mx-auto mt-3 max-w-[78%] text-center text-[0.55rem] uppercase leading-tight tracking-[0.3em] text-[color:var(--moss)]/60 sm:mt-5 sm:text-[0.65rem] sm:tracking-[0.4em]">
