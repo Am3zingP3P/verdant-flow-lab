@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useI18n } from "@/i18n/context";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 
 type Stage = 0 | 1 | 2;
 
@@ -14,28 +16,49 @@ const AUTOPLAY_MS = 3200;
 
 export function GrowthExplorer() {
   const { t } = useI18n();
+  const isMobile = useIsMobile();
   const [stage, setStage] = useState<Stage>(0);
   const [seedIdx, setSeedIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const seed = seeds[seedIdx];
+
+  // Only animate while the section is actually on screen — keeps phones cool.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => setInView(entries.some((e) => e.isIntersecting)),
+      { rootMargin: "120px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const isRunning = inView && !isPaused;
 
   // Autoplay cycle — pauses on hover/touch. Restart timer whenever stage changes manually.
   const timerRef = useRef<number | null>(null);
   useEffect(() => {
-    if (isPaused) return;
+    if (!isRunning) return;
     timerRef.current = window.setTimeout(() => {
       setStage((s) => ((s + 1) % 3) as Stage);
     }, AUTOPLAY_MS);
     return () => {
       if (timerRef.current) window.clearTimeout(timerRef.current);
     };
-  }, [stage, isPaused, seedIdx]);
+  }, [stage, isRunning, seedIdx]);
+
 
   // Bump the progress-ring key so the SVG stroke re-animates from 0 on every stage change.
   useEffect(() => {
     setProgressKey((k) => k + 1);
-  }, [stage, seedIdx, isPaused]);
+  }, [stage, seedIdx, isRunning]);
 
   const stages: Stage[] = [0, 1, 2];
   const labels = [t("explorer.stages.seed"), t("explorer.stages.germ"), t("explorer.stages.micro")];
@@ -46,19 +69,20 @@ export function GrowthExplorer() {
 
   return (
     <section
+      ref={sectionRef}
       id="explorer"
-      className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10"
+      className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-12 sm:py-28 md:py-32 md:px-10"
     >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="grid grid-cols-12 items-end gap-8"
+        className="grid grid-cols-12 items-end gap-5 sm:gap-8"
       >
         <div className="col-span-12 lg:col-span-6">
           <p className="text-eyebrow text-[color:var(--sprout)]">{t("explorer.eyebrow")}</p>
-          <h2 className="mt-6 font-display text-[clamp(2.2rem,5.4vw,4.8rem)] leading-[1.08] text-[color:var(--moss)]">
+          <h2 className="mt-3 sm:mt-6 font-display text-[clamp(1.9rem,6.4vw,2.6rem)] sm:text-[clamp(2.2rem,5.4vw,4.8rem)] leading-[1.08] text-[color:var(--moss)]">
             {t("explorer.title")}
           </h2>
         </div>
@@ -73,34 +97,46 @@ export function GrowthExplorer() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         data-cursor="grow"
-        className="relative mt-10 sm:mt-16 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[color:var(--moss)]/10 bg-gradient-to-b from-[color:var(--sand)] to-[color:var(--cream)]"
+        className="relative mt-6 sm:mt-16 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[color:var(--moss)]/10 bg-gradient-to-b from-[color:var(--sand)] to-[color:var(--cream)]"
       >
         {/* Stage scene */}
-        <div className="relative flex h-[420px] sm:h-[460px] md:h-[560px] items-end justify-center overflow-hidden">
-          {/* sun glow */}
-          <motion.div
-            aria-hidden
-            animate={{ opacity: [0.55, 0.85, 0.55], scale: [1, 1.06, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="pointer-events-none absolute -top-32 left-1/2 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[color:var(--sprout)]/20 blur-3xl"
-          />
+        <div className="relative flex h-[300px] sm:h-[460px] md:h-[560px] items-end justify-center overflow-hidden">
+          {/* sun glow — static radial gradient on phones, animated blur on larger screens */}
+          {isMobile ? (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-32 left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle, color-mix(in srgb, var(--sprout) 22%, transparent) 0%, transparent 70%)",
+              }}
+            />
+          ) : (
+            <motion.div
+              aria-hidden
+              animate={isRunning ? { opacity: [0.55, 0.85, 0.55], scale: [1, 1.06, 1] } : undefined}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="pointer-events-none absolute -top-32 left-1/2 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[color:var(--sprout)]/20 blur-3xl"
+            />
+          )}
           {/* concentric decorative rings */}
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="h-[280px] w-[280px] sm:h-[360px] sm:w-[360px] rounded-full border border-[color:var(--moss)]/10" />
+            <div className="h-[220px] w-[220px] sm:h-[360px] sm:w-[360px] rounded-full border border-[color:var(--moss)]/10" />
           </div>
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="h-[380px] w-[380px] sm:h-[480px] sm:w-[480px] rounded-full border border-[color:var(--moss)]/[0.06]" />
+            <div className="h-[300px] w-[300px] sm:h-[480px] sm:w-[480px] rounded-full border border-[color:var(--moss)]/[0.06]" />
           </div>
           {/* floating pollen particles */}
-          <Pollen />
+          {!isMobile && isRunning && <Pollen />}
+
           {/* soil */}
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-[color:var(--moss)]/5 to-[color:var(--moss)]/15" />
+          <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-b from-[color:var(--moss)]/5 to-[color:var(--moss)]/15" />
           <AnimatePresence mode="wait">
             <motion.div
               key={`${stage}-${seedIdx}`}
@@ -119,7 +155,7 @@ export function GrowthExplorer() {
             <span className="inline-flex items-center gap-2 text-eyebrow text-[color:var(--moss)]/70">
               <span className="relative inline-flex h-2 w-2">
                 <span
-                  className={`absolute inset-0 rounded-full bg-[color:var(--sprout)] ${isPaused ? "" : "animate-ping opacity-60"}`}
+                  className={`absolute inset-0 rounded-full bg-[color:var(--sprout)] ${isRunning ? "animate-ping opacity-60" : ""}`}
                 />
                 <span className="relative inline-block h-2 w-2 rounded-full bg-[color:var(--sprout)]" />
               </span>
@@ -129,7 +165,7 @@ export function GrowthExplorer() {
             {/* Play / Pause toggle */}
             <button
               onClick={() => setIsPaused((p) => !p)}
-              className="group relative flex h-7 w-7 items-center justify-center rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/80 backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--sprout)]/40 hover:scale-105 active:scale-95"
+              className="group relative flex h-7 w-7 items-center justify-center rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/80 sm:backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--sprout)]/40 hover:scale-105 active:scale-95"
               aria-label={isPaused ? "Lejátszás" : "Szünet"}
             >
               <motion.div
@@ -189,11 +225,12 @@ export function GrowthExplorer() {
         </div>
 
         {/* Controls */}
-        <div className="border-t border-[color:var(--moss)]/10 bg-[color:var(--cream)]/70 backdrop-blur p-5 sm:p-6 md:p-8">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div className="border-t border-[color:var(--moss)]/10 bg-[color:var(--cream)]/70 sm:backdrop-blur p-4 sm:p-6 md:p-8">
+          <div className="flex flex-col gap-4 sm:gap-6 md:flex-row md:items-center md:justify-between">
+
             {/* Stage timeline with per-stage progress rings */}
             <div className="flex-1">
-              <div className="relative h-14">
+              <div className="relative h-12 sm:h-14">
                 <div className="absolute inset-x-3 top-1/2 h-px -translate-y-1/2 bg-[color:var(--moss)]/15" />
                 <motion.div
                   aria-hidden
@@ -216,7 +253,7 @@ export function GrowthExplorer() {
                       >
                         <span className="relative block h-7 w-7">
                           {/* progress ring — animates only around the active dot */}
-                          {active && !isPaused && (
+                          {active && isRunning && (
                             <svg
                               key={`ring-${progressKey}`}
                               viewBox="0 0 32 32"
@@ -329,7 +366,7 @@ function Pollen() {
 
 function StageSvg({ stage, hue }: { stage: Stage; hue: string }) {
   return (
-    <svg viewBox="0 0 200 320" className="h-[340px] md:h-[440px]" aria-hidden>
+    <svg viewBox="0 0 200 320" className="h-[230px] sm:h-[340px] md:h-[440px]" aria-hidden>
       <defs>
         <linearGradient id="stemG" x1="0" x2="0" y1="1" y2="0">
           <stop offset="0%" stopColor="#1C352D" />
