@@ -229,7 +229,7 @@ export function HealthBenefits() {
         />
 
         {/* chapter counter — centered pill above progress bar */}
-        <div className="benefits-chip absolute inset-x-0 bottom-[calc(0.9rem+env(safe-area-inset-bottom))] z-20 flex justify-center px-4 sm:bottom-8">
+        <div className="benefits-chip absolute inset-x-0 bottom-[calc(1.35rem+env(safe-area-inset-bottom))] z-20 flex justify-center px-4 sm:bottom-8">
           <div
             key={`chip-${active}`}
             className="animate-[fadeUp_0.6s_cubic-bezier(0.16,1,0.3,1)_both] flex items-center gap-3 rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/70 px-4 py-2 backdrop-blur-md sm:gap-4 sm:px-6 sm:py-2.5"
