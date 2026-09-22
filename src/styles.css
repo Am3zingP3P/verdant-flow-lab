@@ -323,7 +323,7 @@ html.lenis body {
   }
 
   .benefits-chip {
-    bottom: calc(0.6rem + env(safe-area-inset-bottom));
+    bottom: calc(1.1rem + env(safe-area-inset-bottom));
   }
 }
 
