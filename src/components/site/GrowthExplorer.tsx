@@ -366,7 +366,7 @@ function Pollen() {
 
 function StageSvg({ stage, hue }: { stage: Stage; hue: string }) {
   return (
-    <svg viewBox="0 0 200 320" className="h-[340px] md:h-[440px]" aria-hidden>
+    <svg viewBox="0 0 200 320" className="h-[230px] sm:h-[340px] md:h-[440px]" aria-hidden>
       <defs>
         <linearGradient id="stemG" x1="0" x2="0" y1="1" y2="0">
           <stop offset="0%" stopColor="#1C352D" />
