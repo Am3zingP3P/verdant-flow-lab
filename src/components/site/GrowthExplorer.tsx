@@ -40,19 +40,19 @@ export function GrowthExplorer() {
     return () => io.disconnect();
   }, []);
 
-  const active = inView && !isPaused;
+  const isRunning = inView && !isPaused;
 
   // Autoplay cycle — pauses on hover/touch. Restart timer whenever stage changes manually.
   const timerRef = useRef<number | null>(null);
   useEffect(() => {
-    if (!active) return;
+    if (!isRunning) return;
     timerRef.current = window.setTimeout(() => {
       setStage((s) => ((s + 1) % 3) as Stage);
     }, AUTOPLAY_MS);
     return () => {
       if (timerRef.current) window.clearTimeout(timerRef.current);
     };
-  }, [stage, active, seedIdx]);
+  }, [stage, isRunning, seedIdx]);
 
 
   // Bump the progress-ring key so the SVG stroke re-animates from 0 on every stage change.
