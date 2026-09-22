@@ -58,7 +58,7 @@ export function GrowthExplorer() {
   // Bump the progress-ring key so the SVG stroke re-animates from 0 on every stage change.
   useEffect(() => {
     setProgressKey((k) => k + 1);
-  }, [stage, seedIdx, isPaused]);
+  }, [stage, seedIdx, isRunning]);
 
   const stages: Stage[] = [0, 1, 2];
   const labels = [t("explorer.stages.seed"), t("explorer.stages.germ"), t("explorer.stages.micro")];
