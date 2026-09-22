@@ -16,23 +16,44 @@ const AUTOPLAY_MS = 3200;
 
 export function GrowthExplorer() {
   const { t } = useI18n();
+  const isMobile = useIsMobile();
   const [stage, setStage] = useState<Stage>(0);
   const [seedIdx, setSeedIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const seed = seeds[seedIdx];
+
+  // Only animate while the section is actually on screen — keeps phones cool.
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => setInView(entries.some((e) => e.isIntersecting)),
+      { rootMargin: "120px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const active = inView && !isPaused;
 
   // Autoplay cycle — pauses on hover/touch. Restart timer whenever stage changes manually.
   const timerRef = useRef<number | null>(null);
   useEffect(() => {
-    if (isPaused) return;
+    if (!active) return;
     timerRef.current = window.setTimeout(() => {
       setStage((s) => ((s + 1) % 3) as Stage);
     }, AUTOPLAY_MS);
     return () => {
       if (timerRef.current) window.clearTimeout(timerRef.current);
     };
-  }, [stage, isPaused, seedIdx]);
+  }, [stage, active, seedIdx]);
+
 
   // Bump the progress-ring key so the SVG stroke re-animates from 0 on every stage change.
   useEffect(() => {
