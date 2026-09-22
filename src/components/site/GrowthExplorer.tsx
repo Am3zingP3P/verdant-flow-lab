@@ -69,19 +69,20 @@ export function GrowthExplorer() {
 
   return (
     <section
+      ref={sectionRef}
       id="explorer"
-      className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-20 sm:py-28 md:py-32 md:px-10"
+      className="relative mx-auto max-w-[1480px] px-5 sm:px-6 py-12 sm:py-28 md:py-32 md:px-10"
     >
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="grid grid-cols-12 items-end gap-8"
+        className="grid grid-cols-12 items-end gap-5 sm:gap-8"
       >
         <div className="col-span-12 lg:col-span-6">
           <p className="text-eyebrow text-[color:var(--sprout)]">{t("explorer.eyebrow")}</p>
-          <h2 className="mt-6 font-display text-[clamp(2.2rem,5.4vw,4.8rem)] leading-[1.08] text-[color:var(--moss)]">
+          <h2 className="mt-3 sm:mt-6 font-display text-[clamp(1.9rem,6.4vw,2.6rem)] sm:text-[clamp(2.2rem,5.4vw,4.8rem)] leading-[1.08] text-[color:var(--moss)]">
             {t("explorer.title")}
           </h2>
         </div>
@@ -96,32 +97,44 @@ export function GrowthExplorer() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         data-cursor="grow"
-        className="relative mt-10 sm:mt-16 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[color:var(--moss)]/10 bg-gradient-to-b from-[color:var(--sand)] to-[color:var(--cream)]"
+        className="relative mt-6 sm:mt-16 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[color:var(--moss)]/10 bg-gradient-to-b from-[color:var(--sand)] to-[color:var(--cream)]"
       >
         {/* Stage scene */}
-        <div className="relative flex h-[420px] sm:h-[460px] md:h-[560px] items-end justify-center overflow-hidden">
-          {/* sun glow */}
-          <motion.div
-            aria-hidden
-            animate={{ opacity: [0.55, 0.85, 0.55], scale: [1, 1.06, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="pointer-events-none absolute -top-32 left-1/2 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[color:var(--sprout)]/20 blur-3xl"
-          />
+        <div className="relative flex h-[300px] sm:h-[460px] md:h-[560px] items-end justify-center overflow-hidden">
+          {/* sun glow — static radial gradient on phones, animated blur on larger screens */}
+          {isMobile ? (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-32 left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(circle, color-mix(in srgb, var(--sprout) 22%, transparent) 0%, transparent 70%)",
+              }}
+            />
+          ) : (
+            <motion.div
+              aria-hidden
+              animate={isRunning ? { opacity: [0.55, 0.85, 0.55], scale: [1, 1.06, 1] } : undefined}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="pointer-events-none absolute -top-32 left-1/2 h-[460px] w-[460px] -translate-x-1/2 rounded-full bg-[color:var(--sprout)]/20 blur-3xl"
+            />
+          )}
           {/* concentric decorative rings */}
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="h-[280px] w-[280px] sm:h-[360px] sm:w-[360px] rounded-full border border-[color:var(--moss)]/10" />
+            <div className="h-[220px] w-[220px] sm:h-[360px] sm:w-[360px] rounded-full border border-[color:var(--moss)]/10" />
           </div>
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="h-[380px] w-[380px] sm:h-[480px] sm:w-[480px] rounded-full border border-[color:var(--moss)]/[0.06]" />
+            <div className="h-[300px] w-[300px] sm:h-[480px] sm:w-[480px] rounded-full border border-[color:var(--moss)]/[0.06]" />
           </div>
           {/* floating pollen particles */}
-          <Pollen />
+          {!isMobile && isRunning && <Pollen />}
+
           {/* soil */}
           <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-[color:var(--moss)]/5 to-[color:var(--moss)]/15" />
           <AnimatePresence mode="wait">
