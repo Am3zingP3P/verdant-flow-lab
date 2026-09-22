@@ -253,7 +253,7 @@ export function GrowthExplorer() {
                       >
                         <span className="relative block h-7 w-7">
                           {/* progress ring — animates only around the active dot */}
-                          {active && !isPaused && (
+                          {active && isRunning && (
                             <svg
                               key={`ring-${progressKey}`}
                               viewBox="0 0 32 32"
