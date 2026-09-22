@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useI18n } from "@/i18n/context";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 
 type Stage = 0 | 1 | 2;
 
