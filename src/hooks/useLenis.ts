@@ -7,12 +7,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function useLenis() {
   useEffect(() => {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
     const lenis = new Lenis({
       duration: 1.05,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      touchMultiplier: isTouch ? 1 : 2,
+      syncTouch: isTouch,
+      syncTouchLerp: 0.08,
+      overscroll: !isTouch,
     });
 
     // Keep ScrollTrigger (pinned sections) in sync with Lenis' scroll position,
