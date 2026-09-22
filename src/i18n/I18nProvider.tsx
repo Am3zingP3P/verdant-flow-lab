@@ -463,6 +463,22 @@ type Ctx = {
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("hu");
 
+  const t = useCallback(
+    (path: string): string => {
+      const parts = path.split(".");
+      let cur: unknown = dictionaries[lang];
+      for (const p of parts) {
+        if (cur && typeof cur === "object" && p in (cur as Record<string, unknown>)) {
+          cur = (cur as Record<string, unknown>)[p];
+        } else {
+          return path;
+        }
+      }
+      return typeof cur === "string" ? cur : path;
+    },
+    [lang],
+  );
+
   useEffect(() => {
     const stored =
       (typeof window !== "undefined" && (localStorage.getItem("ns-lang") as Lang | null)) || null;
@@ -497,22 +513,6 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     setLangState(l);
     if (typeof window !== "undefined") localStorage.setItem("ns-lang", l);
   };
-
-  const t = useCallback(
-    (path: string): string => {
-      const parts = path.split(".");
-      let cur: unknown = dictionaries[lang];
-      for (const p of parts) {
-        if (cur && typeof cur === "object" && p in (cur as Record<string, unknown>)) {
-          cur = (cur as Record<string, unknown>)[p];
-        } else {
-          return path;
-        }
-      }
-      return typeof cur === "string" ? cur : path;
-    },
-    [lang],
-  );
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t, dict: dictionaries[lang] }}>
