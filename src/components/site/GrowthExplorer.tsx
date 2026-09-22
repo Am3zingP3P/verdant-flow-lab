@@ -230,7 +230,7 @@ export function GrowthExplorer() {
 
             {/* Stage timeline with per-stage progress rings */}
             <div className="flex-1">
-              <div className="relative h-14">
+              <div className="relative h-12 sm:h-14">
                 <div className="absolute inset-x-3 top-1/2 h-px -translate-y-1/2 bg-[color:var(--moss)]/15" />
                 <motion.div
                   aria-hidden
