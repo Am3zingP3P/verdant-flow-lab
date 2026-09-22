@@ -277,7 +277,7 @@ const dictionaries: Record<Lang, Dict> = {
         c2: {
           name: "Živi enzimi",
           kicker: "Živi enzimi",
-          title: "Sto posto aktivnih enzima — kuvanje ih ne uništava.",
+          title: "Sto posto aktivnih enzima iz tvoje kuhinje.",
           body: "Kada se jedu sirove, enzimi klica aktivno rade: razgrađuju proteine, oslobađaju minerale i rasterećuju telo.",
           caption: "Amilaza, proteaza, lipaza — bez toplotne obrade",
         },
@@ -291,7 +291,7 @@ const dictionaries: Record<Lang, Dict> = {
         c4: {
           name: "Od semenke do tanjira",
           kicker: "Od semenke do tanjira",
-          title: "Pet dana. Nula transporta. Nula gubitka.",
+          title: "Pet dana. Bez transporta. Bez gubitka.",
           body: "Rastu na tvom pultu — ne stare u kamionu. Ono što isečeš, to jedeš: svež kiseonik, svež hlorofil.",
           caption: "Prosečan ciklus u tvojoj kuhinji",
         },
