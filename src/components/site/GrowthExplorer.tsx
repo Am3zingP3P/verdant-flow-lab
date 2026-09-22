@@ -155,7 +155,7 @@ export function GrowthExplorer() {
             <span className="inline-flex items-center gap-2 text-eyebrow text-[color:var(--moss)]/70">
               <span className="relative inline-flex h-2 w-2">
                 <span
-                  className={`absolute inset-0 rounded-full bg-[color:var(--sprout)] ${isPaused ? "" : "animate-ping opacity-60"}`}
+                  className={`absolute inset-0 rounded-full bg-[color:var(--sprout)] ${isRunning ? "animate-ping opacity-60" : ""}`}
                 />
                 <span className="relative inline-block h-2 w-2 rounded-full bg-[color:var(--sprout)]" />
               </span>
