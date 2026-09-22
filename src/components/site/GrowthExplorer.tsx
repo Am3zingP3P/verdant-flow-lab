@@ -136,7 +136,7 @@ export function GrowthExplorer() {
           {!isMobile && isRunning && <Pollen />}
 
           {/* soil */}
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-[color:var(--moss)]/5 to-[color:var(--moss)]/15" />
+          <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-b from-[color:var(--moss)]/5 to-[color:var(--moss)]/15" />
           <AnimatePresence mode="wait">
             <motion.div
               key={`${stage}-${seedIdx}`}
