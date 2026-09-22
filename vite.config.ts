@@ -12,6 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  // EZT KÉRTE A LOG, HOGY KÉNYSZERÍTSÜK A NITRO MŰKÖDÉSÉT VERCELEN IS:
-  nitro: true,
+  // Vercel needs its own Nitro runtime adapter rather than the default
+  // cloudflare-module output used by the sandbox build.
+  nitro: { preset: "vercel" },
 });
