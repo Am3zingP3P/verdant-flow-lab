@@ -28,65 +28,114 @@ export function HealthBenefits() {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const progressRef = useRef<HTMLDivElement | null>(null);
   const ringRef = useRef<SVGCircleElement | null>(null);
+  const progressRingRef = useRef<SVGCircleElement | null>(null);
   const orbRef = useRef<HTMLDivElement | null>(null);
+  const layoutRef = useRef<HTMLDivElement | null>(null);
   const [active, setActive] = useState(0);
-  const [ringProgress, setRingProgress] = useState(0);
 
   useLayoutEffect(() => {
-    if (!sectionRef.current || !stageRef.current) return;
+    const section = sectionRef.current;
+    const stage = stageRef.current;
+    if (!section || !stage) return;
 
     const reduced =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       setActive(0);
-      setRingProgress(1);
       if (progressRef.current) progressRef.current.style.transform = "scaleX(1)";
+      if (progressRingRef.current) progressRingRef.current.style.strokeDashoffset = "0";
       return;
     }
 
-    const scrollLength = () => (window.innerWidth < 768 ? "+=140%" : "+=200%");
-
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: sectionRef.current!,
-        start: "top top",
-        end: scrollLength,
-        scrub: 0.25,
-        pin: stageRef.current!,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          if (progressRef.current) {
-            progressRef.current.style.transform = `scaleX(${self.progress})`;
+      const media = gsap.matchMedia();
+      let activeIndex = 0;
+
+      const updateVisuals = (progress: number, mobile: boolean) => {
+        if (progressRef.current) {
+          progressRef.current.style.transform = `scaleX(${progress})`;
+        }
+        if (progressRingRef.current) {
+          progressRingRef.current.style.strokeDashoffset = String(CIRC * (1 - progress));
+        }
+
+        const idx = Math.max(
+          0,
+          Math.min(CHAPTERS.length - 1, Math.floor(progress * CHAPTERS.length - 0.0001)),
+        );
+        if (idx !== activeIndex) {
+          activeIndex = idx;
+          setActive(idx);
+        }
+
+        if (mobile && layoutRef.current) {
+          const exit = gsap.utils.clamp(0, 1, (progress - 0.9) / 0.1);
+          layoutRef.current.style.transform = `translate3d(0, ${exit * -12}px, 0)`;
+          layoutRef.current.style.opacity = String(1 - exit * 0.1);
+        }
+
+        stage.setAttribute("aria-valuenow", String(Math.round(progress * 100)));
+      };
+
+      media.add("(max-width: 767px)", () => {
+        const mobileTrigger = ScrollTrigger.create({
+          trigger: section,
+          start: "top top",
+          end: "bottom bottom",
+          invalidateOnRefresh: true,
+          onUpdate: (self) => updateVisuals(self.progress, true),
+        });
+
+        return () => {
+          mobileTrigger.kill();
+          if (layoutRef.current) {
+            layoutRef.current.style.transform = "";
+            layoutRef.current.style.opacity = "";
           }
-          setRingProgress(self.progress);
-          const idx = Math.min(
-            CHAPTERS.length - 1,
-            Math.floor(self.progress * CHAPTERS.length - 0.0001),
-          );
-          setActive(Math.max(0, idx));
-        },
+        };
       });
 
-      // Ambient orb parallax with scroll
-      if (orbRef.current) {
-        gsap.to(orbRef.current, {
-          yPercent: -14,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current!,
-            start: "top top",
-            end: scrollLength,
-            scrub: 0.25,
-            invalidateOnRefresh: true,
-          },
+      media.add("(min-width: 768px)", () => {
+        const desktopTrigger = ScrollTrigger.create({
+          trigger: section,
+          start: "top top",
+          end: "+=200%",
+          scrub: 0.25,
+          pin: stage,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => updateVisuals(self.progress, false),
         });
-      }
-    }, sectionRef);
+
+        const orbTween = orbRef.current
+          ? gsap.to(orbRef.current, {
+              yPercent: -14,
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                start: "top top",
+                end: "+=200%",
+                scrub: 0.25,
+                invalidateOnRefresh: true,
+              },
+            })
+          : null;
+
+        return () => {
+          desktopTrigger.kill();
+          orbTween?.kill();
+        };
+      });
+
+      return () => media.revert();
+    }, section);
 
     let resizeTimer = 0;
+    let viewportWidth = window.innerWidth;
     const onResize = () => {
+      if (window.innerWidth === viewportWidth) return;
+      viewportWidth = window.innerWidth;
       window.clearTimeout(resizeTimer);
       resizeTimer = window.setTimeout(() => ScrollTrigger.refresh(), 200);
     };
@@ -125,13 +174,12 @@ export function HealthBenefits() {
 
   const RADIUS = 152;
   const CIRC = 2 * Math.PI * RADIUS;
-  const dashOffset = CIRC * (1 - ringProgress);
 
   return (
     <section
       ref={sectionRef}
       id="benefits"
-      className="relative bg-[color:var(--sand)] text-[color:var(--moss)]"
+      className="relative h-[240svh] bg-[color:var(--sand)] text-[color:var(--moss)] md:h-auto"
       aria-label={t("benefits.aria")}
     >
       {/* smooth fade from cream → sand at the top */}
@@ -154,7 +202,12 @@ export function HealthBenefits() {
       />
       <div
         ref={stageRef}
-        className="benefits-stage relative flex h-[100dvh] min-h-0 w-full items-center overflow-hidden py-20 md:h-auto md:min-h-[100dvh] md:py-0"
+        className="benefits-stage sticky top-0 flex h-[100dvh] min-h-0 w-full items-center overflow-hidden py-20 md:relative md:top-auto md:h-auto md:min-h-[100dvh] md:py-0"
+        role="progressbar"
+        aria-label={t("benefits.progressAria")}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={0}
       >
         {/* ambient orbs */}
         <div
@@ -176,7 +229,7 @@ export function HealthBenefits() {
         />
 
         {/* chapter counter — centered pill above progress bar */}
-        <div className="benefits-chip absolute inset-x-0 bottom-[calc(1.5rem+env(safe-area-inset-bottom))] z-20 flex justify-center px-4 sm:bottom-8">
+        <div className="benefits-chip absolute inset-x-0 bottom-[calc(0.9rem+env(safe-area-inset-bottom))] z-20 flex justify-center px-4 sm:bottom-8">
           <div
             key={`chip-${active}`}
             className="animate-[fadeUp_0.6s_cubic-bezier(0.16,1,0.3,1)_both] flex items-center gap-3 rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/70 px-4 py-2 backdrop-blur-md sm:gap-4 sm:px-6 sm:py-2.5"
@@ -202,11 +255,7 @@ export function HealthBenefits() {
         {/* scroll progress bar */}
         <div
           className="absolute inset-x-0 bottom-0 z-10 h-[2px] bg-[color:var(--cream)]"
-          role="progressbar"
-          aria-label={t("benefits.progressAria")}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={Math.round(ringProgress * 100)}
+          aria-hidden
         >
           <div
             ref={progressRef}
@@ -215,7 +264,7 @@ export function HealthBenefits() {
           />
         </div>
 
-        <div className="benefits-layout mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-5 pt-16 sm:px-6 md:gap-10 md:px-10 md:pt-0 lg:grid-cols-[1fr_1.05fr]">
+        <div ref={layoutRef} className="benefits-layout mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-8 px-5 pt-16 sm:px-6 md:gap-10 md:px-10 md:pt-0 lg:grid-cols-[1fr_1.05fr]">
           {/* Editorial copy */}
           <div className="benefits-copy relative z-10 max-w-xl order-2 lg:order-1">
             <div key={active} className="animate-[fadeUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]">
@@ -281,6 +330,7 @@ export function HealthBenefits() {
 
               {/* faint base ring */}
               <circle
+                ref={progressRingRef}
                 cx="200"
                 cy="200"
                 r={RADIUS}
@@ -299,8 +349,7 @@ export function HealthBenefits() {
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeDasharray={CIRC}
-                strokeDashoffset={dashOffset}
-                style={{ transition: "stroke-dashoffset 0.25s linear" }}
+                strokeDashoffset={CIRC}
               />
 
               {/* tick marks */}
