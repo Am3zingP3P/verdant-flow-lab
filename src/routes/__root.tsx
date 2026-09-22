@@ -81,26 +81,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Natursense - Saját magad termeled, öt nap múlva eheted." },
       {
         name: "description",
-        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+        content: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
       },
       { name: "author", content: "Natursense" },
       {
         property: "og:title",
-        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+        content: "Natursense - Saját magad termeled, öt nap múlva eheted.",
       },
       {
         property: "og:description",
-        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+        content: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       {
         name: "twitter:title",
-        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+        content: "Natursense - Saját magad termeled, öt nap múlva eheted.",
       },
       {
         name: "twitter:description",
-        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+        content: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
       },
       {
         property: "og:image",

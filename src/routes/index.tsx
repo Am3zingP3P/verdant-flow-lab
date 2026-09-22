@@ -16,18 +16,18 @@ import { CookieConsent } from "@/components/site/CookieConsent";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!" },
+      { title: "Natursense - Saját magad termeled, öt nap múlva eheted." },
       {
         name: "description",
-        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+        content: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
       },
       {
         property: "og:title",
-        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+        content: "Natursense - Saját magad termeled, öt nap múlva eheted.",
       },
       {
         property: "og:description",
-        content: "Organic sprout seeds from Serbia. Grow fresh sprouts at home!",
+        content: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
       },
     ],
   }),

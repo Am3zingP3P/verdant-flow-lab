@@ -1,10 +1,16 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { I18nContext, type Dict, type Lang } from "@/i18n/context";
 
 export type { Lang } from "@/i18n/context";
 
 const dictionaries: Record<Lang, Dict> = {
   hu: {
+    meta: {
+      title: "Natursense - Saját magad termeled, öt nap múlva eheted.",
+      description: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
+      ogTitle: "Natursense - Saját magad termeled, öt nap múlva eheted.",
+      ogDescription: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
+    },
     nav: { story: "Miért?", explorer: "Interaktív", seeds: "Galéria", contact: "Kapcsolat" },
     cta: { shop: "Vásárlás", explore: "Fedezd fel előnyeit", learn: "Történetünk" },
     hero: {
@@ -223,6 +229,12 @@ const dictionaries: Record<Lang, Dict> = {
     },
   },
   sr: {
+    meta: {
+      title: "Natursense - Sam uzgajaš. Za 5 dana bereš.",
+      description: "Organsko seme za klijanje iz Srbije. Uzgoji sveže klice kod kuće!",
+      ogTitle: "Natursense - Sam uzgajaš. Za 5 dana bereš.",
+      ogDescription: "Organsko seme za klijanje iz Srbije. Uzgoji sveže klice kod kuće!",
+    },
     nav: { story: "Zašto?", explorer: "Interaktivno", seeds: "Galerija", contact: "Kontakt" },
     cta: { shop: "Kupi", explore: "Istraži", learn: "Naša priča" },
     hero: {
@@ -462,31 +474,45 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }, [lang]);
 
   useEffect(() => {
-    if (window.location.pathname === "/") {
-      document.title =
-        lang === "hu"
-          ? "Natursense - Saját magad termeled, öt nap múlva eheted."
-          : "Natursense - Sam uzgajaš. Za 5 dana bereš.";
-    }
-  }, [lang]);
+    const isLegal = window.location.pathname === "/jogi-informaciok";
+    const key = (name: string) => t(`${isLegal ? "legal" : "meta"}.${name}`);
+    const title = key(isLegal ? "metaTitle" : "title");
+    const description = key(isLegal ? "metaDesc" : "description");
+    const ogTitle = key("ogTitle");
+    const ogDescription = key(isLegal ? "ogDesc" : "ogDescription");
+
+    document.title = title;
+    const setMeta = (selector: string, content: string) => {
+      const element = document.querySelector<HTMLMetaElement>(selector);
+      if (element) element.content = content;
+    };
+    setMeta('meta[name="description"]', description);
+    setMeta('meta[property="og:title"]', ogTitle);
+    setMeta('meta[property="og:description"]', ogDescription);
+    setMeta('meta[name="twitter:title"]', title);
+    setMeta('meta[name="twitter:description"]', description);
+  }, [lang, t]);
 
   const setLang = (l: Lang) => {
     setLangState(l);
     if (typeof window !== "undefined") localStorage.setItem("ns-lang", l);
   };
 
-  const t = (path: string): string => {
-    const parts = path.split(".");
-    let cur: unknown = dictionaries[lang];
-    for (const p of parts) {
-      if (cur && typeof cur === "object" && p in (cur as Record<string, unknown>)) {
-        cur = (cur as Record<string, unknown>)[p];
-      } else {
-        return path;
+  const t = useCallback(
+    (path: string): string => {
+      const parts = path.split(".");
+      let cur: unknown = dictionaries[lang];
+      for (const p of parts) {
+        if (cur && typeof cur === "object" && p in (cur as Record<string, unknown>)) {
+          cur = (cur as Record<string, unknown>)[p];
+        } else {
+          return path;
+        }
       }
-    }
-    return typeof cur === "string" ? cur : path;
-  };
+      return typeof cur === "string" ? cur : path;
+    },
+    [lang],
+  );
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t, dict: dictionaries[lang] }}>
