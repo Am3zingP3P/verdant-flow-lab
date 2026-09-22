@@ -165,7 +165,7 @@ export function GrowthExplorer() {
             {/* Play / Pause toggle */}
             <button
               onClick={() => setIsPaused((p) => !p)}
-              className="group relative flex h-7 w-7 items-center justify-center rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/80 backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--sprout)]/40 hover:scale-105 active:scale-95"
+              className="group relative flex h-7 w-7 items-center justify-center rounded-full border border-[color:var(--moss)]/15 bg-[color:var(--cream)]/80 sm:backdrop-blur-sm transition-all duration-300 hover:border-[color:var(--sprout)]/40 hover:scale-105 active:scale-95"
               aria-label={isPaused ? "Lejátszás" : "Szünet"}
             >
               <motion.div
