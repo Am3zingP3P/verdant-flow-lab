@@ -225,8 +225,9 @@ export function GrowthExplorer() {
         </div>
 
         {/* Controls */}
-        <div className="border-t border-[color:var(--moss)]/10 bg-[color:var(--cream)]/70 backdrop-blur p-5 sm:p-6 md:p-8">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div className="border-t border-[color:var(--moss)]/10 bg-[color:var(--cream)]/70 sm:backdrop-blur p-4 sm:p-6 md:p-8">
+          <div className="flex flex-col gap-4 sm:gap-6 md:flex-row md:items-center md:justify-between">
+
             {/* Stage timeline with per-stage progress rings */}
             <div className="flex-1">
               <div className="relative h-14">
