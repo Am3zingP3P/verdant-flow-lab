@@ -154,7 +154,7 @@ export function HealthBenefits() {
       />
       <div
         ref={stageRef}
-        className="benefits-stage relative flex min-h-[100svh] min-h-[100dvh] w-full items-center overflow-hidden py-20 md:py-0"
+        className="benefits-stage relative flex h-[100svh] min-h-0 w-full items-center overflow-hidden py-20 md:h-auto md:min-h-[100dvh] md:py-0"
       >
         {/* ambient orbs */}
         <div
