@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useI18n, type Lang } from "@/i18n/context";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/hooks/useTheme";
+import { sectionSlugs } from "@/lib/sectionAnchors";
 
 const langs: Lang[] = ["hu", "sr"];
 
@@ -16,11 +17,12 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const slugs = sectionSlugs[lang];
   const items = [
-    { key: "story", href: "#story" },
-    { key: "explorer", href: "#explorer" },
-    { key: "seeds", href: "#gallery" },
-    { key: "contact", href: "#contact" },
+    { key: "story", href: `#${slugs.story}` },
+    { key: "explorer", href: `#${slugs.explorer}` },
+    { key: "seeds", href: `#${slugs.gallery}` },
+    { key: "contact", href: `#${slugs.contact}` },
   ];
 
   return (

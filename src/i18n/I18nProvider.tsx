@@ -11,7 +11,7 @@ const dictionaries: Record<Lang, Dict> = {
       ogTitle: "Natursense - Saját magad termeled, öt nap múlva eheted.",
       ogDescription: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
     },
-    nav: { story: "Miért?", explorer: "Interaktív", seeds: "Galéria", contact: "Kapcsolat" },
+    nav: { story: "Miért?", explorer: "Növekedés", seeds: "Galéria", contact: "Kapcsolat" },
     cta: { shop: "Vásárlás", explore: "Fedezd fel előnyeit", learn: "Történetünk" },
     hero: {
       eyebrow: "Bio mag · Magyarország × Szerbia",
@@ -75,7 +75,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
 
     explorer: {
-      eyebrow: "Interaktív növekedés",
+      eyebrow: "A növekedés fázisai",
       title: "Egy mag élete, három szakaszban.",
       lede: "Kattints a szakaszokra, és kövesd végig a mag fejlődését, egészen a csírázás első lépéseitől a friss csíráig.",
       stages: { seed: "Mag", germ: "Csírázás", micro: "Mikrozöld" },
@@ -235,7 +235,7 @@ const dictionaries: Record<Lang, Dict> = {
       ogTitle: "Natursense - Sam uzgajaš. Za 5 dana bereš.",
       ogDescription: "Organsko seme za klijanje iz Srbije. Uzgoji sveže klice kod kuće!",
     },
-    nav: { story: "Zašto?", explorer: "Interaktivno", seeds: "Galerija", contact: "Kontakt" },
+    nav: { story: "Zašto?", explorer: "Rast", seeds: "Galerija", contact: "Kontakt" },
     cta: { shop: "Kupi", explore: "Istraži", learn: "Naša priča" },
     hero: {
       eyebrow: "Bio seme · Srbija × Mađarska",
@@ -299,7 +299,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
 
     explorer: {
-      eyebrow: "Interaktivni rast",
+      eyebrow: "Faze rasta",
       title: "Život semenke u tri pokreta.",
       lede: "Klikni na date faze i gledaj kako semenka iznenada eksplodira u zelenu energiju.",
       stages: { seed: "Semenka", germ: "Klijanje", micro: "Mikrozeleni" },
