@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { resolveSectionId } from "@/lib/sectionAnchors";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,18 @@ export function useLenis() {
     };
     raf = requestAnimationFrame(loop);
 
+    // Deep links like /#klijanje or /#novekedes land on the matching section.
+    const initialHash = decodeURIComponent(window.location.hash.slice(1));
+    if (initialHash) {
+      const initialTarget = document.getElementById(resolveSectionId(initialHash));
+      if (initialTarget) {
+        window.setTimeout(() => {
+          ScrollTrigger.refresh();
+          lenis.scrollTo(initialTarget, { immediate: true, force: true });
+        }, 150);
+      }
+    }
+
     // Route in-page anchor links through Lenis so the pinned chapter section
     // resolves to the right scroll offset on the first click, every time.
     const onClick = (e: MouseEvent) => {
@@ -41,7 +54,7 @@ export function useLenis() {
       if (!anchor) return;
       const id = anchor.getAttribute("href")?.slice(1);
       if (!id) return;
-      const target = document.getElementById(id);
+      const target = document.getElementById(resolveSectionId(id));
       if (!target) return;
       e.preventDefault();
       ScrollTrigger.refresh();
