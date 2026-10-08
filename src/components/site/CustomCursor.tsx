@@ -33,8 +33,8 @@ export function CustomCursor() {
 
   return (
     <motion.div
-      style={{ translateX: sx, translateY: sy }}
-      className="pointer-events-none fixed left-0 top-0 z-[200] -ml-3 -mt-3 mix-blend-multiply"
+      style={{ translateX: sx, translateY: sy, willChange: "transform" }}
+      className="pointer-events-none fixed left-0 top-0 z-[200] -ml-3 -mt-3"
     >
       <motion.div
         animate={{

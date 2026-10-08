@@ -148,7 +148,7 @@ export function HealthBenefits() {
     };
   }, []);
 
-  // breathing ring
+  // breathing ring — only runs while the section is on screen
   useEffect(() => {
     if (!ringRef.current) return;
     const anim = gsap.to(ringRef.current, {
@@ -157,8 +157,24 @@ export function HealthBenefits() {
       ease: "sine.inOut",
       yoyo: true,
       repeat: -1,
+      paused: true,
     });
+    const el = sectionRef.current;
+    let io: IntersectionObserver | null = null;
+    if (el && typeof IntersectionObserver !== "undefined") {
+      io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) anim.play();
+          else anim.pause();
+        },
+        { rootMargin: "120px 0px" },
+      );
+      io.observe(el);
+    } else {
+      anim.play();
+    }
     return () => {
+      io?.disconnect();
       anim.kill();
     };
   }, []);
