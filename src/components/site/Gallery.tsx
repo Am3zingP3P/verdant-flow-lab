@@ -252,7 +252,8 @@ export function Gallery() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                style={{ willChange: "opacity" }}
                 onClick={close}
                 role="dialog"
                 aria-modal="true"
@@ -266,6 +267,7 @@ export function Gallery() {
                   exit={{ opacity: 0, scale: 0.96, y: 20 }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   onClick={(e) => e.stopPropagation()}
+                  style={{ willChange: "transform, opacity" }}
                   className="relative my-auto w-full max-w-3xl rounded-[28px] border border-[color:var(--cream)]/20 bg-[color:var(--cream)]/95 p-3 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.6)] sm:p-4"
                 >
                   <button
@@ -289,6 +291,7 @@ export function Gallery() {
                   <img
                     src={active.src}
                     alt={copy.desc || copy.name}
+                    decoding="async"
                     className="max-h-[62vh] w-full rounded-[20px] object-contain"
                   />
 
