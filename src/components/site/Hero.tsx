@@ -13,13 +13,30 @@ export function Hero() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // Measure once per hover instead of on every mousemove (avoids forced reflow).
+    let rect: DOMRect | null = null;
+    const measure = () => {
+      rect = el.getBoundingClientRect();
+    };
+    const invalidate = () => {
+      rect = null;
+    };
     const handle = (e: MouseEvent) => {
-      const r = el.getBoundingClientRect();
+      if (!rect) measure();
+      const r = rect!;
       mx.set((e.clientX - r.left) / r.width);
       my.set((e.clientY - r.top) / r.height);
     };
+    el.addEventListener("mouseenter", measure);
     el.addEventListener("mousemove", handle);
-    return () => el.removeEventListener("mousemove", handle);
+    window.addEventListener("scroll", invalidate, { passive: true });
+    window.addEventListener("resize", invalidate);
+    return () => {
+      el.removeEventListener("mouseenter", measure);
+      el.removeEventListener("mousemove", handle);
+      window.removeEventListener("scroll", invalidate);
+      window.removeEventListener("resize", invalidate);
+    };
   }, [mx, my]);
 
   const tx = useTransform(smx, [0, 1], [-20, 20]);
@@ -37,11 +54,11 @@ export function Hero() {
     >
       {/* Ambient blobs */}
       <motion.div
-        style={{ x: tx, y: ty }}
+        style={{ x: tx, y: ty, willChange: "transform" }}
         className="pointer-events-none absolute -top-20 -left-24 h-[520px] w-[520px] rounded-full bg-[color:var(--sprout)]/15 blur-3xl"
       />
       <motion.div
-        style={{ x: tx2, y: ty2 }}
+        style={{ x: tx2, y: ty2, willChange: "transform" }}
         className="pointer-events-none absolute -right-32 top-20 h-[600px] w-[600px] rounded-full bg-[color:var(--moss)]/10 blur-[120px]"
       />
 
