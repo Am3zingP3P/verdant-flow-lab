@@ -2,6 +2,7 @@ import { useI18n } from "@/i18n/context";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { openConsentSettings } from "@/lib/consent";
+import { useIsMobile } from "@/hooks/use-mobile";
 import viberLogoDark from "@/assets/viber-logo-dark.png";
 import viberLogoLight from "@/assets/viber-logo-light.png";
 
@@ -49,6 +50,7 @@ const socials = [
 
 export function Footer() {
   const { t } = useI18n();
+  const isMobile = useIsMobile();
   const year = new Date().getFullYear();
   return (
     <footer
@@ -56,10 +58,12 @@ export function Footer() {
       className="bg-[color:var(--cream)] px-4 pb-4 pt-16 sm:px-6 sm:pb-6 sm:pt-24 md:px-10 md:pt-28"
     >
       <motion.div
-        initial={{ opacity: 0, y: 24, filter: "blur(24px)" }}
+        key={isMobile ? "m" : "d"}
+        initial={{ opacity: 0, y: 24, filter: isMobile ? "blur(6px)" : "blur(24px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-120px" }}
-        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: isMobile ? 0.8 : 0.9, ease: [0.16, 1, 0.3, 1] }}
+        style={{ willChange: "transform, opacity, filter" }}
         className="mx-auto w-full max-w-[1380px] overflow-hidden rounded-3xl border border-[color:var(--moss)]/10 bg-[color:var(--sand)] shadow-[0_30px_80px_-50px_rgba(28,53,45,0.35)]"
       >
         <div className="grid grid-cols-1 md:grid-cols-12">
