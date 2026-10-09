@@ -28,7 +28,7 @@ const socials = [
   {
     name: "Facebook",
     handle: "Natursense.rs",
-    href: "https://www.facebook.com/profile.php?id=61576519508451",
+    href: "https://www.facebook.com/natursense.rs",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
         <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8h3.4z" />
