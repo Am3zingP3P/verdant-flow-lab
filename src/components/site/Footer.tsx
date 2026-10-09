@@ -9,8 +9,8 @@ import viberLogoLight from "@/assets/viber-logo-light.png";
 const socials = [
   {
     name: "Instagram",
-    handle: "@natursense2026",
-    href: "https://instagram.com/natursense2026",
+    handle: "@natursense.rs",
+    href: "https://instagram.com/natursense.rs",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -27,7 +27,7 @@ const socials = [
   },
   {
     name: "Facebook",
-    handle: "Natursense",
+    handle: "Natursense.rs",
     href: "https://www.facebook.com/profile.php?id=61576519508451",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
