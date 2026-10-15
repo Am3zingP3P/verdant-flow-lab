@@ -1,10 +1,14 @@
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { I18nContext, type Dict, type Lang } from "@/i18n/context";
+import { useLocation, useNavigate } from "@tanstack/react-router";
+import { collectionCopy } from "@/i18n/collection";
+import { collectionPaths } from "@/lib/seedCollection";
 
 export type { Lang } from "@/i18n/context";
 
 const dictionaries: Record<Lang, Dict> = {
   hu: {
+    collection: collectionCopy.hu,
     meta: {
       title: "Natursense - Saját magad termeled, öt nap múlva eheted.",
       description: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
@@ -229,6 +233,7 @@ const dictionaries: Record<Lang, Dict> = {
     },
   },
   sr: {
+    collection: collectionCopy.sr,
     meta: {
       title: "Natursense - Sam uzgajaš. Za 5 dana bereš.",
       description: "Organsko seme za klijanje iz Srbije. Uzgoji sveže klice kod kuće!",
@@ -461,7 +466,11 @@ type Ctx = {
 };
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("hu");
+  const [savedLang, setLangState] = useState<Lang>("hu");
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const routeLang = pathname === collectionPaths.hu ? "hu" : pathname === collectionPaths.sr ? "sr" : null;
+  const lang: Lang = routeLang ?? savedLang;
 
   const t = useCallback(
     (path: string): string => {
@@ -486,10 +495,11 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    document.documentElement.lang = lang;
+    document.documentElement.lang = lang === "sr" ? "sr-Latn" : "hu";
   }, [lang]);
 
   useEffect(() => {
+    if (routeLang) return;
     const isLegal = window.location.pathname === "/jogi-informaciok";
     const key = (name: string) => t(`${isLegal ? "legal" : "meta"}.${name}`);
     const title = key(isLegal ? "metaTitle" : "title");
@@ -507,11 +517,12 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     setMeta('meta[property="og:description"]', ogDescription);
     setMeta('meta[name="twitter:title"]', title);
     setMeta('meta[name="twitter:description"]', description);
-  }, [lang, t]);
+  }, [lang, t, pathname, routeLang]);
 
   const setLang = (l: Lang) => {
     setLangState(l);
     if (typeof window !== "undefined") localStorage.setItem("ns-lang", l);
+    if (routeLang && l !== routeLang) void navigate({ to: collectionPaths[l], resetScroll: false });
   };
 
   return (

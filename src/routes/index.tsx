@@ -7,6 +7,7 @@ import { Values } from "@/components/site/Values";
 import { GrowthExplorer } from "@/components/site/GrowthExplorer";
 import { HealthBenefits } from "@/components/site/HealthBenefits";
 import { Gallery } from "@/components/site/Gallery";
+import { SeedCollection } from "@/components/site/SeedCollection";
 
 import { Footer } from "@/components/site/Footer";
 
@@ -16,6 +17,8 @@ import { CookieConsent } from "@/components/site/CookieConsent";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { title: "Natursense - Saját magad termeled, öt nap múlva eheted." },
       {
         name: "description",
@@ -46,6 +49,7 @@ function Index() {
         <Values />
         <HealthBenefits />
         <GrowthExplorer />
+        <SeedCollection />
         <Gallery />
       </main>
       <Footer />

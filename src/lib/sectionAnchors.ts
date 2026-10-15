@@ -1,10 +1,11 @@
 import type { Lang } from "@/i18n/context";
 
-export type SectionKey = "story" | "explorer" | "gallery" | "contact" | "benefits";
+export type SectionKey = "story" | "explorer" | "gallery" | "contact" | "benefits" | "collection";
 
 /** Localized URL hash per section (what users see in the address bar). */
 export const sectionSlugs: Record<Lang, Record<SectionKey, string>> = {
   hu: {
+    collection: "csiramagok",
     story: "csiraztatas",
     explorer: "novekedes",
     gallery: "galeria",
@@ -12,6 +13,7 @@ export const sectionSlugs: Record<Lang, Record<SectionKey, string>> = {
     benefits: "elonyok",
   },
   sr: {
+    collection: "seme-za-klijanje",
     story: "klijanje",
     explorer: "rast",
     gallery: "galerija",

@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -103,16 +104,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "twitter:description",
         content: "Bio csíramagok Szerbiából. Termessz friss csírákat otthon!",
       },
-      {
-        property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72b7a737-4d08-4fb7-bba4-92e018ba6d36/id-preview-bf4517b1--c6ddf4c3-9e99-45a2-99a4-84917303bd28.lovable.app-1781077263577.png",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/72b7a737-4d08-4fb7-bba4-92e018ba6d36/id-preview-bf4517b1--c6ddf4c3-9e99-45a2-99a4-84917303bd28.lovable.app-1781077263577.png",
-      },
     ],
     links: [
       {
@@ -124,7 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap",
       },
     ],
   }),
@@ -135,8 +126,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
   return (
-    <html lang="hu">
+    <html lang={pathname === "/seme-za-klijanje" ? "sr-Latn" : "hu"}>
       <head>
         <HeadContent />
       </head>

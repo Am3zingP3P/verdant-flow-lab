@@ -10,11 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CsiramagokRouteImport } from './routes/csiramagok'
 import { Route as JogiInformaciokRouteImport } from './routes/jogi-informaciok'
+import { Route as SemeZaKlijanjeRouteImport } from './routes/seme-za-klijanje'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CsiramagokRoute = CsiramagokRouteImport.update({
+  id: '/csiramagok',
+  path: '/csiramagok',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JogiInformaciokRoute = JogiInformaciokRouteImport.update({
@@ -22,31 +29,45 @@ const JogiInformaciokRoute = JogiInformaciokRouteImport.update({
   path: '/jogi-informaciok',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SemeZaKlijanjeRoute = SemeZaKlijanjeRouteImport.update({
+  id: '/seme-za-klijanje',
+  path: '/seme-za-klijanje',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/csiramagok': typeof CsiramagokRoute
   '/jogi-informaciok': typeof JogiInformaciokRoute
+  '/seme-za-klijanje': typeof SemeZaKlijanjeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/csiramagok': typeof CsiramagokRoute
   '/jogi-informaciok': typeof JogiInformaciokRoute
+  '/seme-za-klijanje': typeof SemeZaKlijanjeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/csiramagok': typeof CsiramagokRoute
   '/jogi-informaciok': typeof JogiInformaciokRoute
+  '/seme-za-klijanje': typeof SemeZaKlijanjeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/jogi-informaciok'
+  fullPaths: '/' | '/csiramagok' | '/jogi-informaciok' | '/seme-za-klijanje'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/jogi-informaciok'
-  id: '__root__' | '/' | '/jogi-informaciok'
+  to: '/' | '/csiramagok' | '/jogi-informaciok' | '/seme-za-klijanje'
+  id:
+    '__root__' | '/' | '/csiramagok' | '/jogi-informaciok' | '/seme-za-klijanje'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CsiramagokRoute: typeof CsiramagokRoute
   JogiInformaciokRoute: typeof JogiInformaciokRoute
+  SemeZaKlijanjeRoute: typeof SemeZaKlijanjeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +79,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/csiramagok': {
+      id: '/csiramagok'
+      path: '/csiramagok'
+      fullPath: '/csiramagok'
+      preLoaderRoute: typeof CsiramagokRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jogi-informaciok': {
       id: '/jogi-informaciok'
       path: '/jogi-informaciok'
@@ -65,12 +93,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JogiInformaciokRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seme-za-klijanje': {
+      id: '/seme-za-klijanje'
+      path: '/seme-za-klijanje'
+      fullPath: '/seme-za-klijanje'
+      preLoaderRoute: typeof SemeZaKlijanjeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CsiramagokRoute: CsiramagokRoute,
   JogiInformaciokRoute: JogiInformaciokRoute,
+  SemeZaKlijanjeRoute: SemeZaKlijanjeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

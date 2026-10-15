@@ -3,11 +3,14 @@ import { useI18n, type Lang } from "@/i18n/context";
 import { useEffect, useState } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { sectionSlugs } from "@/lib/sectionAnchors";
+import { Link, useLocation } from "@tanstack/react-router";
 
 const langs: Lang[] = ["hu", "sr"];
 
 export function Navbar() {
   const { t, lang, setLang } = useI18n();
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,6 +24,7 @@ export function Navbar() {
   const items = [
     { key: "story", href: `#${slugs.story}` },
     { key: "explorer", href: `#${slugs.explorer}` },
+    { key: "collection", href: `#${slugs.collection}` },
     { key: "seeds", href: `#${slugs.gallery}` },
     { key: "contact", href: `#${slugs.contact}` },
   ];
@@ -31,28 +35,28 @@ export function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
+        scrolled || !isHome
           ? "bg-[color:var(--cream)]/75 backdrop-blur-xl border-b border-[color:var(--moss)]/8"
           : ""
       }`}
     >
       <div className="mx-auto flex max-w-[1480px] items-center justify-between px-5 sm:px-6 py-4 sm:py-5 md:px-10">
-        <a href="#" className="flex items-center gap-2.5 group">
+        <Link to="/" className="flex items-center gap-2.5 group">
           <SproutMark className="h-7 w-7 text-[color:var(--moss)] transition-transform duration-700 group-hover:rotate-[8deg]" />
           <span className="font-display text-[1.35rem] tracking-tight text-[color:var(--moss)]">
             natursense<span className="text-[color:var(--sprout)]">.</span>
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-7 lg:flex lg:gap-9">
           {items.map((it) => (
             <a
               key={it.key}
-              href={it.href}
+               href={isHome ? it.href : `/${it.href}`}
               data-direct-scroll
               className="text-eyebrow text-[color:var(--moss)]/70 transition-colors hover:text-[color:var(--moss)]"
             >
-              {t(`nav.${it.key}`)}
+               {t(it.key === "collection" ? "collection.nav" : `nav.${it.key}`)}
             </a>
           ))}
         </nav>
@@ -62,6 +66,9 @@ export function Navbar() {
           <LangSwitcher lang={lang} setLang={setLang} />
         </div>
       </div>
+      <nav className="flex justify-center border-t border-border bg-background/95 px-4 py-2 lg:hidden" aria-label={t("collection.nav")}>
+        <a href={isHome ? `#${slugs.collection}` : "#seed-products"} className="text-xs text-primary underline-offset-4 hover:underline">{t("collection.nav")}</a>
+      </nav>
     </motion.header>
   );
 }

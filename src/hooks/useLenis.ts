@@ -71,7 +71,7 @@ export function useLenis() {
 
       lenis.scrollTo(target, {
         offset: 0,
-        duration: 1.1,
+        duration: id.startsWith("seed-") && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1.1,
         onComplete: () => ScrollTrigger.update(),
       });
       history.replaceState(null, "", `#${id}`);
