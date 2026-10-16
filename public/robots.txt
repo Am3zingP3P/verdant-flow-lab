@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://verdant-flow-lab.lovable.app/sitemap.xml

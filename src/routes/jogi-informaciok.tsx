@@ -19,7 +19,9 @@ export const Route = createFileRoute("/jogi-informaciok")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: "https://verdant-flow-lab.lovable.app/jogi-informaciok" },
     ],
+    links: [{ rel: "canonical", href: "https://verdant-flow-lab.lovable.app/jogi-informaciok" }],
   }),
   component: LegalInformationPage,
 });
