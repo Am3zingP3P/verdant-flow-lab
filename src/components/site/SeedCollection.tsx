@@ -20,7 +20,8 @@ export function SeedCollection({ standalone = false }: { standalone?: boolean })
     io.observe(el);
     return () => io.disconnect();
   }, []);
-  const marquee = standalone && pathname === "/csiramagok";
+  const marquee =
+    standalone && (pathname === "/csiramagok" || pathname === "/seme-za-klijanje");
   const gridRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!marquee) return;

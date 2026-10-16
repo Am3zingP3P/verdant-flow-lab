@@ -66,9 +66,11 @@ export function Navbar() {
           <LangSwitcher lang={lang} setLang={setLang} />
         </div>
       </div>
-      <nav className="flex justify-center border-t border-border bg-background/95 px-4 py-2 lg:hidden" aria-label={t("collection.nav")}>
-        <a href={isHome ? `#${slugs.collection}` : "#seed-products"} className="text-xs text-primary underline-offset-4 hover:underline">{t("collection.nav")}</a>
-      </nav>
+      {!isHome && (
+        <nav className="flex justify-center border-t border-border bg-background/95 px-4 py-2 lg:hidden" aria-label={t("collection.nav")}>
+          <a href={isHome ? `#${slugs.collection}` : "#seed-products"} className="text-xs text-primary underline-offset-4 hover:underline">{t("collection.nav")}</a>
+        </nav>
+      )}
     </motion.header>
   );
 }
