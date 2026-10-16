@@ -55,11 +55,11 @@ export function Hero() {
     >
       {/* Ambient blobs */}
       <motion.div
-        style={{ x: tx, y: ty, willChange: "transform" }}
+        style={{ x: tx, y: ty, willChange: "transform", contain: "layout" }}
         className="pointer-events-none absolute -top-20 -left-24 h-[520px] w-[520px] rounded-full bg-[color:var(--sprout)]/15 blur-3xl"
       />
       <motion.div
-        style={{ x: tx2, y: ty2, willChange: "transform" }}
+        style={{ x: tx2, y: ty2, willChange: "transform", contain: "layout" }}
         className="pointer-events-none absolute -right-32 top-20 h-[600px] w-[600px] rounded-full bg-[color:var(--moss)]/10 blur-[120px]"
       />
 
